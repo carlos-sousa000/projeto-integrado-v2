@@ -1,19 +1,19 @@
 @import url(global.css);
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial;
   background: linear-gradient(
     to bottom right,
     var(--cor-fundo-principal),
     var(--cor-fundo-secundario)
   );
   color: var(--cor-texto);
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
   transition: background 0.3s ease, color 0.3s ease;
 }
 
@@ -30,16 +30,24 @@ h1 {
   animation: slideInFromTop 1.5s ease-out;
 }
 
+/* faz o <p> também "subir" (slide from top) com pequeno delay */
 p {
   font-size: 1.2rem;
   max-width: 600px;
   margin: 0 auto 40px;
   text-align: center;
-  animation: fadeIn 2.5s ease-out;
   color: var(--cor-suave);
+  animation: slideInFromBottom 1s ease-out 0.2s both;
+}
+
+.btn:focus {
+  outline: 3px solid rgba(52, 152, 219, 0.18);
+  outline-offset: 3px;
 }
 
 .btn {
+  display: inline-block;
+  text-decoration: none;
   padding: 15px 30px;
   background-color: var(--cor-destaque);
   border: none;
@@ -49,6 +57,7 @@ p {
   cursor: pointer;
   transition: background 0.3s ease, transform 0.3s ease;
   animation: slideInFromBottom 2s ease-out;
+  line-height: 1;
 }
 
 .btn:hover {

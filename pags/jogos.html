@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galeria</title>
+  <link rel="stylesheet" href=".././css/jogos/jogo.css">
+</head>
+
+<body class="body-main">
+  <header class="site-header">
+    <div class="header-container">
+      <a href="timeline.html" class="logo-link">
+        <img class="project-logo" src="../imgs/logo-branco.png" alt="Logo do Projeto">
+      </a>
+      <nav class="header-nav" role="navigation" aria-label="Navegação principal">
+        <a class="btn secondary" href="#gallery">Galeria</a>
+        <a class="btn secondary" href="#pioneers">Pioneiros</a>
+        <a class="btn" href="quiz.html" title="Ir para o quiz">Quiz</a>
+      </nav>
+    </div>
+  </header>
+
+
+  <footer class="site-footer">
+    <div class="footer-logo-wrap" title="Logo da sua Organização">
+      <img src="../imgs/logo-branco.png" alt="Logo do Projeto" class="footer-logo" />
+    </div>
+    <span>© 2025 Projeto Linha do Tempo.</span>
+    <div class="footer-actions">
+      <button class="btn-tertiary" id="theme-toggle" title="Alterar Tema">
+        <i class="fas fa-adjust"></i>
+        <span id="theme-text"></span>
+      </button>
+      <button class="btn-tertiary" id="lang-toggle" title="Mudar Idioma">
+        <i class="fas fa-globe"></i>
+        <span>Idioma</span>
+      </button>
+    </div>
+  </footer>
+  <button class="fab" id="curiosityBtn" aria-label="Gerar curiosidade">?</button>
+
+  <div class="modal-backdrop" id="modalBackdrop" role="dialog" aria-hidden="true">
+    <div class="modal" role="document" aria-labelledby="modalTitle">
+      <header>
+        <strong id="modalTitle">Curiosidade</strong>
+        <button class="close" id="modalClose" aria-label="Fechar">✕</button>
+      </header>
+      <div id="modalContent" style="color:var(--cor-texto)"></div>
+    </div>
+  </div>
+  <script src=".././js/timeline.js"></script>
+  <script src=".././js/idioma.js"></script>
+  <script src=".././js/tema.js"></script>
+</body>
+
+</html>

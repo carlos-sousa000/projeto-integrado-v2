@@ -5,22 +5,21 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Linha do Tempo — Babbage a Hollerith</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2g+z1yQkHn4E7l8/j6zK4A+z5+iP2A2U2R2g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <link rel="stylesheet" href=".././css/timeline/timeline.css">
 </head>
 
-<body>
+<body class="body-main">
 
   <header class="site-header">
     <div class="header-container">
-      <a href="index.html" class="logo-link">
+      <a href="timeline.html" class="logo-link">
         <img class="project-logo" src="../imgs/logo-branco.png" alt="Logo do Projeto">
       </a>
       <nav class="header-nav" role="navigation" aria-label="Navegação principal">
-        <a class="btn secondary" href="#gallery">Galeria</a>
-        <a class="btn secondary" href="#pioneers">Pioneiros</a>
-        <a class="btn" href="quiz.html" title="Ir para o quiz">Quiz</a>
+        <a class="btn secondary" href="./galeria.html">Galeria</a>
+        <a class="btn secondary" href="./pioneiros.html">Pioneiros</a>
+        <a class="btn" href="./quiz/quiz.html" title="Ir para o quiz">Quiz</a>
       </nav>
     </div>
   </header>
@@ -105,47 +104,6 @@
         </div>
       </article>
     </section>
-
-    <section id="gallery" aria-labelledby="gallery-title">
-      <div class="section-head" style="margin-top:6px">
-        <h2 id="gallery-title">Galeria</h2>
-        <p style="color:var(--cor-suave);font-size:.95rem">Clique para ampliar.</p>
-      </div>
-      <div class="gallery">
-        <img src="images/babbage.jpg" alt="Máquina de Babbage (substitua o arquivo)" data-full="images/babbage-large.jpg">
-        <img src="images/ada.jpg" alt="Ada Lovelace (substitua o arquivo)" data-full="images/ada-large.jpg">
-        <img src="images/hollerith.jpg" alt="Hollerith machine (substitua o arquivo)" data-full="images/hollerith-large.jpg">
-        <img src="images/cards.jpg" alt="Cartões perfurados (substitua o arquivo)" data-full="images/cards-large.jpg">
-      </div>
-    </section>
-
-    <section id="pioneers" aria-labelledby="pioneers-title">
-      <div class="section-head" style="margin-top:22px">
-        <h2 id="pioneers-title">Pioneiros</h2>
-        <p style="color:var(--cor-suave);font-size:.95rem">Perfis rápidos dos principais nomes.</p>
-      </div>
-      <div class="pioneers-grid">
-        <article class="pioneer"><img src="images/babbage-face.jpg" alt="Charles Babbage">
-          <div class="info">
-            <h4>Charles Babbage</h4>
-            <p>Matemático inglês, idealizou a Máquina Diferencial e a Máquina Analítica — considerado "pai do computador".</p>
-          </div>
-        </article>
-        <article class="pioneer"><img src="images/ada-face.jpg" alt="Ada Lovelace">
-          <div class="info">
-            <h4>Ada Lovelace</h4>
-            <p>Colaboradora de Babbage: escreveu o primeiro algoritmo para uma máquina, vislumbrou usos além de cálculo numérico.</p>
-          </div>
-        </article>
-        <article class="pioneer"><img src="images/hollerith-face.jpg" alt="Herman Hollerith">
-          <div class="info">
-            <h4>Herman Hollerith</h4>
-            <p>Inventor da tabuladora por cartões perfurados, fundamental para processamentos de grandes volumes de dados.</p>
-          </div>
-        </article>
-      </div>
-    </section>
-
   </main>
 
   <footer class="site-footer">
@@ -177,6 +135,8 @@
     </div>
   </div>
   <script src=".././js/timeline.js"></script>
+  <script src=".././js/idioma.js"></script>
+  <script src=".././js/tema.js"></script>
 </body>
 
 </html>
