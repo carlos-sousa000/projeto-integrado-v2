@@ -1,0 +1,96 @@
+/* ======== Header (título + botões de navegação) ======== */
+header.site-head {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+  max-width: 1100px;
+  margin: 18px auto;
+  position: relative;
+  width: 100%;
+}
+.site-header {
+  background: rgba(0, 0, 0, 0.05);
+  padding: 20px 100px;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.project-logo {
+  height: 50px; /* ajusta tamanho fixo */
+  width: auto;
+  display: block;
+}
+
+.brand {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+.brand img {
+  width: clamp(44px, 8vw, 80px);
+  height: auto;
+  object-fit: contain;
+  display: block;
+  filter: none;
+}
+
+nav.header-nav {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.btn {
+  background: var(--cor-destaque-btn);
+  color: var(--cor-texto);
+  border: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: transform 0.15s ease, background 0.15s ease;
+  text-decoration: none;
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  background: var(--cor-destaque-hover);
+  color: var(--cor-fundo-principal);
+}
+
+.btn.secondary {
+  background: transparent;
+  border: 1.5px solid rgba(255, 255, 255, 0.06);
+  color: var(--cor-texto);
+  font-weight: 500;
+}
+
+/* NOVO: Estilo para alinhar ícone e texto */
+.btn-tertiary {
+  background: transparent;
+  border: none;
+  color: var(--cor-suave);
+  padding: 10px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  /* Espaço entre ícone e texto */
+}
+
+.btn-tertiary:hover {
+  color: var(--cor-texto);
+}
