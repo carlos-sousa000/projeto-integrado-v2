@@ -51,9 +51,10 @@ nav.header-nav {
   align-items: center;
 }
 
+/* Botões */
 .btn {
-  background: var(--cor-destaque-btn);
-  color: var(--cor-texto);
+  background: var(--cor-destaque);
+  color: var(--w-2);
   border: none;
   padding: 10px 14px;
   border-radius: 10px;
@@ -69,17 +70,16 @@ nav.header-nav {
 .btn:hover {
   transform: translateY(-3px);
   background: var(--cor-destaque-hover);
-  color: var(--cor-fundo-principal);
+  color: var(--w-3);
 }
 
 .btn.secondary {
   background: transparent;
-  border: 1.5px solid rgba(255, 255, 255, 0.06);
+  border: 1.5px solid var(--cor-borda-btn);
   color: var(--cor-texto);
-  font-weight: 500;
 }
 
-/* NOVO: Estilo para alinhar ícone e texto */
+/* Botão terciário */
 .btn-tertiary {
   background: transparent;
   border: none;
@@ -92,9 +92,12 @@ nav.header-nav {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  /* Espaço entre ícone e texto */
 }
 
 .btn-tertiary:hover {
   color: var(--cor-texto);
+}
+
+.section-head {
+  text-align: right;
 }

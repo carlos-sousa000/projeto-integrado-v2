@@ -10,16 +10,19 @@
   width: 56px;
   height: 56px;
   background: var(--cor-destaque);
-  color: var(--cor-fundo-principal);
+  color: var(--w-2);
   border-radius: 50%;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
   border: 3px solid rgba(255, 255, 255, 0.04);
   cursor: pointer;
   font-weight: 700;
   font-size: 18px;
-  transition: bottom 0.3s ease;
+  transition: 0.3s;
 }
-
+.fab:hover {
+  background: var(--cor-destaque-hover);
+  color: var(--w-3);
+}
 .fab:active {
   transform: scale(0.98);
 }

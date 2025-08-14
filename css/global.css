@@ -8,19 +8,43 @@
   --cor-claro-texto: #242833;
   --cor-claro-destaque: #2980b9;
   --cor-claro-destaque-btn: #b2b2b2;
-  --cor-claro-destaque-hover: #1c5987;
+  --cor-claro-destaque-hover: rgb(41, 115, 171);
   --cor-claro-suave: #7f8c8d;
   --cor-claro-titulo: #2c3e50;
 
-  /* Cores Ativas por padrão (modo escuro) */
+  --w: #ffffff;
+  --w-2: #f5f7fa;
+  --w-3: #eaeaea;
+  --w-10: rgba(255, 255, 255, 0.8);
+  --w-20: #d7d7d7;
+}
+
+:root[data-theme="light"] {
+  --cor-fundo-principal: var(--cor-claro-fundo-principal);
+  --cor-fundo-secundario: var(--cor-claro-fundo-secundario);
+  --cor-texto: var(--cor-claro-texto);
+  --cor-destaque: var(--cor-claro-destaque);
+  --cor-destaque-card: var(--cor-claro-destaque);
+  --cor-destaque-btn: var(--cor-claro-destaque-btn);
+  --cor-destaque-hover: var(--cor-claro-destaque-hover);
+  --cor-borda-btn: rgba(0, 0, 0, 0.2);
+  --cor-suave: var(--cor-claro-suave);
+  --cor-titulo: var(--cor-claro-titulo);
+  --w-20: var(--cor-claro-fundo-principal);
+}
+
+:root[data-theme="dark"] {
   --cor-fundo-principal: #0b0c12;
   --cor-fundo-secundario: #2c3e50;
   --cor-texto: #f5f7fa;
   --cor-destaque: #3498db;
+  --cor-destaque-card: rgb(52, 190, 255);
   --cor-destaque-btn: #3498db;
   --cor-destaque-hover: #2980b9;
+  --cor-borda-btn: rgba(255, 255, 255, 0.2);
   --cor-suave: #95a5a6;
   --cor-titulo: #ecf0f1;
+  --w-3: var(--w-10);
 }
 
 /* Detecta preferência do usuário com media query */
@@ -64,6 +88,10 @@
 
 html {
   overflow-y: scroll;
-
   scrollbar-gutter: stable;
+}
+
+a {
+  text-decoration: none;
+  color: var(--cor-texto);
 }

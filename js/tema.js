@@ -1,81 +1,42 @@
-// ===== TEMA E TROCA DE LOGOS =====
+// ===== TROCA DE TEMA SIMPLIFICADA =====
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.documentElement;
   const themeBtn = document.getElementById("theme-toggle");
   const themeText = document.getElementById("theme-text");
-  const headerLogo =
-    document.querySelector("img.project-logo") ||
-    document.querySelector(".brand img");
-  const footerLogo = document.querySelector("img.footer-logo");
+  const headerLogo = document.querySelector(".project-logo, .brand img");
+  const footerLogo = document.querySelector(".footer-logo");
 
-  const LOGO_WHITE = "../imgs/logo-branco.png";
-  const LOGO_BLACK = "../imgs/logo-preto.png";
+  const LOGOS = {
+    light: "../imgs/logo-preto.png",
+    dark: "../imgs/logo-branco.png"
+  };
 
-  let isLightMode = localStorage.getItem("theme")
-    ? localStorage.getItem("theme") === "light"
-    : window.matchMedia("(prefers-color-scheme: light)").matches;
+  // Detecta tema salvo ou preferência do sistema
+  let theme = localStorage.getItem("theme") ||
+              (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
 
-  function setLogoSrc(isLight) {
-    if (headerLogo) headerLogo.src = isLight ? LOGO_BLACK : LOGO_WHITE;
-    if (footerLogo) footerLogo.src = isLight ? LOGO_BLACK : LOGO_WHITE;
-  }
-
-  function setTheme(isLight) {
-    root.style.setProperty(
-      "--cor-fundo-principal",
-      isLight ? "var(--cor-claro-fundo-principal)" : "#121212"
-    );
-    root.style.setProperty(
-      "--cor-fundo-secundario",
-      isLight ? "var(--cor-claro-fundo-secundario)" : "#2c3e50"
-    );
-    root.style.setProperty(
-      "--cor-texto",
-      isLight ? "var(--cor-claro-texto)" : "#ffffff"
-    );
-    root.style.setProperty(
-      "--cor-destaque",
-      isLight ? "var(--cor-claro-destaque)" : "#3498db"
-    );
-    root.style.setProperty(
-      "--cor-destaque-btn",
-      isLight ? "var(--cor-claro-destaque-btn)" : "#3498db"
-    );
-    root.style.setProperty(
-      "--cor-destaque-hover",
-      isLight ? "var(--cor-claro-destaque-hover)" : "#2980b9"
-    );
-    root.style.setProperty(
-      "--cor-suave",
-      isLight ? "var(--cor-claro-suave)" : "#95a5a6"
-    );
-    root.style.setProperty(
-      "--cor-titulo",
-      isLight ? "var(--cor-claro-titulo)" : "#ecf0f1"
-    );
-    root.setAttribute("data-theme", isLight ? "light" : "dark");
-    if (themeText)
-      themeText.textContent = isLight ? "Modo Escuro" : "Modo Claro";
-    setLogoSrc(isLight);
+  function applyTheme(mode) {
+    root.setAttribute("data-theme", mode);
+    if (themeText) themeText.textContent = mode === "light" ? "Modo Escuro" : "Modo Claro";
+    if (headerLogo) headerLogo.src = LOGOS[mode];
+    if (footerLogo) footerLogo.src = LOGOS[mode];
   }
 
   // Aplica tema inicial
-  setTheme(isLightMode);
+  applyTheme(theme);
 
-  // Botão toggle
+  // Botão de alternância
   themeBtn?.addEventListener("click", () => {
-    isLightMode = !isLightMode;
-    localStorage.setItem("theme", isLightMode ? "light" : "dark");
-    setTheme(isLightMode);
+    theme = theme === "light" ? "dark" : "light";
+    localStorage.setItem("theme", theme);
+    applyTheme(theme);
   });
 
-  // Detecta mudança automática do sistema
-  window
-    .matchMedia("(prefers-color-scheme: light)")
-    .addEventListener("change", (e) => {
-      if (!localStorage.getItem("theme")) {
-        isLightMode = e.matches;
-        setTheme(isLightMode);
-      }
-    });
+  // Mudança automática do sistema (apenas se não houver preferência salva)
+  window.matchMedia("(prefers-color-scheme: light)").addEventListener("change", (e) => {
+    if (!localStorage.getItem("theme")) {
+      theme = e.matches ? "light" : "dark";
+      applyTheme(theme);
+    }
+  });
 });
