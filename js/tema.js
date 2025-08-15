@@ -7,17 +7,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const footerLogo = document.querySelector(".footer-logo");
 
   const LOGOS = {
-    light: "../imgs/logo-preto.png",
-    dark: "../imgs/logo-branco.png"
+    light: "/imgs/logo-preto.png",
+    dark: "/imgs/logo-branco.png",
   };
 
   // Detecta tema salvo ou preferência do sistema
-  let theme = localStorage.getItem("theme") ||
-              (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+  let theme =
+    localStorage.getItem("theme") ||
+    (window.matchMedia("(prefers-color-scheme: light)").matches
+      ? "light"
+      : "dark");
 
   function applyTheme(mode) {
     root.setAttribute("data-theme", mode);
-    if (themeText) themeText.textContent = mode === "light" ? "Modo Escuro" : "Modo Claro";
+    if (themeText)
+      themeText.textContent = mode === "light" ? "Modo Escuro" : "Modo Claro";
     if (headerLogo) headerLogo.src = LOGOS[mode];
     if (footerLogo) footerLogo.src = LOGOS[mode];
   }
@@ -33,10 +37,12 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Mudança automática do sistema (apenas se não houver preferência salva)
-  window.matchMedia("(prefers-color-scheme: light)").addEventListener("change", (e) => {
-    if (!localStorage.getItem("theme")) {
-      theme = e.matches ? "light" : "dark";
-      applyTheme(theme);
-    }
-  });
+  window
+    .matchMedia("(prefers-color-scheme: light)")
+    .addEventListener("change", (e) => {
+      if (!localStorage.getItem("theme")) {
+        theme = e.matches ? "light" : "dark";
+        applyTheme(theme);
+      }
+    });
 });

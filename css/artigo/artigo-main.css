@@ -1,1 +1,226 @@
-@import url(.././main-import.css);
+@import url("../main-import.css");
+
+/* ===========================
+   Artigo — estilos melhorados
+   =========================== */
+
+:root {
+  --artigo-max-width: 1100px;
+  --gutter: 1.25rem;
+  --accent: var(--cor-destaque);
+  --muted: var(--cor-suave);
+  --card-radius: 12px;
+  --glass: rgba(255, 255, 255, 0.04);
+}
+
+/* Base */
+body {
+  font-family: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial;
+  margin: 0;
+  padding: 0;
+  color: var(--cor-texto);
+  background-color: var(--cor-fundo-secundario);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Container central */
+.container {
+  max-width: var(--artigo-max-width);
+  margin: 2.25rem auto;
+  padding: 2rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+  border-radius: 14px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(2px);
+}
+
+/* Header do artigo */
+.article-hero {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+/* conteúdo textual */
+.article-content {
+  padding: 0.2rem 0.5rem;
+}
+
+/* destaque repaginado */
+.highlight {
+  position: relative;
+  padding: 1.1rem 1rem;
+  border-radius: 10px;
+  background: var(--artigo-highlight-bg);
+
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  overflow: visible;
+  margin-bottom: 1.25rem;
+  border-left: 6px solid var(--accent);
+}
+
+/* pequeno ribbon decorativo */
+.highlight::before {
+  content: "Destaque";
+  position: absolute;
+  left: -6px;
+  top: -12px;
+  transform: rotate(-6deg);
+  background: var(--accent);
+  color: var(--w-2, #fff);
+  font-weight: 600;
+  font-size: 0.75rem;
+  padding: 6px 10px;
+  border-radius: 6px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* texto do highlight */
+.highlight p {
+  margin: 0;
+  line-height: 1.55;
+  color: var(--cor-texto-highlight, var(--cor-texto));
+}
+
+/* titulo e seções */
+h1,
+h2 {
+  color: var(--cor-titulo);
+  margin: 0 0 0.6rem 0;
+  font-family: "Playfair Display", serif;
+}
+h1 {
+  font-size: 1.9rem;
+  margin-bottom: 1rem;
+}
+h2 {
+  font-size: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+/* ASIDE — coluna de imagens */
+.image-column {
+  width: 100%;
+  display: block;
+}
+
+/* grid das imagens — variação de tamanhos */
+.image-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 0.7rem;
+  align-items: stretch;
+}
+
+.image-grid .img-large {
+  grid-column: 1 / -1;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.image-grid img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.35s cubic-bezier(0.2, 0.9, 0.25, 1), box-shadow 0.25s;
+  box-shadow: 0 6px 18px rgba(12, 12, 14, 0.06);
+  cursor: pointer;
+}
+
+.image-grid .img-side {
+  height: 105px;
+}
+
+.image-grid img:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 16px 36px rgba(12, 12, 14, 0.12);
+  z-index: 2;
+}
+
+/* legenda discreta */
+figcaption {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-top: 0.45rem;
+}
+
+/* Parágrafos e tipografia do artigo */
+.article-body p {
+  margin-bottom: 1rem;
+  text-align: justify;
+}
+
+/* Small callout style */
+.callout {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(0, 0, 0, 0.04)
+  );
+  color: var(--muted);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  margin-bottom: 0.1rem;
+}
+
+/* Footer do artigo (link para voltar) */
+.article-footer {
+  margin-top: 1.6rem;
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+/* RESPONSIVO */
+@media (max-width: 980px) {
+  .article-hero {
+    grid-template-columns: 1fr 300px;
+  }
+  .image-grid .img-large {
+    height: 180px;
+  }
+  .image-grid .img-side {
+    height: 90px;
+  }
+}
+
+@media (max-width: 720px) {
+  .article-hero {
+    grid-template-columns: 1fr;
+  }
+  .image-column {
+    order: -1;
+    margin-bottom: 1rem;
+  }
+  .image-grid .img-large {
+    height: 240px;
+  }
+  .image-grid .img-side {
+    height: 120px;
+  }
+  .container {
+    padding: 1.15rem;
+    margin: 1rem;
+  }
+  header.site-header {
+    padding: 12px 10px;
+  }
+}
+
+/* Acessibilidade (foco) */
+a:focus,
+button:focus,
+.timeline-event:focus {
+  outline: 3px solid rgba(52, 152, 219, 0.25);
+  outline-offset: 3px;
+}

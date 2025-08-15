@@ -1,8 +1,8 @@
 /* ======== Rodapé (Footer) ======== */
 /* Fundo ocupa 100% da largura (como o header) */
 footer.site-footer {
-  background: rgba(0, 0, 0, 0.1);
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.06));
+  border-top: 2px solid rgba(255, 255, 255, 0.05);
   color: var(--cor-suave);
   padding: 20px 0; /* igual ao header: padding vertical no bloco externo */
 }

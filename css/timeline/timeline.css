@@ -211,9 +211,6 @@ main.container {
     width: 100%;
     text-align: left;
   }
-  header .project-logo {
-    margin-bottom: 1rem;
-  }
   .timeline::after {
     left: 32px; /* Ajusta a linha principal para a nova posição do ponto */
   }
@@ -260,8 +257,5 @@ main.container {
   #timeline-title {
     margin-left: 100px;
     font-size: 1.3rem;
-  }
-  .header-container {
-    flex-direction: column;
   }
 }

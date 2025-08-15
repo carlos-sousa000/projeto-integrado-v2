@@ -1,3 +1,5 @@
+/* global.css - base do site (fonts, variáveis de tema e reset) */
+
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Roboto:wght@300;400;500;700&display=swap");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css");
 
@@ -17,8 +19,15 @@
   --w-3: #eaeaea;
   --w-10: rgba(255, 255, 255, 0.8);
   --w-20: #d7d7d7;
+
+  --artigo-highlight-bg: #e0f0ff;
+  --cor-texto-highlight: var(--cor-texto);
+
+  /* fallback para quiz (substituído por tema quando data-theme aplicado) */
+  --cor-fundo-secundario-quiz: var(--cor-claro-fundo-secundario);
 }
 
+/* tema claro / escuro (aplique data-theme no <html> ou <body>) */
 :root[data-theme="light"] {
   --cor-fundo-principal: var(--cor-claro-fundo-principal);
   --cor-fundo-secundario: var(--cor-claro-fundo-secundario);
@@ -45,9 +54,13 @@
   --cor-suave: #95a5a6;
   --cor-titulo: #ecf0f1;
   --w-3: var(--w-10);
+  --artigo-highlight-bg: #e0f0ff;
+  --cor-texto-highlight: var(--cor-fundo-principal);
+
+  --cor-fundo-secundario-quiz: #275584;
 }
 
-/* Detecta preferência do usuário com media query */
+/* Detecta preferência do usuário com media query (aplica valores iniciais) */
 @media (prefers-color-scheme: light) {
   :root {
     --cor-fundo-principal: var(--cor-claro-fundo-principal);
@@ -60,6 +73,7 @@
   }
 }
 
+/* Reset / base comum ao site */
 * {
   margin: 0;
   padding: 0;

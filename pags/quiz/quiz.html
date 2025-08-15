@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Quiz — História da Computação</title>
+  <link rel="stylesheet" href="../../css/quiz/quiz.css">
+</head>
+
+<body class="body-main">
+
+  <header class="site-header">
+    <div class="header-container">
+      <a href="../../index.html" class="logo-link" aria-label="Ir para a página inicial">
+        <img class="project-logo" src="../../imgs/logo-branco.png" alt="Logo do Projeto">
+      </a>
+      <nav class="header-nav" role="navigation" aria-label="Navegação principal">
+        <a class="btn secondary" href="../galeria.html"><i class="fas fa-image"></i>Galeria</a>
+        <a class="btn secondary" href="../pioneiros.html"><i class="fas fa-person"></i>Pioneiros</a>
+        <a class="btn secondary" href="../jogos.html"><i class="fas fa-gamepad"></i>Jogos</a>
+        <a class="btn secondary" href="../busca.html"><i class="fas fa-magnifying-glass"></i>Busca</a>
+        <a class="btn" href="../quiz/quiz.html" title="Ir para o quiz"><i class="fas fa-brain"></i> Quiz</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" role="main">
+    <section class="quiz" aria-labelledby="quiz-title">
+      <div class="quiz-hero">
+        <div class="quiz-head">
+          <h2 id="quiz-title">Quiz Interativo — De Babbage a Hollerith</h2>
+          <p class="muted">Teste seu conhecimento sobre os pioneiros e conceitos que aparecem nas páginas.</p>
+        </div>
+
+        <div class="quiz-progress" aria-hidden="false">
+          <div id="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <div class="progress-fill" style="width:0%"></div>
+          </div>
+          <div class="progress-text"><span id="current-q">0</span>/<span id="total-q">0</span></div>
+        </div>
+      </div>
+
+      <div id="quiz-cards" class="quiz-cards" role="list">
+
+        <article class="quiz-card" role="listitem">
+          <header class="card-title">
+            <h3>Quem é considerado o criador da Máquina Diferencial?</h3>
+          </header>
+          <div class="quiz-options">
+            <button class="quiz-option" data-correct="true">Charles Babbage</button>
+            <button class="quiz-option">Ada Lovelace</button>
+            <button class="quiz-option">George Boole</button>
+            <button class="quiz-option">Blaise Pascal</button>
+          </div>
+        </article>
+
+        <article class="quiz-card" role="listitem">
+          <header class="card-title">
+            <h3>Quem escreveu o primeiro algoritmo atribuído à computação?</h3>
+          </header>
+          <div class="quiz-options">
+            <button class="quiz-option">Charles Babbage</button>
+            <button class="quiz-option" data-correct="true">Ada Lovelace</button>
+            <button class="quiz-option">Joseph Henry</button>
+            <button class="quiz-option">Mary Somerville</button>
+          </div>
+        </article>
+
+        <article class="quiz-card" role="listitem">
+          <header class="card-title">
+            <h3>O que é um byte?</h3>
+          </header>
+          <div class="quiz-options">
+            <button class="quiz-option">Tipo de processador</button>
+            <button class="quiz-option" data-correct="true">Unidade de medida de armazenamento de dados (normalmente 8 bits)</button>
+            <button class="quiz-option">Um erro lógico</button>
+            <button class="quiz-option">Kilobyte (1000 bytes)</button>
+          </div>
+        </article>
+
+        <article class="quiz-card" role="listitem">
+          <header class="card-title">
+            <h3>Quem desenvolveu a Máquina de Tabulação que usava cartões perfurados?</h3>
+          </header>
+          <div class="quiz-options">
+            <button class="quiz-option">Alan Turing</button>
+            <button class="quiz-option" data-correct="true">Herman Hollerith</button>
+            <button class="quiz-option">Semyon Korsakov</button>
+            <button class="quiz-option">Charles Babbage</button>
+          </div>
+        </article>
+
+        <article class="quiz-card" role="listitem">
+          <header class="card-title">
+            <h3>Qual formalização matemática é base para lógica digital?</h3>
+          </header>
+          <div class="quiz-options">
+            <button class="quiz-option">Cálculo de Newton</button>
+            <button class="quiz-option" data-correct="true">Álgebra de Boole</button>
+            <button class="quiz-option">Teoria dos Conjuntos</button>
+            <button class="quiz-option">Geometria Analítica</button>
+          </div>
+        </article>
+
+        <article class="quiz-card" role="listitem">
+          <header class="card-title">
+            <h3>Qual inovação fazia parte do projeto da Máquina Analítica?</h3>
+          </header>
+          <div class="quiz-options">
+            <button class="quiz-option" data-correct="true">Uso de cartões perfurados para instruções e memória</button>
+            <button class="quiz-option">Tela gráfica</button>
+            <button class="quiz-option">Transistores de silício</button>
+            <button class="quiz-option">Processamento paralelo</button>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="quiz-actions">
+        <div id="quiz-result" class="quiz-result" aria-live="polite">Pontuação: 0</div>
+        <div class="actions-right">
+          <button id="btn-restart" class="btn secondary" title="Reiniciar quiz">Reiniciar</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- overlay final (Concluído) -->
+  <div id="celebration" class="celebration" aria-hidden="true">
+    <div class="celebration-card" role="dialog" aria-modal="true" aria-labelledby="badge-title">
+      <div class="badge-wrap" aria-hidden="true">
+        <svg class="badge-svg" viewBox="0 0 64 64" width="84" height="84" aria-hidden="true">
+          <defs>
+            <linearGradient id="g1" x1="0" x2="1">
+              <stop offset="0" stop-color="#ffd166" />
+              <stop offset="1" stop-color="#f4a261" />
+            </linearGradient>
+          </defs>
+          <circle cx="32" cy="32" r="30" fill="url(#g1)" />
+          <g transform="translate(8,10)" fill="#ffffff">
+            <path d="M18 4c-3 0-5 2-5 5 0 4 5 9 5 9s5-5 5-9c0-3-2-5-5-5z" />
+            <rect x="6" y="22" width="24" height="6" rx="2" />
+          </g>
+        </svg>
+      </div>
+
+      <h3 id="badge-title">Concluído!</h3>
+      <p id="badge-text" class="badge-text">Você concluiu o quiz.</p>
+
+      <div class="celebration-actions">
+        <button id="btn-restart-final" class="btn">Jogar de novo</button>
+      </div>
+
+      <button id="close-celebration" class="close-x" aria-label="Fechar">✕</button>
+
+      <div id="confetti-area" class="confetti-area" aria-hidden="true"></div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <a href="timeline.html" class="logo-link">
+        <img class="project-logo footer-logo" src="../imgs/logo-branco.png" alt="Logo do Projeto">
+      </a>
+
+      <div class="footer-actions">
+        <button class="btn-tertiary" id="theme-toggle" title="Alterar Tema">
+          <i class="fas fa-adjust"></i>
+          <span id="theme-text"></span>
+        </button>
+        <button class="btn-tertiary" id="lang-toggle" title="Mudar Idioma">
+          <i class="fas fa-globe"></i>
+          <span>Idioma</span>
+        </button>
+        <button class="btn-tertiary" title="Sobre Nós">
+          <i class="fas fa-info"></i>
+          <span>Sobre Nós</span>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/quiz/quiz.js"></script>
+  <script src="../../js/tema.js"></script>
+  <script src="../../js/idioma.js"></script>
+</body>
+
+</html>
