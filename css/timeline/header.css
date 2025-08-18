@@ -90,25 +90,6 @@ nav.header-nav {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
 }
 
-/* tertiary small text actions */
-.btn-tertiary {
-  background: transparent;
-  border: none;
-  color: var(--cor-texto);
-  padding: 8px;
-  display: inline-flex;
-  gap: 8px;
-  align-items: center;
-  cursor: pointer;
-  font-weight: 600;
-}
-.btn-tertiary i {
-  width: 18px;
-  text-align: center;
-  display: inline-block;
-  color: var(--cor-texto);
-}
-
 /* header-actions right area */
 .header-actions {
   display: flex;

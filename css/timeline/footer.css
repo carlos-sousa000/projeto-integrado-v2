@@ -31,23 +31,30 @@ footer.site-footer {
   filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.12));
 }
 
-/* tertiary buttons style (small) */
+/* tertiary small text actions */
 .btn-tertiary {
   background: transparent;
   border: none;
   color: var(--muted-ink);
   padding: 8px;
   display: inline-flex;
-  align-items: center;
   gap: 8px;
+  align-items: center;
   cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+  font-size: 0.9rem;
+  opacity: 0.8;
 }
 .btn-tertiary i {
-  width: 16px;
+  width: 18px;
   text-align: center;
   display: inline-block;
+  color: var(--cor-texto);
 }
-
+.btn-tertiary:hover {
+  filter: brightness(1.5);
+}
 /* responsive */
 @media (max-width: 800px) {
   .footer-container {

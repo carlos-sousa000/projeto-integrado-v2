@@ -101,6 +101,7 @@
   cursor: pointer;
   transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+  color: var(--cor-suave);
 }
 .quiz-option:hover {
   transform: translateY(-2px);

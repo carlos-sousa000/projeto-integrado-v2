@@ -192,40 +192,6 @@ mark.hi {
   border-radius: 3px;
 }
 
-/* -----------------------------
-   Preview panel
-   ----------------------------- */
-.preview-panel {
-  display: grid;
-  grid-template-columns: 1fr 300px;
-  gap: 16px;
-  align-items: start;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.02),
-    rgba(0, 0, 0, 0.01)
-  );
-  border-radius: var(--card-radius);
-  padding: 16px;
-  border: 0.8px solid rgba(0, 0, 0, 0.1);
-  box-shadow: var(--shadow-soft);
-}
-.preview-panel h2 {
-  margin: 0 0 6px 0;
-  font-family: "Cormorant Garamond", serif;
-  color: var(--cor-texto);
-}
-.preview-panel p.lead {
-  color: var(--cor-suave);
-  line-height: 1.6;
-}
-.preview-img {
-  width: 100%;
-  border-radius: 8px;
-  object-fit: cover;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
-}
-
 /* responsive */
 @media (max-width: 900px) {
   .search-panel {
@@ -238,9 +204,6 @@ mark.hi {
   }
   .search-input input {
     font-size: 1rem;
-  }
-  .preview-panel {
-    grid-template-columns: 1fr;
   }
   .search-meta {
     text-align: left;
