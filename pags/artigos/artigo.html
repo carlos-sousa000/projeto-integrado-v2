@@ -11,17 +11,17 @@
 <body class="body-main">
 
     <!-- HEADER -->
-    <header class="site-header">
+    <header class="site-header" role="banner">
         <div class="header-container">
-            <a href="../../index.html" class="logo-link">
+            <a href="../../index.html" class="logo-link" aria-label="Ir para a página inicial">
                 <img class="project-logo" src="../../imgs/logo-branco.png" alt="Logo do Projeto">
             </a>
             <nav class="header-nav" role="navigation" aria-label="Navegação principal">
-                <a class="btn secondary" href="../galeria.html"> <i class="fas fa-image"></i>Galeria</a>
-                <a class="btn secondary" href="../pioneiros.html"> <i class="fas fa-person"></i>Pioneiros</a>
-                <a class="btn secondary" href="../jogos.html"> <i class="fas fa-gamepad"></i>Jogos</a>
-                <a class="btn secondary" href="../busca.html"><i class="fas fa-magnifying-glass"></i>Busca</a>
-                <a class="btn" href="../quiz/quiz.html" title="Ir para o quiz"> <i class="fas fa-brain"></i> Quiz</a>
+                <a class="btn secondary" href="../galeria.html"> <i class="fas fa-image" aria-hidden="true"></i>Galeria</a>
+                <a class="btn secondary" href="../pioneiros.html"> <i class="fas fa-person" aria-hidden="true"></i>Pioneiros</a>
+                <a class="btn secondary" href="../jogos.html"> <i class="fas fa-gamepad" aria-hidden="true"></i>Jogos</a>
+                <a class="btn secondary" href="../busca.html"><i class="fas fa-magnifying-glass" aria-hidden="true"></i>Busca</a>
+                <a class="btn" href="../quiz/quiz.html" title="Ir para o quiz"> <i class="fas fa-brain" aria-hidden="true"></i> Quiz</a>
             </nav>
         </div>
     </header>
@@ -34,7 +34,7 @@
                 <h1 id="artigo-title">Charles Babbage (1791–1871)</h1>
 
                 <div class="highlight" role="note" aria-label="Resumo">
-                    <p><strong>Babbage</strong> idealizou máquinas mecânicas para automatizar cálculos praticamente antes da era industrial moderna — um pensamento que lançou os alicerces da computação.</p>
+                    <p><strong>Charles Babbage</strong> idealizou máquinas mecânicas para automatizar cálculos praticamente antes da era industrial moderna — um pensamento que lançou os alicerces da computação.</p>
                 </div>
 
                 <div class="article-body">
@@ -51,7 +51,7 @@
 
                     <p class="article-footer">
                         <a class="btn secondary" href="../../index.html" title="Voltar">← Voltar à Linha do Tempo</a>
-                        <span style="color:var(--muted);font-size:.95rem;margin-left:.6rem">Fonte: exemplo.com.br</span>
+                        <span class="source">Fonte: exemplo.com.br</span>
                     </p>
                 </div>
             </div>
@@ -59,9 +59,10 @@
             <!-- Coluna de imagens -->
             <aside class="image-column" aria-hidden="false">
                 <figure class="image-grid" aria-label="Galeria de imagens de Charles Babbage">
-                    <img class="img-large" src="https://daily.jstor.org/wp-content/uploads/2015/06/Charles_Babbage_1860.jpg" alt="Retrato de Charles Babbage 1860">
-                    <img class="img-side" src="https://upload.wikimedia.org/wikipedia/commons/5/53/BabbageDifferenceEngine.jpg" alt="Máquina Diferencial de Babbage">
-                    <img class="img-side" src="https://momentodeficcao.wordpress.com/wp-content/uploads/2017/03/differenceengine02.jpg" alt="Detalhe da Máquina Diferencial">
+                    <!-- lazy-loading e atributos alt mais claros -->
+                    <img class="img-large" loading="lazy" src="https://daily.jstor.org/wp-content/uploads/2015/06/Charles_Babbage_1860.jpg" alt="Retrato de Charles Babbage, 1860">
+                    <img class="img-side" loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/5/53/BabbageDifferenceEngine.jpg" alt="Máquina Diferencial de Babbage">
+                    <img class="img-side" loading="lazy" src="https://momentodeficcao.wordpress.com/wp-content/uploads/2017/03/differenceengine02.jpg" alt="Detalhe da Máquina Diferencial">
                     <figcaption>Retratos e imagens da Máquina Diferencial — imagens variadas para ilustrar o texto.</figcaption>
                 </figure>
             </aside>
@@ -69,31 +70,32 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="site-footer">
+    <footer class="site-footer" role="contentinfo">
         <div class="footer-container">
             <div>
-                <img class="project-logo footer-logo" src="./imgs/logo-branco.png" alt="Logo do Projeto">
+                <img class="project-logo footer-logo" src="../../imgs/logo-branco.png" alt="Logo do Projeto">
             </div>
 
             <div class="footer-actions">
                 <button class="btn-tertiary" id="theme-toggle" title="Alterar Tema">
-                    <i class="fas fa-adjust"></i>
+                    <i class="fas fa-adjust" aria-hidden="true"></i>
                     <span id="theme-text"></span>
                 </button>
                 <button class="btn-tertiary" id="lang-toggle" title="Mudar Idioma">
-                    <i class="fas fa-globe"></i>
+                    <i class="fas fa-globe" aria-hidden="true"></i>
                     <span>Idioma</span>
                 </button>
                 <button class="btn-tertiary" title="Sobre Nós">
-                    <i class="fas fa-info"></i>
+                    <i class="fas fa-info" aria-hidden="true"></i>
                     <span>Sobre Nós</span>
                 </button>
             </div>
         </div>
+    </footer>
 
-        <script src="../../js/timeline.js"></script>
-        <script src="../../js/idioma.js"></script>
-        <script src="../../js/tema.js"></script>
+    <script src="../../js/timeline.js"></script>
+    <script src="../../js/idioma.js"></script>
+    <script src="../../js/tema.js"></script>
 </body>
 
 </html>

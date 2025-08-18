@@ -29,7 +29,7 @@
     <section class="quiz" aria-labelledby="quiz-title">
       <div class="quiz-hero">
         <div class="quiz-head">
-          <h2 id="quiz-title">Quiz Interativo — De Babbage a Hollerith</h2>
+          <h2 id="quiz-title">Quiz — De Babbage a Hollerith</h2>
           <p class="muted">Teste seu conhecimento sobre os pioneiros e conceitos que aparecem nas páginas.</p>
         </div>
 
@@ -130,26 +130,15 @@
   <div id="celebration" class="celebration" aria-hidden="true">
     <div class="celebration-card" role="dialog" aria-modal="true" aria-labelledby="badge-title">
       <div class="badge-wrap" aria-hidden="true">
-        <svg class="badge-svg" viewBox="0 0 64 64" width="84" height="84" aria-hidden="true">
-          <defs>
-            <linearGradient id="g1" x1="0" x2="1">
-              <stop offset="0" stop-color="#ffd166" />
-              <stop offset="1" stop-color="#f4a261" />
-            </linearGradient>
-          </defs>
-          <circle cx="32" cy="32" r="30" fill="url(#g1)" />
-          <g transform="translate(8,10)" fill="#ffffff">
-            <path d="M18 4c-3 0-5 2-5 5 0 4 5 9 5 9s5-5 5-9c0-3-2-5-5-5z" />
-            <rect x="6" y="22" width="24" height="6" rx="2" />
-          </g>
-        </svg>
+        <!-- medalha com Font Awesome (fa-medal) -->
+        <i class="fas fa-medal badge-medal" aria-hidden="true"></i>
       </div>
 
       <h3 id="badge-title">Concluído!</h3>
       <p id="badge-text" class="badge-text">Você concluiu o quiz.</p>
 
       <div class="celebration-actions">
-        <button id="btn-restart-final" class="btn">Jogar de novo</button>
+        <button id="btn-restart-final" class="btn" style="margin-top: 10px;">Jogar de novo</button>
       </div>
 
       <button id="close-celebration" class="close-x" aria-label="Fechar">✕</button>

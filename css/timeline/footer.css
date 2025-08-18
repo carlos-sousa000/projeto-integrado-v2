@@ -1,40 +1,65 @@
-/* ======== Rodapé (Footer) ======== */
-/* Fundo ocupa 100% da largura (como o header) */
+/* footer.css - combina com header (latão, papel) */
 footer.site-footer {
-  background: linear-gradient(90deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.06));
-  border-top: 2px solid rgba(255, 255, 255, 0.05);
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.04));
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
   color: var(--cor-suave);
-  padding: 20px 0; /* igual ao header: padding vertical no bloco externo */
+  padding: 18px 0;
 }
 
-/* Conteúdo centralizado e alinhado (espelha .header-container) */
+/* inner container */
 .footer-container {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 0 20px; /* respiro lateral */
+  padding: 0 20px;
   box-sizing: border-box;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 20px;
+  gap: 12px;
   flex-wrap: wrap;
 }
 
-/* A logo usa as mesmas regras da do header (.project-logo) — altura 50px já está em header.css */
-
-/* Ações do footer */
 .footer-actions {
   display: flex;
-  align-items: center;
   gap: 10px;
+  align-items: center;
 }
 
-/* Responsivo */
+/* footer logo */
+.footer-logo {
+  height: 50px;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.12));
+}
+
+/* tertiary buttons style (small) */
+.btn-tertiary {
+  background: transparent;
+  border: none;
+  color: var(--muted-ink);
+  padding: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+.btn-tertiary i {
+  width: 16px;
+  text-align: center;
+  display: inline-block;
+}
+
+/* responsive */
 @media (max-width: 800px) {
   .footer-container {
     flex-direction: column;
     align-items: center;
     gap: 12px;
   }
+}
+
+/* DARK MODE: footer more visible */
+:root[data-theme="dark"] footer.site-footer {
+  background: linear-gradient(90deg, #0f0f0f, #121212);
+  box-shadow: 0 -6px 30px rgba(0, 0, 0, 0.6);
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
 }

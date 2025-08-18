@@ -1,3 +1,4 @@
+<!-- timeline.html (trecho completo com cores dos .card-icon ajustadas) -->
 <!doctype html>
 <html lang="pt-BR">
 
@@ -7,21 +8,57 @@
   <title>Linha do Tempo — Babbage a Hollerith</title>
 
   <link rel="stylesheet" href="./css/timeline/timeline.css">
+  <script defer src="./js/timeline-anim.js"></script>
+
+  <!-- pequena normalização para ícones (garante alinhamento) -->
+  <style>
+    .card-title .card-icon {
+      width: 40px;
+      height: 40px;
+      min-width: 40px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+      border: 0.6px solid rgba(0, 0, 0, 0.06);
+      vertical-align: middle;
+      transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease;
+    }
+
+    .card-title .card-icon i {
+      font-size: 16px !important;
+      color: var(--w-2);
+      line-height: 1;
+      transform: none !important;
+    }
+
+    @media(max-width:700px) {
+      .card-title .card-icon {
+        width: 34px;
+        height: 34px;
+        min-width: 34px
+      }
+
+      .card-title .card-icon i {
+        font-size: 14px !important
+      }
+    }
+  </style>
 </head>
 
 <body class="body-main">
-
   <header class="site-header">
     <div class="header-container">
       <a href="./index.html" class="logo-link">
-        <img class="project-logo" src="imgs/logo-branco.png" alt="Logo do Projeto">
+        <img class="project-logo" src="./imgs/logo-branco.png" alt="Logo do Projeto">
       </a>
       <nav class="header-nav" role="navigation" aria-label="Navegação principal">
-        <a class="btn secondary" href="./galeria.html"> <i class="fas fa-image"></i>Galeria</a>
-        <a class="btn secondary" href="./pioneiros.html"> <i class="fas fa-person"></i>Pioneiros</a>
-        <a class="btn secondary" href="./jogos.html"> <i class="fas fa-gamepad"></i>Jogos</a>
-        <a class="btn secondary" href="./busca.html"><i class="fas fa-magnifying-glass"></i>Busca</a>
-        <a class="btn" href="/pags/quiz/quiz.html" title="Ir para o quiz"> <i class="fas fa-brain"></i> Quiz</a>
+        <a class="btn secondary" href="./pags/galeria.html"> <i class="fas fa-image" aria-hidden="true"></i>Galeria</a>
+        <a class="btn secondary" href="./pags/pioneiros.html"> <i class="fas fa-person" aria-hidden="true"></i>Pioneiros</a>
+        <a class="btn secondary" href="./pags/jogos.html"> <i class="fas fa-gamepad" aria-hidden="true"></i>Jogos</a>
+        <a class="btn secondary" href="./pags/busca.html"><i class="fas fa-magnifying-glass" aria-hidden="true"></i>Busca</a>
+        <a class="btn" href="./pags/quiz/quiz.html" title="Ir para o quiz"> <i class="fas fa-brain" aria-hidden="true"></i> Quiz</a>
       </nav>
     </div>
   </header>
@@ -33,95 +70,134 @@
         <p style="color:var(--cor-suave);font-size:.95rem">Explore a sequência histórica.</p>
       </div>
 
+      <!-- 1821 — Babbage (latão) -->
       <article class="timeline-event fade-up" tabindex="0" data-year="1821">
         <a href="./pags/artigos/artigo.html">
           <div class="card">
             <div class="card-title">
-              <div class="card-icon" style="background-color: #2c3e50;"><i class="fas fa-gears" alt="Engrenagens"></i></div>
+              <!-- latão (mantido) -->
+              <div class="card-icon" style="background-color: #b07a2b;">
+                <i class="fas fa-gears" aria-hidden="true"></i>
+              </div>
               <h3>Máquina Diferencial — Charles Babbage</h3>
             </div>
             <p>Projetada para calcular e imprimir tabelas matemáticas automaticamente. Era mecânica, com engrenagens e rodas — um passo fundamental rumo ao computador.</p>
           </div>
         </a>
       </article>
+
+      <!-- 1832 — Korsakov (azul-marinho) -->
       <article class="timeline-event fade-up" tabindex="0" data-year="1832">
         <a href="./">
           <div class="card">
             <div class="card-title">
-              <div class="card-icon" style="font-size: 16px; background-color: #206594;"><i class="fas fa-table" alt="Cartão Perfurado"></i></div>
+              <!-- azul-marinho, um tom mais sóbrio -->
+              <div class="card-icon" style="background-color: #235a7a;">
+                <i class="fas fa-table" aria-hidden="true"></i>
+              </div>
               <h3>Semyon Korsakov — Armazenamento por cartões</h3>
             </div>
             <p>Utilizou cartões perfurados/registradores para organizar informações, antecipando sistemas de indexação mecânica de dados.</p>
           </div>
         </a>
       </article>
+
+      <!-- 1834 — Torchi (índigo) -->
       <article class="timeline-event fade-up" tabindex="0" data-year="1834">
         <a href="./">
           <div class="card">
             <div class="card-title">
-              <div class="card-icon" style="background-color:#6f3488 ;"><i class="fas fa-keyboard" alt="Teclado"></i></div>
+              <!-- índigo (mantido) -->
+              <div class="card-icon" style="background-color: #5b2372d1;">
+                <i class="fas fa-keyboard" aria-hidden="true"></i>
+              </div>
               <h3>Calculadora com teclado — Torchi</h3>
             </div>
             <p>Exemplos iniciais de máquinas com entrada por teclado, facilitando inserção direta de números.</p>
           </div>
         </a>
       </article>
+
+      <!-- 1835 — Joseph Henry (ferro/graphite) -->
       <article class="timeline-event fade-up" tabindex="0" data-year="1835">
         <a href="./">
           <div class="card">
             <div class="card-title">
-              <div class="card-icon" style="background-color: #4f5757;"><i class="fas fa-spinner" alt="Relé"></i></div>
+              <!-- tom de ferro: #3f4b4f (mais integrado à paleta) -->
+              <div class="card-icon" style="background-color: #3f4b4f;">
+                <i class="fas fa-spinner" aria-hidden="true"></i>
+              </div>
               <h3>Relé eletromecânico — Joseph Henry</h3>
             </div>
             <p>Componentes eletromecânicos que permitiram o controle de sinais e são antecedentes dos circuitos lógicos.</p>
           </div>
         </a>
       </article>
+
+      <!-- 1837 — Máquina Analítica (latão escuro) -->
       <article class="timeline-event fade-up" tabindex="0" data-year="1837">
         <a href="./">
           <div class="card">
             <div class="card-title">
-              <div class="card-icon" style="font-size:20px; background-color: #b11738;"><i class="fas fa-microchip" alt="CPU"> </i></div>
+              <!-- latão escuro (mais coerente que vermelho forte) -->
+              <div class="card-icon" style="background-color: #8f5f1c;">
+                <i class="fas fa-microchip" aria-hidden="true"></i>
+              </div>
               <h3>Máquina Analítica — Charles Babbage</h3>
-
             </div>
             <p>Conceito de computador de uso geral: unidade aritmética, memória, controle e uso de cartões para instruções — projetada, porém não totalmente construída em sua época.</p>
           </div>
         </a>
       </article>
+
+      <!-- 1842 — Ada Lovelace (bronze escuro) -->
       <article class="timeline-event fade-up" tabindex="0" data-year="1842">
         <a href="./">
           <div class="card">
             <div class="card-title">
-              <div class="card-icon" style="background-color: #8f2a1e;"><i class="fas fa-code" alt="Código"></i></div>
+              <!-- bronze escuro (mantido) -->
+              <div class="card-icon" style="background-color: #8f2a1e;">
+                <i class="fas fa-code" aria-hidden="true"></i>
+              </div>
               <h3>Ada Lovelace — Primeiro algoritmo</h3>
             </div>
             <p>Nota sobre a máquina analítica contendo um algoritmo para calcular números de Bernoulli. Reconhecida como a primeira programadora.</p>
           </div>
         </a>
       </article>
+
+      <!-- 1854 — Álgebra de Boole (verde mais fechado) -->
       <article class="timeline-event fade-up" tabindex="0" data-year="1854">
         <a href="./">
           <div class="card">
             <div class="card-title">
-              <div class="card-icon" style="background-color: #1f8b4c;"><i class="fas fa-not-equal" alt="Lógica"></i></div>
+              <!-- verde mais fechado para combinar (substitui #1f8b4c) -->
+              <div class="card-icon" style="background-color: #2a7a45;">
+                <i class="fas fa-not-equal" aria-hidden="true"></i>
+              </div>
               <h3>Álgebra de Boole e lógica simbólica</h3>
             </div>
             <p>Formalização da lógica por George Boole e posteriores avanços (Frege) que tornaram possível tratar operações lógicas de forma algébrica — base para circuitos digitais.</p>
           </div>
         </a>
       </article>
+
+      <!-- 1890 — Hollerith (laranja/latão vivo) -->
       <article class="timeline-event fade-up" tabindex="0" data-year="1890">
         <a href="./">
           <div class="card">
             <div class="card-title">
-              <div class="card-icon" style="background-color: #d35400;"><i class="fas fa-server" alt="Dados"></i></div>
+              <!-- laranja / latão vivo -->
+              <div class="card-icon" style="background-color: #99450c;">
+                <i class="fas fa-server" aria-hidden="true"></i>
+              </div>
               <h3>Máquina de Tabulação — Herman Hollerith</h3>
             </div>
             <p>Usou cartões perfurados e leitores eletromecânicos para acelerar o processamento do censo dos EUA — marco da automação de dados e origem da Tabulating Machine Company (futuro IBM).</p>
           </div>
         </a>
       </article>
+
     </section>
   </main>
 
@@ -133,33 +209,21 @@
 
       <div class="footer-actions">
         <button class="btn-tertiary" id="theme-toggle" title="Alterar Tema">
-          <i class="fas fa-adjust"></i>
+          <i class="fas fa-adjust" aria-hidden="true"></i>
           <span id="theme-text"></span>
         </button>
         <button class="btn-tertiary" id="lang-toggle" title="Mudar Idioma">
-          <i class="fas fa-globe"></i>
+          <i class="fas fa-globe" aria-hidden="true"></i>
           <span>Idioma</span>
         </button>
         <button class="btn-tertiary" title="Sobre Nós">
-          <i class="fas fa-info"></i>
+          <i class="fas fa-info" aria-hidden="true"></i>
           <span>Sobre Nós</span>
         </button>
       </div>
     </div>
   </footer>
 
-
-  <button class="fab" id="curiosityBtn" aria-label="Gerar curiosidade">?</button>
-
-  <div class="modal-backdrop" id="modalBackdrop" role="dialog" aria-hidden="true">
-    <div class="modal" role="document" aria-labelledby="modalTitle">
-      <header>
-        <strong id="modalTitle">Curiosidade</strong>
-        <button class="close" id="modalClose" aria-label="Fechar">✕</button>
-      </header>
-      <div id="modalContent" style="color:var(--cor-texto)"></div>
-    </div>
-  </div>
   <script src="./js/timeline.js"></script>
   <script src="./js/idioma.js"></script>
   <script src="./js/tema.js"></script>
