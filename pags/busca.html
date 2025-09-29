@@ -6,12 +6,10 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Busca — História da Computação</title>
 
-  <!-- seu CSS principal (mantém identidade visual) -->
   <link rel="stylesheet" href="../css/busca.css">
 </head>
 
 <body class="body-main">
-  <!-- HEADER (igual ao timeline) -->
   <header class="site-header">
     <div class="header-container">
       <a href="../index.html" class="logo-link" aria-label="Ir para a página inicial">
@@ -26,9 +24,8 @@
     </div>
   </header>
 
-  <!-- MAIN: busca + resultados + preview -->
+
   <main class="page-wrap" role="main">
-    <!-- Search area -->
     <div class="search-panel" role="region" aria-label="Painel de busca">
       <div class="search-input" role="search" aria-label="Pesquisar no site">
         <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" style="opacity:.6">
@@ -45,17 +42,16 @@
 
     <div class="search-meta" aria-live="polite">Exibindo <strong id="resultsCount">0</strong> resultados</div>
 
-    <!-- Results panel -->
+
     <section class="results-panel" aria-labelledby="results-title">
       <h2 id="results-title" style="margin:0;">Resultados</h2>
       <div id="resultsList" class="results-list" role="list" aria-live="polite">
-        <!-- JS populates -->
+
       </div>
     </section>
 
   </main>
 
-  <!-- FOOTER (igual ao timeline) -->
   <footer class="site-footer">
     <div class="footer-container">
       <a href="./timeline.html" class="logo-link">
@@ -80,7 +76,6 @@
   </footer>
 
 
-  <!-- mantêm os scripts do seu site para tema/idioma, se existirem -->
   <script src="../js/busca.js"></script>
   <script src="../js/tema.js"></script>
   <script src="../js/idioma.js"></script>

@@ -1,4 +1,3 @@
-// ===== TROCA DE TEMA SIMPLIFICADA =====
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.documentElement;
   const themeBtn = document.getElementById("theme-toggle");
@@ -11,32 +10,47 @@ document.addEventListener("DOMContentLoaded", () => {
     dark: "/imgs/logo-branco.png",
   };
 
-  // Detecta tema salvo ou preferência do sistema
   let theme =
     localStorage.getItem("theme") ||
     (window.matchMedia("(prefers-color-scheme: light)").matches
       ? "light"
       : "dark");
 
+  function getThemeLabels() {
+    const defaultLabels = { light: "Modo Claro", dark: "Modo Escuro" };
+    try {
+      if (window.__i18n && window.__i18n.themeLabels) {
+        const t = window.__i18n.themeLabels;
+        return {
+          light: t.light || defaultLabels.light,
+          dark: t.dark || defaultLabels.dark,
+        };
+      }
+    } catch (e) {
+      /* ignore */
+    }
+    return defaultLabels;
+  }
+
   function applyTheme(mode) {
     root.setAttribute("data-theme", mode);
+
+    const labels = getThemeLabels();
     if (themeText)
-      themeText.textContent = mode === "light" ? "Modo Escuro" : "Modo Claro";
+      themeText.textContent = mode === "light" ? labels.light : labels.dark;
+
     if (headerLogo) headerLogo.src = LOGOS[mode];
     if (footerLogo) footerLogo.src = LOGOS[mode];
   }
 
-  // Aplica tema inicial
   applyTheme(theme);
 
-  // Botão de alternância
   themeBtn?.addEventListener("click", () => {
     theme = theme === "light" ? "dark" : "light";
     localStorage.setItem("theme", theme);
     applyTheme(theme);
   });
 
-  // Mudança automática do sistema (apenas se não houver preferência salva)
   window
     .matchMedia("(prefers-color-scheme: light)")
     .addEventListener("change", (e) => {
@@ -45,4 +59,12 @@ document.addEventListener("DOMContentLoaded", () => {
         applyTheme(theme);
       }
     });
+
+  window.addEventListener("i18n:labels", () => {
+    applyTheme(theme);
+  });
+
+  if (window.__i18n && window.__i18n.themeLabels) {
+    applyTheme(theme);
+  }
 });

@@ -1,43 +1,37 @@
-/* busca.css — modo escuro MAIS CLARO (substituir arquivo inteiro) */
-@import url("./main-import.css"); /* ajuste caminho se necessário */
+@import url("./main-import.css");
 
-/* -----------------------------
-   Variáveis locais (light baseline)
-   ----------------------------- */
+/* local */
 :root {
   --card-radius: 12px;
   --search-height: 56px;
-  --shadow-soft: 0 10px 28px rgba(0, 0, 0, 0.1);
+  --shadow-soft: 0 2px 5px var(--shadow);
+
   --panel-border: rgba(0, 0, 0, 0.06);
   --panel-border-strong: rgba(0, 0, 0, 0.14);
-  --input-border: rgba(0, 0, 0, 0.08);
+  --input-border: rgba(0, 0, 0, 0.23);
   --focus-latam: rgba(166, 124, 42, 0.12);
 }
 
-/* -----------------------------
-   Layout geral
-   ----------------------------- */
+/* layout */
 .page-wrap {
   max-width: 1100px;
-  margin: 22px auto 80px;
+  margin: 40px auto 40px;
   padding: 0 18px;
   box-sizing: border-box;
   display: grid;
   gap: 18px;
 }
 
-/* -----------------------------
-   Painel de busca
-   ----------------------------- */
+/* painel */
 .search-panel {
   display: flex;
   gap: 14px;
   align-items: center;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.025),
-    rgba(0, 0, 0, 0.01)
-  );
+  background-image: linear-gradient(180deg, var(--paper), var(--paper-dark));
+  :root[data-theme="dark"] & {
+    background-image: linear-gradient(180deg, #202529, var(--paper));
+  }
+
   border-radius: calc(var(--card-radius) + 2px);
   padding: 16px;
   border: 1px solid var(--panel-border-strong);
@@ -46,13 +40,11 @@
     border-color 0.12s ease;
 }
 .search-panel:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.11);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px var(shadow);
 }
 
-/* -----------------------------
-   Input wrapper (grande e legível)
-   ----------------------------- */
+/* input wrapper */
 .search-input {
   flex: 1;
   display: flex;
@@ -88,9 +80,7 @@
   color: rgba(43, 31, 22, 0.44);
 }
 
-/* -----------------------------
-   Controles / Botões
-   ----------------------------- */
+/* botões */
 .controls {
   display: flex;
   gap: 10px;
@@ -107,7 +97,7 @@
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
 }
 
-/* Primary search button (latão do tema) */
+/* botão de pesquisa */
 .search-panel .btn {
   background: linear-gradient(180deg, var(--brass), var(--brass-dark));
   color: var(--w);
@@ -123,18 +113,14 @@
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.16);
 }
 
-/* -----------------------------
-   Search metadata
-   ----------------------------- */
+/* metadata */
 .search-meta {
   text-align: right;
   color: var(--cor-suave);
   font-size: 0.95rem;
 }
 
-/* -----------------------------
-   Results list
-   ----------------------------- */
+/* resultados */
 .results-panel {
   background: linear-gradient(
     180deg,
@@ -156,14 +142,17 @@
 .result {
   padding: 14px;
   border-radius: 8px;
-  background: transparent;
+  background-image: linear-gradient(180deg, var(--paper), var(--paper-dark));
+  :root[data-theme="dark"] & {
+    background-image: linear-gradient(180deg, #202529, var(--paper));
+  }
   border-left: 3px solid rgba(0, 0, 0, 0.05);
   border: 1px solid rgba(0, 0, 0, 0.1);
   transition: background 0.18s ease, transform 0.12s ease;
 }
 .result:hover {
-  background: rgba(0, 0, 0, 0.02);
   transform: translateY(-2px);
+  filter: brightness(99%);
 }
 
 .result .title {
@@ -192,7 +181,7 @@ mark.hi {
   border-radius: 3px;
 }
 
-/* responsive */
+/* responsividade */
 @media (max-width: 900px) {
   .search-panel {
     padding: 12px;
@@ -210,9 +199,7 @@ mark.hi {
   }
 }
 
-/* -----------------------------
-   DARK MODE — mais CLARO (opacidades maiores)
-   ----------------------------- */
+/* modo escuro */
 :root[data-theme="dark"] {
   --panel-bg: rgba(255, 255, 255, 0.06); /* superfície geral mais luminosa */
   --input-bg: rgba(255, 255, 255, 0.1); /* input ainda mais claro */
@@ -224,7 +211,6 @@ mark.hi {
   --white-78: rgba(255, 255, 255, 0.78);
 }
 
-/* surfaces: usar o cream translúcido em dark para clarear o look */
 :root[data-theme="dark"] .search-panel,
 :root[data-theme="dark"] .results-panel,
 :root[data-theme="dark"] .preview-panel {
@@ -238,9 +224,8 @@ mark.hi {
   color: var(--white-92);
 }
 
-/* input: mais claro e com borda visível */
 :root[data-theme="dark"] .search-input {
-  background: var(--input-bg); /* muito mais claro que antes */
+  background: var(--input-bg);
   border: 1px solid var(--input-border);
   box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.02);
 }
@@ -256,14 +241,12 @@ mark.hi {
     inset 0 -2px 0 rgba(255, 255, 255, 0.02);
 }
 
-/* button: latão ligeiramente mais claro para contrastar nas superfícies clareadas */
 :root[data-theme="dark"] .search-panel .btn {
   background: linear-gradient(180deg, var(--brass-dark), var(--brass));
   color: var(--w-2);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
-/* resultados em dark */
 :root[data-theme="dark"] .result .title {
   color: var(--w-2);
 }
@@ -276,7 +259,7 @@ mark.hi {
 :root[data-theme="dark"] .result {
   border: 1px solid rgba(255, 255, 255, 0.5);
 }
-/* preview tweaks */
+
 :root[data-theme="dark"] .preview-panel h2 {
   color: var(--w-2);
 }
@@ -288,7 +271,6 @@ mark.hi {
   box-shadow: 0 10px 26px rgba(0, 0, 0, 0.36);
 }
 
-/* highlight mark em dark (ligeiro) */
 :root[data-theme="dark"] mark.hi {
   background: linear-gradient(
     90deg,
@@ -298,7 +280,6 @@ mark.hi {
   color: rgba(0, 0, 0, 0.82);
 }
 
-/* foco acessível: exibido apenas quando o usuário ativou body--kb */
 .body--kb .btn:focus,
 .body--kb input:focus,
 .body--kb a:focus,
@@ -307,7 +288,6 @@ mark.hi {
   outline-offset: 3px;
 }
 
-/* transições suaves */
 :root[data-theme="dark"] .search-panel,
 :root[data-theme="dark"] .search-input,
 :root[data-theme="dark"] .results-panel,
