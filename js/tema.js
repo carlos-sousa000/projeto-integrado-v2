@@ -10,11 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     dark: "/imgs/logo-branco.png",
   };
 
-  let theme =
-    localStorage.getItem("theme") ||
-    (window.matchMedia("(prefers-color-scheme: light)").matches
-      ? "light"
-      : "dark");
+  let theme = localStorage.getItem("theme") || "light";
 
   function getThemeLabels() {
     const defaultLabels = { light: "Modo Claro", dark: "Modo Escuro" };

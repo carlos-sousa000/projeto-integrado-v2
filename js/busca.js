@@ -62,7 +62,7 @@
         "Nota sobre a máquina analítica contendo um algoritmo para calcular números de Bernoulli. Reconhecida como a primeira programadora.",
       tags: "ada,lovelace,algoritmo",
       date: "1842",
-      url: "./pags/artigos/artigo.html",
+      url: ".././pags/artigos/artigo.html",
     },
     {
       id: "a7",

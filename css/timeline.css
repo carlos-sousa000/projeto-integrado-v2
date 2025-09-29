@@ -114,9 +114,9 @@ main.container {
   right: auto;
 }
 
-/* Hover elevation */
+/* hover card */
 .timeline-event:hover .card {
-  transform: translateY(-8px);
+  transform: translateY(-6px);
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.22);
 }
 .timeline-event:hover .card::after {
@@ -124,7 +124,7 @@ main.container {
   transform: translateY(-50%) scaleX(1.05);
 }
 
-/* -------------------- Título e Ícone do Card -------------------- */
+/* titulo e icon - card */
 
 .card-title .card-icon {
   width: 40px;
@@ -198,7 +198,7 @@ main.container {
   transform: translateY(-2px);
 }
 
-/* -------------------- Badge de Ano (Círculo) -------------------- */
+/* circulo - ano */
 
 .timeline-event::before {
   content: attr(data-year);
@@ -231,7 +231,7 @@ main.container {
   transform: translate(-50%, -50%);
 }
 
-/* -------------------- Cabeçalho da Timeline -------------------- */
+/* header timeline */
 
 .timeline-header {
   width: 100%;
@@ -264,7 +264,7 @@ main.container {
   white-space: nowrap;
 }
 
-/* -------------------- Final da Timeline -------------------- */
+/* final */
 
 .timeline-end {
   width: 100%;
@@ -309,7 +309,7 @@ main.container {
   color: var(--cor-texto);
 }
 
-/* -------------------- Ajustes Responsivos -------------------- */
+/* responsividade */
 
 @media (max-width: 1000px) {
   .timeline::after {
@@ -367,8 +367,7 @@ main.container {
   }
 }
 
-/* -------------------- Dark Mode Overrides -------------------- */
-
+/* modo escuro */
 :root[data-theme="dark"] .timeline-event .card {
   background: linear-gradient(180deg, #1d2226, var(--paper));
   border: 1px solid var(--borda-card);
@@ -381,7 +380,6 @@ main.container {
   color: var(--muted-ink);
 }
 
-/* Brilho do trilho no modo escuro diminuído */
 :root[data-theme="dark"] .timeline::after {
   background: var(--brass-dark);
   filter: drop-shadow(0 0 6px hsla(from var(--brass) h s l / 0.4));

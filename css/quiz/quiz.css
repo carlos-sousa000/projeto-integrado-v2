@@ -1,211 +1,305 @@
 @import url("../../css/main-import.css");
 
-/* ========== BASE ========== */
+:root {
+  --accent-color: var(--brass);
+  --card-border: var(--borda-card);
+  --card-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  --card-shadow-hover: 0 4px 8px rgba(0, 0, 0, 0.15);
+  --success-glow: rgba(176, 122, 43, 0.4);
+  --danger-glow: rgba(0, 0, 0, 0.2);
+}
+
+:root[data-theme="dark"] {
+  --card-border: rgba(255, 255, 255, 0.12);
+  --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --card-shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.5);
+  --success-glow: rgba(184, 134, 42, 0.4);
+  --danger-glow: rgba(0, 0, 0, 0.5);
+}
+
+main.container {
+  max-width: 1100px;
+  margin: 2.5rem auto;
+  padding: 0 20px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
 .quiz {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  padding-bottom: 10px;
+  gap: 28px;
 }
 
-/* Hero / topo do quiz */
-.quiz-hero {
+.quiz-hero,
+.quiz-card,
+.quiz-actions {
   background: var(--paper);
-  padding: 18px;
   border-radius: 8px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1); /* mais suave */
-  border: 0.8px solid rgba(0, 0, 0, 0.06); /* menos agressivo */
+  padding: 2rem;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.22s cubic-bezier(0.2, 0.9, 0.25, 1),
+    box-shadow 0.22s cubic-bezier(0.2, 0.9, 0.25, 1);
 }
 
-/* Títulos */
+.quiz-hero {
+  padding: 1.5rem 2rem;
+}
+
 .quiz-head h2 {
-  font-size: 1.7rem;
-  color: var(--ink);
-  margin-bottom: 6px;
-}
-.quiz-head p {
-  color: var(--cor-suave);
-  font-size: 0.95rem;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2rem;
+  color: var(--cor-texto);
+  margin-bottom: 0.5rem;
 }
 
-/* ========== BARRA DE PROGRESSO ========== */
+.quiz-head .muted {
+  color: var(--cor-suave);
+  font-size: 1rem;
+}
+
 .quiz-progress {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-top: 12px;
+  gap: 12px;
+  margin-top: 1.5rem;
 }
+
 #progress-bar {
   flex: 1;
   height: 12px;
   background: var(--paper-dark);
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.06);
-  border: 0.6px solid rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--card-border);
 }
+
 #progress-bar .progress-fill {
   height: 100%;
   background: linear-gradient(90deg, var(--brass), var(--brass-dark));
-  box-shadow: 0 0 8px rgba(176, 122, 43, 0.45);
-  transition: width 0.28s ease;
-}
-.progress-text {
-  font-weight: 700;
-  font-size: 0.92rem;
-  color: var(--ink);
+  box-shadow: 0 0 8px var(--success-glow);
+  transition: width 0.3s ease;
 }
 
-/* ========== CARTÕES ========== */
+.progress-text {
+  font-weight: 700;
+  color: var(--cor-texto);
+}
+
 .quiz-cards {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 28px;
 }
 
-.quiz-card {
-  background: var(--paper);
-  background-image: radial-gradient(
-    circle at center,
-    transparent 40%,
-    rgba(0, 0, 0, 0.02) 100%
-  );
-  border-radius: 8px;
-  border: 0.8px solid rgba(0, 0, 0, 0.06); /* mais leve */
-  padding: 18px;
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.09); /* sombra menos pesada */
-  transition: transform 0.16s ease, box-shadow 0.16s ease;
-}
-.quiz-card:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.11);
-}
 .quiz-card h3 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-  color: var(--ink);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+  color: var(--cor-texto);
+  line-height: 1.4;
 }
 
-/* ========== OPÇÕES ========== */
 .quiz-options {
   display: grid;
-  gap: 10px;
+  gap: 0.8rem;
 }
+
 .quiz-option {
-  padding: 10px 20px;
-  border-radius: 8px;
-  border: 1px solid rgba(0, 0, 0, 0.09); /* fina e suave */
+  padding: 12px 16px;
+  border-radius: 6px;
+  border: 1px solid rgba(91, 70, 58, 0.5);
   background: linear-gradient(180deg, var(--paper), var(--paper-dark));
-  font-weight: 600;
+  font-weight: 500;
   text-align: left;
   cursor: pointer;
-  transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
-  color: var(--cor-suave);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease,
+    color 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
+  color: var(--muted-ink);
 }
+
 .quiz-option:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+  transform: translateY(-3px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
+  color: var(--cor-texto);
+  filter: brightness(1.02);
 }
 
-/* Ao responder: desaturar opções não selecionadas */
 .quiz-card.answered .quiz-option:not(.correct):not(.wrong) {
-  filter: grayscale(0.18) opacity(0.85);
+  opacity: 0.6;
+  pointer-events: none;
 }
 
-/* Estado correto/errado (JS usa .correct e .wrong) */
 .quiz-option.correct {
   background: linear-gradient(180deg, var(--brass), var(--brass-dark));
-  color: var(--w);
-  box-shadow: 0 6px 18px rgba(176, 122, 43, 0.5);
-  border-color: rgba(0, 0, 0, 0.08);
+  color: white;
+  box-shadow: 0 6px 18px var(--success-glow);
+  border-color: transparent;
 }
+
 .quiz-option.wrong {
   background: linear-gradient(180deg, #6a5649, #53463f);
-  color: var(--w);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.28);
-  border-color: rgba(0, 0, 0, 0.08);
+  color: white;
+  box-shadow: 0 4px 12px var(--danger-glow);
+  border-color: transparent;
 }
 
-/* foco acessível só no modo teclado (body--kb definido no JS) */
-.body--kb .quiz-option:focus {
-  outline: 2px solid rgba(176, 122, 43, 0.85);
-  outline-offset: 3px;
-}
-
-/* ========== AÇÕES E RESULTADO ========== */
 .quiz-actions {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 10px;
-  margin-top: 12px;
-}
-.quiz-result {
-  font-weight: 700;
-  color: var(--ink);
-  background: var(--paper-dark);
-  padding: 8px 12px;
-  border-radius: 8px;
-  border: 0.6px solid rgba(0, 0, 0, 0.05);
+  gap: 1rem;
+  margin-top: 1rem;
+  padding: 1rem 1.5rem;
 }
 
-/* ========== OVERLAY / CELEBRATION ========== */
+.quiz-actions .btn.secondary {
+  background: var(--paper-dark);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
+  color: var(--muted-ink);
+  cursor: pointer;
+}
+
+.quiz-actions .btn.secondary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+  filter: brightness(1.02);
+  color: var(--cor-texto);
+}
+
+.quiz-result {
+  font-weight: 700;
+  color: var(--cor-texto);
+  background-color: var(--paper-dark);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+  padding: 8px 16px;
+  border-radius: 6px;
+}
+
 .celebration {
   position: fixed;
   inset: 0;
   display: none;
   justify-content: center;
   align-items: center;
-  background: rgba(0, 0, 0, 0.62);
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
   z-index: 995;
 }
-.celebration.show,
-.celebration[aria-hidden="false"] {
+
+.celebration.show {
   display: flex;
 }
 
 .celebration-card {
   position: relative;
   background: var(--paper);
-  padding: 24px;
+  padding: 2rem;
   border-radius: 12px;
   text-align: center;
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--card-border);
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
-  z-index: 1000;
-  max-width: 880px;
+  max-width: 400px;
 }
 
-/* Close button */
 .close-x {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  background: transparent;
+  top: 25px;
+  right: 30px;
+  background: none;
   border: none;
-  font-size: 20px;
+  font-size: 1.5rem;
   cursor: pointer;
-  color: var(--ink);
-  padding: 6px;
+  color: var(--cor-suave);
 }
 
-/* esconder / atenuar footer */
-footer.site-footer.hidden-overlay {
-  opacity: 0;
-  transform: translateY(6px);
-  pointer-events: none;
-  transition: opacity 0.2s ease, transform 0.2s ease;
+.badge-medal {
+  font-size: 5rem;
+  color: var(--accent-color);
+  text-shadow: 0 5px 10px var(--success-glow);
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+.badge-medal.gradient {
+  background: linear-gradient(180deg, #ffd166, #f4a261 60%, #b07a2b 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 6px 16px rgba(176, 122, 43, 0.22));
 }
 
-/* ========== CONFETE ========== */
+:root[data-theme="dark"] .quiz-hero,
+:root[data-theme="dark"] .quiz-card,
+:root[data-theme="dark"] .quiz-actions {
+  background: linear-gradient(180deg, #1d2226, var(--paper));
+}
+
+:root[data-theme="dark"] #progress-bar {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+:root[data-theme="dark"] .quiz-option {
+  background: linear-gradient(180deg, #2a2f33, var(--paper));
+  color: var(--muted-ink);
+}
+
+:root[data-theme="dark"] .quiz-option:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  color: var(--cor-texto);
+}
+
+:root[data-theme="dark"] .quiz-actions .btn.secondary {
+  background: #0a0b0c;
+  border-color: rgba(255, 255, 255, 0.2);
+  color: var(--muted-ink);
+}
+
+:root[data-theme="dark"] .quiz-actions .btn.secondary:hover {
+  color: var(--cor-texto);
+}
+
+:root[data-theme="dark"] .quiz-result {
+  background: #0a0b0c;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+:root[data-theme="dark"] .celebration-card {
+  background: var(--paper-dark);
+}
+
+@media (max-width: 768px) {
+  main.container {
+    margin: 1.5rem auto;
+    padding: 0 15px;
+  }
+
+  .quiz-hero,
+  .quiz-card,
+  .quiz-actions {
+    padding: 1.5rem;
+  }
+
+  .quiz-head h2 {
+    font-size: 1.8rem;
+  }
+
+  .quiz-card h3 {
+    font-size: 1.4rem;
+  }
+}
+
+/* confete */
 #confetti-area,
 .confetti-area {
   position: fixed;
   inset: 0;
   pointer-events: none;
   overflow: hidden;
-  z-index: 990; /* abaixo do celebration-card (1000) */
+  z-index: 990;
 }
 .celebration.show #confetti-area,
 .celebration[aria-hidden="false"] #confetti-area {
@@ -220,7 +314,7 @@ footer.site-footer.hidden-overlay {
   opacity: 0.98;
 }
 
-/* animações: queda usa 'top', balanço+rotação usa 'transform' para não conflitar */
+/* animações*/
 @keyframes confetti-fall {
   0% {
     top: -12vh;
@@ -241,119 +335,7 @@ footer.site-footer.hidden-overlay {
   }
 }
 
-/* ========== MODO ESCURO: OVERRIDES ======== */
-:root[data-theme="dark"] .quiz-hero,
-:root[data-theme="dark"] .quiz-card,
-:root[data-theme="dark"] .celebration-card {
-  background: linear-gradient(180deg, #151313, #191618);
-  color: var(--cor-texto);
-  border-color: rgba(255, 255, 255, 0.04); /* borda bem sutil */
-  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.55);
-}
-
-/* deixar texto legível */
-:root[data-theme="dark"] .quiz-head h2 {
-  color: var(--w-2);
-}
-:root[data-theme="dark"] .quiz-head p {
-  color: rgba(255, 255, 255, 0.75);
-}
-:root[data-theme="dark"] .quiz-card h3 {
-  color: var(--w-2);
-}
-:root[data-theme="dark"] .quiz-result {
-  background: #141212;
-  color: var(--w-2);
-  border-color: rgba(255, 255, 255, 0.03);
-}
-
-/* opções no dark */
-:root[data-theme="dark"] .quiz-option {
-  background: linear-gradient(180deg, #141210, #1b1917);
-  color: var(--w-2);
-  border: 0.6px solid rgba(255, 255, 255, 0.03);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.5);
-}
-:root[data-theme="dark"] .quiz-option:hover {
-  box-shadow: 0 12px 22px rgba(0, 0, 0, 0.55);
-  transform: translateY(-2px);
-}
-
-/* correta mais brilhante no dark */
-:root[data-theme="dark"] .quiz-option.correct {
-  background: linear-gradient(180deg, #b8862a, #8b5b14);
-  color: var(--w);
-  box-shadow: 0 8px 20px rgba(184, 134, 42, 0.5);
-  border-color: rgba(0, 0, 0, 0.2);
-}
-/* errada no dark (visível, mas menos brilhante) */
-:root[data-theme="dark"] .quiz-option.wrong {
-  background: linear-gradient(180deg, #5b3f3a, #473733);
-  color: var(--w);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.6);
-}
-
-/* foco keyboard no dark */
-:root[data-theme="dark"] .body--kb .quiz-option:focus {
-  outline: 2px solid rgba(184, 134, 42, 0.95);
-  outline-offset: 3px;
-}
-
-/* confere contraste do close-x no dark */
-:root[data-theme="dark"] .close-x {
-  color: var(--w-2);
-}
-
-/* pequenos ajustes responsivos */
-@media (max-width: 900px) {
-  .quiz-hero {
-    padding: 14px;
-  }
-  .quiz-card {
-    padding: 14px;
-    border-radius: 10px;
-  }
-  .celebration-card {
-    margin: 14px;
-    width: calc(100% - 28px);
-  }
-}
-
-/* Medalha (badge) usando Font Awesome */
-.badge-wrap {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 12px;
-  line-height: 1;
-}
-
-/* ícone da medalha */
-.badge-medal {
-  font-size: 84px; /* tamanho grande como antes */
-  display: inline-block;
-  color: var(--brass); /* cor base latão */
-  text-shadow: 0 2px 0 rgba(255, 255, 255, 0.22),
-    /* leve brilho superior */ 0 6px 20px rgba(176, 122, 43, 0.18); /* sombra suave */
-  transform-origin: center;
-  transition: transform 0.28s cubic-bezier(0.2, 0.9, 0.2, 1), filter 0.2s ease;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* pequeno pulso quando mostrar overlay */
-.celebration.show .badge-medal,
-.celebration[aria-hidden="false"] .badge-medal {
-  animation: medal-pop 900ms cubic-bezier(0.2, 0.9, 0.2, 1) 1;
-}
-
-/* hover / foco acessível (não aparece normalmente — decorative) */
-.badge-medal:hover {
-  transform: translateY(-4px) rotate(-6deg) scale(1.03);
-  filter: drop-shadow(0 10px 20px rgba(176, 122, 43, 0.18));
-}
-
-/* Animação suave */
+/* animação suave */
 @keyframes medal-pop {
   0% {
     transform: scale(0.6) rotate(-12deg);
@@ -372,25 +354,7 @@ footer.site-footer.hidden-overlay {
   }
 }
 
-/* ajuste do ícone para telas pequenas */
-@media (max-width: 900px) {
-  .badge-medal {
-    font-size: 64px;
-  }
-}
-
-/* Modo escuro: destacar a medalha (mais contraste) */
-:root[data-theme="dark"] .badge-medal {
-  color: #d9b36a; /* tom mais claro do latão no dark */
-  text-shadow: 0 2px 0 rgba(255, 255, 255, 0.06), 0 8px 26px rgba(0, 0, 0, 0.6);
-}
-
-/* Se quiser um gradiente metálico (opcional): usa background-clip */
-.badge-medal.gradient {
-  /* o texto fica preenchido por um gradiente — requer -webkit-background-clip */
-  background: linear-gradient(180deg, #ffd166, #f4a261 60%, #b07a2b 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  filter: drop-shadow(0 6px 16px rgba(176, 122, 43, 0.22));
+#btn-restart-final {
+  border: none;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
 }

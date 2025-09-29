@@ -20,7 +20,7 @@
 
   --borda-card: var(--muted-ink);
   --cor-regua-card: var(--muted-ink);
-  --shadow: rgba(0, 0, 0, 0.12);
+  --shadow: rgba(0, 0, 0, 0.15);
   --w: #fff;
   --w-2: rgba(255, 255, 255, 0.95);
   --w-3: rgba(255, 255, 255, 0.88);
@@ -72,7 +72,7 @@ body.body-main {
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  transition: none !important; /* Remove flicker na troca de tema */
+  transition: none !important;
 }
 
 main.container {
