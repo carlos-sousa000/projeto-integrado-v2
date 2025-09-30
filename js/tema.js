@@ -6,8 +6,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const footerLogo = document.querySelector(".footer-logo");
 
  const LOGOS = {
-  light: "/projeto-integrado-v2/imgs/logo-preto.png",
-  dark: "/projeto-integrado-v2/imgs/logo-branco.png",
+  light: "./projeto-integrado-v2/imgs/logo-preto.png",
+  dark: "./projeto-integrado-v2/imgs/logo-branco.png",
 };
   let theme = localStorage.getItem("theme") || "light";
 
@@ -63,6 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
     applyTheme(theme);
   }
 });
+
 
 
 
