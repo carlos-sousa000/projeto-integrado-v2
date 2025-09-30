@@ -2,13 +2,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const root = document.documentElement;
   const themeBtn = document.getElementById("theme-toggle");
   const themeText = document.getElementById("theme-text");
-  const headerLogo = document.querySelector(".project-logo, .brand img");
+  const headerLogo = document.querySelector(".project-logo:not(.footer-logo)");
   const footerLogo = document.querySelector(".footer-logo");
 
- const LOGOS = {
-  light: "./projeto-integrado-v2/imgs/logo-preto.png",
-  dark: "./projeto-integrado-v2/imgs/logo-branco.png",
-};
+  // Caminho fixo baseado no repositório do GitHub Pages
+  const LOGOS = {
+    light: "/projeto-integrado-v2/imgs/logo-preto.png",
+    dark: "/projeto-integrado-v2/imgs/logo-branco.png",
+  };
+
   let theme = localStorage.getItem("theme") || "light";
 
   function getThemeLabels() {
@@ -22,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
         };
       }
     } catch (e) {
-      /* ignore */
+      // Ignora erros
     }
     return defaultLabels;
   }
@@ -63,8 +65,3 @@ document.addEventListener("DOMContentLoaded", () => {
     applyTheme(theme);
   }
 });
-
-
-
-
-
