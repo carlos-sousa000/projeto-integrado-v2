@@ -5,13 +5,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const headerLogo = document.querySelector(".project-logo:not(.footer-logo)");
   const footerLogo = document.querySelector(".footer-logo");
 
-
-  const repoName = window.location.pathname.split("/")[1];
-  const basePath = `/${repoName}`;
-
+  const pathParts = window.location.pathname.split('/');
+  const repoName = pathParts.includes('projeto-integrado-v2') ? '/projeto-integrado-v2' : '';
+  
   const LOGOS = {
-    light: `${basePath}/imgs/logo-preto.png`,
-    dark: `${basePath}/imgs/logo-branco.png`,
+    light: `${repoName}/imgs/logo-preto.png`,
+    dark: `${repoName}/imgs/logo-branco.png`,
   };
 
   function getThemeLabels() {
@@ -71,4 +70,3 @@ document.addEventListener("DOMContentLoaded", () => {
     applyTheme(theme);
   }
 });
-
