@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const headerLogo = document.querySelector(".project-logo:not(.footer-logo)");
   const footerLogo = document.querySelector(".footer-logo");
 
-  // Detecta automaticamente o nome do repositório (ex: "projeto-integrado-v2")
+
   const repoName = window.location.pathname.split("/")[1];
   const basePath = `/${repoName}`;
 
@@ -71,3 +71,4 @@ document.addEventListener("DOMContentLoaded", () => {
     applyTheme(theme);
   }
 });
+
