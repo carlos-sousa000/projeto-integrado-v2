@@ -17,7 +17,7 @@
         "Projetada para calcular e imprimir tabelas matemáticas automaticamente. Era mecânica, com engrenagens.",
       tags: "babbage,máquina,diferencial",
       date: "1821",
-      url: "./pags/artigos/artigo.html",
+      url: ".././pags/artigos/artigo.html",
     },
     {
       id: "a2",
@@ -26,7 +26,7 @@
         "Utilizou cartões perfurados/registradores para organizar informações, antecipando sistemas de indexação mecânica de dados.",
       tags: "korsakov,cartoes,armazenamento",
       date: "1832",
-      url: "./pags/artigos/artigo.html",
+      url: ".././pags/artigos/artigo.html",
     },
     {
       id: "a3",
@@ -35,7 +35,7 @@
         "Exemplos iniciais de máquinas com entrada por teclado, facilitando inserção direta de números.",
       tags: "torchi,teclado",
       date: "1834",
-      url: "./pags/artigos/artigo.html",
+      url: ".././pags/artigos/artigo.html",
     },
     {
       id: "a4",
@@ -44,7 +44,7 @@
         "Componentes eletromecânicos que permitiram o controle de sinais e são antecedentes dos circuitos lógicos.",
       tags: "henry,rele,eletromecanico",
       date: "1835",
-      url: "./pags/artigos/artigo.html",
+      url: ".././pags/artigos/artigo.html",
     },
     {
       id: "a5",
@@ -53,7 +53,7 @@
         "Conceito de computador de uso geral: unidade aritmética, memória, controle e uso de cartões para instruções.",
       tags: "babbage,analitica",
       date: "1837",
-      url: "./pags/artigos/artigo.html",
+      url: ".././pags/artigos/artigo.html",
     },
     {
       id: "a6",
@@ -71,7 +71,7 @@
         "Formalização da lógica por George Boole que possibilitou operações lógicas em circuitos digitais.",
       tags: "boole,logica",
       date: "1854",
-      url: "./pags/artigos/artigo.html",
+      url: ".././pags/artigos/artigo.html",
     },
     {
       id: "a8",
@@ -80,7 +80,7 @@
         "Usou cartões perfurados e leitores eletromecânicos para acelerar o processamento do censo dos EUA.",
       tags: "hollerith,tabulacao,cartoes",
       date: "1890",
-      url: "./pags/artigos/hollerith.html",
+      url: ".././pags/artigos/hollerith.html",
     },
   ];
 

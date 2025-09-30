@@ -5,9 +5,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const headerLogo = document.querySelector(".project-logo:not(.footer-logo)");
   const footerLogo = document.querySelector(".footer-logo");
 
-  const pathParts = window.location.pathname.split('/');
-  const repoName = pathParts.includes('projeto-integrado-v2') ? '/projeto-integrado-v2' : '';
-  
+  const pathParts = window.location.pathname.split("/");
+  const repoName = pathParts.includes("projeto-integrado-v2")
+    ? "/projeto-integrado-v2"
+    : "";
+
   const LOGOS = {
     light: `${repoName}/imgs/logo-preto.png`,
     dark: `${repoName}/imgs/logo-branco.png`,

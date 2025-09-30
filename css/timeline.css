@@ -63,7 +63,7 @@ main.container {
   border: 1px solid var(--borda-card);
   padding: 30px;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
-  transition: transform 0.22s cubic-bezier(0.2, 0.9, 0.25, 1),
+  transition: transform 0.25s cubic-bezier(0.2, 0.9, 0.25, 1),
     box-shadow 0.22s cubic-bezier(0.2, 0.9, 0.25, 1), border-color 0.18s ease;
   position: relative;
   display: flex;
@@ -116,7 +116,7 @@ main.container {
 
 /* hover card */
 .timeline-event:hover .card {
-  transform: translateY(-6px);
+  transform: translateY(-10px);
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.22);
 }
 .timeline-event:hover .card::after {
@@ -125,7 +125,6 @@ main.container {
 }
 
 /* titulo e icon - card */
-
 .card-title .card-icon {
   width: 40px;
   height: 40px;
@@ -307,6 +306,18 @@ main.container {
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
   min-height: 50px;
   color: var(--cor-texto);
+}
+/* "animação" */
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s cubic-bezier(0.2, 0.9, 0.25, 1),
+    transform 0.7s cubic-bezier(0.2, 0.9, 0.25, 1);
+}
+
+.fade-up.in {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* responsividade */
