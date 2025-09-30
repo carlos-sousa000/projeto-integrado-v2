@@ -5,17 +5,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const headerLogo = document.querySelector(".project-logo, .brand img");
   const footerLogo = document.querySelector(".footer-logo");
 
-  function getBasePath() {
-  const pathSegments = window.location.pathname.split("/");
-  // se estiver como "/projeto-integrado-v2/...", pathSegments[1] é "projeto-integrado-v2"
-  return pathSegments[1] || "";
-}
-
-const base = getBasePath();
-
-const LOGOS = {
-  light: `/${base}/imgs/logo-preto.png`,
-  dark: `/${base}/imgs/logo-branco.png`,
+ const LOGOS = {
+  light: "/projeto-integrado-v2/imgs/logo-preto.png",
+  dark: "/projeto-integrado-v2/imgs/logo-branco.png",
 };
   let theme = localStorage.getItem("theme") || "light";
 
@@ -71,6 +63,7 @@ const LOGOS = {
     applyTheme(theme);
   }
 });
+
 
 
 
