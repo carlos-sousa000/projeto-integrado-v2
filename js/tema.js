@@ -5,13 +5,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const headerLogo = document.querySelector(".project-logo:not(.footer-logo)");
   const footerLogo = document.querySelector(".footer-logo");
 
-  // Caminho fixo baseado no repositório do GitHub Pages
-  const LOGOS = {
-    light: "/projeto-integrado-v2/imgs/logo-preto.png",
-    dark: "/projeto-integrado-v2/imgs/logo-branco.png",
-  };
+  // Detecta automaticamente o nome do repositório (ex: "projeto-integrado-v2")
+  const repoName = window.location.pathname.split("/")[1];
+  const basePath = `/${repoName}`;
 
-  let theme = localStorage.getItem("theme") || "light";
+  const LOGOS = {
+    light: `${basePath}/imgs/logo-preto.png`,
+    dark: `${basePath}/imgs/logo-branco.png`,
+  };
 
   function getThemeLabels() {
     const defaultLabels = { light: "Modo Claro", dark: "Modo Escuro" };
@@ -24,20 +25,25 @@ document.addEventListener("DOMContentLoaded", () => {
         };
       }
     } catch (e) {
-      // Ignora erros
+      /* ignore */
     }
     return defaultLabels;
   }
+
+  let theme = localStorage.getItem("theme") || "light";
 
   function applyTheme(mode) {
     root.setAttribute("data-theme", mode);
 
     const labels = getThemeLabels();
-    if (themeText)
+    if (themeText) {
       themeText.textContent = mode === "light" ? labels.light : labels.dark;
+    }
 
-    if (headerLogo) headerLogo.src = LOGOS[mode];
-    if (footerLogo) footerLogo.src = LOGOS[mode];
+    const logoPath = LOGOS[mode];
+
+    if (headerLogo) headerLogo.src = logoPath;
+    if (footerLogo) footerLogo.src = logoPath;
   }
 
   applyTheme(theme);
