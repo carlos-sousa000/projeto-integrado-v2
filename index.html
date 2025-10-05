@@ -1,10 +1,11 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR" data-page="timeline" data-theme="light">
 
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mentes Pioneiras</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <link rel="stylesheet" href="./css/home.css">
 </head>
 
@@ -22,104 +23,143 @@
       </nav>
     </div>
   </header>
+
   <main class="container">
     <section class="hero-section">
-      <div class="container-item hero-content">
-        <h1>Descubra a evolução da tecnologia</h1>
-        <p>Explore modelos históricos, mentes pioneiras, curiosidades e muito mais. Aprenda, teste seus conhecimentos e mergulhe nesse universo!</p>
-        <a href="./pags/timeline.html" class="btn">Linha do Tempo <i class="fas fa-arrow-right"></i></a>
+      <div class="hero-content">
+        <h1 class="hero-title">Mentes Pioneiras — explore a jornada da tecnologia humana.</h1>
+        <p class="hero-subtitle">Viaje no tempo pelos inventos, mentes brilhantes e transformações que moldaram o nosso mundo.</p>
+        <a href="./pags/timeline.html" class="btn btn-hero">Explorar a Linha do Tempo <i class="fas fa-arrow-right"></i></a>
       </div>
     </section>
+
+    <hr class="section-divider decorative">
 
     <section class="destaques-section">
+      <h2 class="section-title">Destaques</h2>
+      <div class="carrossel-container">
+        <button class="carrossel-arrow left" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+        <div class="carrossel-wrapper">
+          <div class="carrossel-track">
+            <a href="./pags/modelos.html" class="card-destaque">
+              <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="Modelos 3D">
+              <div class="card-content">
+                <h3>Modelos 3D</h3>
+                <p>Reviva invenções que mudaram o mundo em detalhes tridimensionais.</p>
+              </div>
+            </a>
+            <a href="./pags/pioneiros.html" class="card-destaque">
+              <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Pioneiros">
+              <div class="card-content">
+                <h3>Pioneiros</h3>
+                <p>Conheça as mentes por trás das maiores revoluções tecnológicas.</p>
+              </div>
+            </a>
+            <a href="./pags/timeline.html" class="card-destaque">
+              <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" alt="Linha do Tempo">
+              <div class="card-content">
+                <h3>Linha do Tempo</h3>
+                <p>Acompanhe séculos de inovação e progresso em um só lugar.</p>
+              </div>
+            </a>
+            <a href="./pags/quiz/quiz.html" class="card-destaque">
+              <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=400&q=80" alt="Quiz">
+              <div class="card-content">
+                <h3>Quiz</h3>
+                <p>Teste seus conhecimentos sobre a história da tecnologia.</p>
+              </div>
+            </a>
+          </div>
+        </div>
+        <button class="carrossel-arrow right" aria-label="Próximo"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </section>
+    <hr class="section-divider decorative">
+
+    <section class="pioneers-grid-section">
       <div class="container-item">
-        <h2>Destaques</h2>
-        <div class="destaques-grid">
-          <a href="./pags/modelos.html" class="card-destaque">
-            <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="Modelos">
-            <h3>Modelos 3D</h3>
-            <p>Veja os modelos que marcaram época e sua evolução.</p>
+        <h2 class="section-title">Pessoas Marcantes</h2>
+
+        <div class="pioneers-card-grid">
+
+          <a href="./pags/pioneiros.html#ada-lovelace" class="pioneers-card horizontal">
+            <img src="https://images.unsplash.com/photo-1596495578028-245c3b9ed88c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTQzMXwwfDF8c2VhcmNofDN8fGFkYSUyMGxvdmVsYWNlfGVufDB8fHx8MTcwNjQ3NjgyNnww&ixlib=rb-4.0.3&q=80&w=400" alt="Retrato de Ada Lovelace">
+            <div class="card-content">
+              <h3>Ada Lovelace</h3>
+              <p>Considerada a primeira programadora do mundo. Seus algoritmos visionários para a Máquina Analítica lançaram as bases da computação moderna.</p>
+            </div>
+            <i class="fas fa-arrow-right card-arrow"></i>
           </a>
-          <a href="./pags/pioneiros.html" class="card-destaque">
-            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Pioneiros">
-            <h3>Pioneiros</h3>
-            <p>Conheça as mentes que mudaram a história da tecnologia.</p>
+
+          <a href="./pags/pioneiros.html#charles-babbage" class="pioneers-card horizontal">
+            <img src="https://images.unsplash.com/photo-1549480685-c54d24172f3e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTQzMXwwfDF8c2VhcmNofDJ8fGFsYW4lMjB0dXJpbmd8ZW58MHx8fHwxNzA2NDc2NzI3fDA&ixlib=rb-4.0.3&q=80&w=400" alt="Retrato de Charles Babbage">
+            <div class="card-content">
+              <h3>Charles Babbage</h3>
+              <p>Conhecido como o "pai do computador", idealizou a Máquina Analítica — um projeto visionário que antecipa os computadores modernos.</p>
+            </div>
+            <i class="fas fa-arrow-right card-arrow"></i>
           </a>
-          <a href="./pags/timeline.html" class="card-destaque">
-            <img src="https://images.unsplash.com/photo-1465101178521-c1a4c8a0f8f9?auto=format&fit=crop&w=400&q=80" alt="Linha do Tempo">
-            <h3>Linha do Tempo</h3>
-            <p>Acompanhe os principais marcos da evolução tecnológica.</p>
+
+          <a href="./pags/pioneiros.html#joseph-henry" class="pioneers-card horizontal">
+            <img src="https://images.unsplash.com/photo-1592659021316-24a9198305c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTQzMXwwfDF8c2VhcmNofDF8fGdyYWNlJTIwaG9wcGVyfGVufDB8fHx8MTcwNjQ3NzEwNHww&ixlib=rb-4.0.3&q=80&w=400" alt="Retrato de Joseph Henry">
+            <div class="card-content">
+              <h3>Joseph Henry</h3>
+              <p>Cientista e inventor americano que contribuiu para o desenvolvimento do eletromagnetismo. Seu trabalho influenciou a criação do telégrafo e dos motores elétricos.</p>
+            </div>
+            <i class="fas fa-arrow-right card-arrow"></i>
           </a>
-          <a href="./pags/quiz/quiz.html" class="card-destaque">
-            <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" alt="Quiz">
-            <h3>Quiz</h3>
-            <p>Teste seus conhecimentos de forma divertida!</p>
-          </a>
-          <a href="./pags/galeria.html" class="card-destaque">
-            <img src="https://images.unsplash.com/photo-1465101178521-c1a4c8a0f8f9?auto=format&fit=crop&w=400&q=80" alt="Galeria">
-            <h3>Galeria</h3>
-            <p>Imagens e curiosidades dos modelos e pioneiros.</p>
+
+        </div>
+
+        <div class="btn-pioneiros-wrapper">
+          <a href="./pags/pioneiros.html" class="btn btn-pioneiros">
+            <i class="fas fa-users-line" aria-hidden="true"></i> Explore Todos os Pioneiros
           </a>
         </div>
       </div>
     </section>
 
-    <section class="recent-section divisoria">
-      <div class="container-item">
-        <h2>Conteúdo Recentes</h2>
-        <div class="recent-grid">
-          <a href="./pags/artigos/artigos-pt/artigo.html" class="recent-card">
-            <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80" alt="Artigo">
-            <div>
-              <span>Artigo</span>
-              <h3>Como a tecnologia mudou o mundo</h3>
-              <p>Descubra os principais avanços e impactos da tecnologia na sociedade.</p>
-            </div>
-          </a>
-          <a href="./pags/quiz/quiz.html" class="recent-card">
-            <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80" alt="Quiz">
-            <div>
-              <span>Quiz</span>
-              <h3>Teste seus conhecimentos</h3>
-              <p>Participe do quiz e desafie seus amigos!</p>
-            </div>
-          </a>
-        </div>
-      </div>
-    </section>
+    <hr class="section-divider decorative">
 
 
-    <section class="about-preview divisoria">
-      <div class="container-item">
-        <h2>Sobre o Projeto</h2>
-        <p>Este site foi criado para facilitar o aprendizado sobre a evolução da tecnologia, seus modelos e pioneiros, de forma interativa e acessível. Navegue pelas seções e mergulhe nesse universo!</p>
-        <a href="./pags/sobre.html" class="btn secondary">Saiba mais</a>
+    <section class="about-preview">
+      <div class="about-content">
+        <h2 class="section-title">Sobre o Projeto</h2>
+        <p>Este projeto nasceu para despertar a curiosidade sobre como a tecnologia evoluiu — das primeiras invenções aos avanços modernos. Aqui, cada clique é uma viagem no tempo.</p>
+        <a href="./pags/sobre.html" class="btn btn-hero">Saiba mais</a>
       </div>
     </section>
   </main>
-  <footer class="site-footer">
+
+  <footer class="site-footer" role="contentinfo">
     <div class="footer-container">
-      <a href="timeline.html" class="logo-link">
-        <img class="project-logo footer-logo" src="./imgs/logo-branco.png" alt="Logotipo do projeto">
-      </a>
+      <div>
+        <img class="project-logo footer-logo" src="../../imgs/logo-branco.png" alt="Logo do Projeto">
+      </div>
 
       <div class="footer-actions">
-        <button class="btn-tertiary" id="theme-toggle" title="Alterar tema">
+        <button class="btn-tertiary" id="theme-toggle" title="Alterar Tema">
           <i class="fas fa-adjust" aria-hidden="true"></i>
-          <span id="theme-text">Tema</span>
+          <span id="theme-text"></span>
         </button>
-        <button class="btn-tertiary" id="lang-toggle" title="Mudar idioma">
+        <button class="btn-tertiary" id="lang-toggle" title="Mudar Idioma">
           <i class="fas fa-globe" aria-hidden="true"></i>
           <span>Idioma</span>
         </button>
-        <button href="./pags/sobre.html" class="btn-tertiary" title="Sobre nós">
+        <button class="btn-tertiary" title="Sobre Nós">
           <i class="fas fa-info" aria-hidden="true"></i>
-          <span>Sobre nós</span>
+          <span>Sobre Nós</span>
         </button>
       </div>
     </div>
   </footer>
-  <script src="./js/tema.js"></script>
+
+  <script src="../../js/timeline.js"></script>
+  <script src="../../js/tema.js"></script>
+</body>
+
+<script src="./js/carrossel-destaques.js"></script>
+<script src="./js/tema.js"></script>
 </body>
 
 </html>
