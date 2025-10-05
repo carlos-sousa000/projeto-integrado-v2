@@ -9,7 +9,6 @@
     pinTopN: 2,
   };
 
-  // translated DATA items (titles/excerpts) — keep URLs as in your project
   const DATA = [
     {
       id: "a1",
@@ -217,3 +216,4 @@
   // initial render (all entries)
   renderResults("");
 })();
+
