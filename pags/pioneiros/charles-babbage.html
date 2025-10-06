@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Charles Babbage</title>
+  <link rel="stylesheet" href="../../css/artigo/artigo.css">
+</head>
+
+<body class="body-main">
+
+  <header class="site-header" role="banner">
+    <div class="header-container">
+      <a href="../index.html" class="logo-link" aria-label="Ir para a página inicial">
+        <img class="project-logo" src="../../imgs/logo-branco.png" alt="Logo do Projeto">
+      </a>
+      <nav class="header-nav" role="navigation" aria-label="Navegação principal">
+        <a class="btn secondary" href="../pioneiros.html"> <i class="fas fa-person" aria-hidden="true"></i>Pioneiros</a>
+        <a class="btn secondary" href="../modelos.html"> <i class="fas fa-cube" aria-hidden="true"></i>Modelos 3D</a>
+        <a class="btn secondary" href="../busca.html"><i class="fas fa-magnifying-glass" aria-hidden="true"></i>Busca</a>
+        <a class="btn" href=".././quiz/quiz.html" title="Ir para o quiz"> <i class="fas fa-brain" aria-hidden="true"></i> Quiz</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" role="main" aria-labelledby="artigo-title">
+    <div class="article-hero">
+      <div class="article-content">
+        <h1 id="artigo-title">Charles Babbage (1791–1871)</h1>
+
+        <div class="highlight" role="note" aria-label="Resumo">
+          <p><strong>Charles Babbage</strong> idealizou máquinas mecânicas para automatizar cálculos praticamente antes da era industrial moderna — um pensamento que lançou os alicerces da computação.</p>
+        </div>
+
+        <div class="article-body">
+          <p><span class="callout">Visão geral</span> Charles Babbage foi um matemático, inventor e polímata cujas máquinas — como a Máquina Diferencial e a Máquina Analítica — representaram avanços fundamentais na história do cálculo automático. Seu trabalho respondeu a um problema prático: tabelas matemáticas impressas cheias de erros humanos.</p>
+
+          <h2>Contexto histórico</h2>
+          <p>No início do século XIX, diversos profissionais dependiam de extensas tabelas impressas para cálculos precisos. Erros na transcrição e na impressão podiam ter consequências sérias — de perdas econômicas a acidentes de navegação — e Babbage buscou automatizar esse processo.</p>
+
+          <h2>Invenções e contribuições</h2>
+          <p>Em 14 de junho de 1822, Babbage apresentou à Royal Astronomical Society a ideia que originaria a Máquina Diferencial. Ao lado do engenheiro Joseph Clement, construiu partes funcionais que demonstravam a viabilidade do projeto, mesmo que a máquina completa jamais tenha sido finalizada em sua época.</p>
+
+          <h2>A Máquina Diferencial</h2>
+          <p>A Different Engine foi pensada para calcular e imprimir automaticamente tabelas matemáticas, reduzindo erros humanos e acelerando trabalhos científicos e administrativos. Mesmo inacabada, a seção construída provou que seu método funcionava.</p>
+
+          <p class="article-footer">
+            <a class="btn secondary btn-article" href="../timeline.html" title="Voltar">← Voltar à Linha do Tempo</a>
+            <span class="source">Fonte: exemplo.com.br</span>
+          </p>
+        </div>
+      </div>
+
+
+      <aside class="image-column" aria-hidden="false">
+        <figure class="image-grid" aria-label="Galeria de imagens de Charles Babbage">
+
+          <img class="img-large img-zoomable" loading="lazy" src="https://daily.jstor.org/wp-content/uploads/2015/06/Charles_Babbage_1860.jpg" alt="Retrato de Charles Babbage, 1860">
+          <img class="img-side img-zoomable" loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/5/53/BabbageDifferenceEngine.jpg" alt="Máquina Diferencial de Babbage">
+          <img class="img-side img-zoomable" loading="lazy" src="https://momentodeficcao.wordpress.com/wp-content/uploads/2017/03/differenceengine02.jpg" alt="Detalhe da Máquina Diferencial">
+          <figcaption>Retratos e imagens da Máquina Diferencial — imagens variadas para ilustrar o texto.</figcaption>
+        </figure>
+      </aside>
+    </div>
+  </main>
+
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-container">
+      <div>
+        <img class="project-logo footer-logo" src="../../imgs/logo-branco.png" alt="Logo do Projeto">
+      </div>
+
+      <div class="footer-actions">
+        <button class="btn-tertiary" id="theme-toggle" title="Alterar Tema">
+          <i class="fas fa-adjust" aria-hidden="true"></i>
+          <span id="theme-text"></span>
+        </button>
+        <button class="btn-tertiary" id="lang-toggle" title="Mudar Idioma">
+          <i class="fas fa-globe" aria-hidden="true"></i>
+          <span>Idioma</span>
+        </button>
+        <button class="btn-tertiary" title="Sobre Nós">
+          <i class="fas fa-info" aria-hidden="true"></i>
+          <span>Sobre Nós</span>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/timeline.js"></script>
+  <script src="../../js/tema.js"></script>
+</body>
+
+
+<div id="img-modal" class="img-modal" style="display:none;">
+  <div class="img-modal-content">
+    <span class="img-modal-arrow img-modal-arrow-left" id="modal-arrow-left">&#8592;</span>
+    <span class="img-modal-close" id="close-modal">&times;</span>
+    <img id="modal-img" src="" alt="">
+    <span class="img-modal-arrow img-modal-arrow-right" id="modal-arrow-right">&#8594;</span>
+    <div id="modal-caption" class="img-modal-caption"></div>
+  </div>
+</div>
+
+<script src="../../js/modal-artigo.js"></script>
+<script src="../../js/tema.js"></script>
+</body>
+
+</html>
