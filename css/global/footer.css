@@ -64,7 +64,11 @@ footer.site-footer {
     gap: 12px;
   }
 }
-
+@media (max-width: 500px) {
+  .btn-tertiary {
+    font-size: 0.9rem;
+  }
+}
 /* modo escuro */
 :root[data-theme="dark"] footer.site-footer {
   background: linear-gradient(90deg, #0f0f0f, #121212);

@@ -1,0 +1,1220 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modelos 3D - Mentes Pioneiras</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
+
+    <style>
+        /* --- seu CSS original (mantive) --- */
+        @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Roboto:wght@300;400;500;700&display=swap");
+
+        :root {
+            --paper: #f4ead8;
+            --paper-dark: #e8dcc4;
+            --ink: #2b1f16;
+            --muted-ink: #5b463a;
+            --brass: #b07a2b;
+            --brass-dark: #8f5f1c;
+            --cor-fundo-principal: linear-gradient(180deg, var(--paper), #efe2c8);
+            --cor-texto: var(--ink);
+            --cor-suave: #6e5a4a;
+            --borda-card: rgba(0, 0, 0, 0.2);
+            --shadow: rgba(0, 0, 0, 0.15);
+            --success: #4CAF50;
+            --info: #2196F3;
+            --danger: #f44336;
+        }
+
+        :root[data-theme="dark"] {
+            --paper: #181a1d;
+            --paper-dark: #121416;
+            --cor-fundo-principal: linear-gradient(180deg, #0a0b0c, #121416);
+            --cor-texto: #eae3d9;
+            --muted-ink: #a8a096;
+            --cor-suave: #80786f;
+            --brass: #c89b3c;
+            --brass-dark: #a07d2a;
+            --borda-card: rgba(255, 255, 255, 0.1);
+            --shadow: rgba(0, 0, 0, 0.8);
+            --success: #5cb85c;
+            --info: #5bc0de;
+            --danger: #d9534f;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--cor-fundo-principal);
+            color: var(--cor-texto);
+            font-family: "Roboto", system-ui, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            line-height: 1.55;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: "Cormorant Garamond", serif;
+            color: var(--cor-texto);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            width: 100%;
+            max-width: 1100px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 0 1px 2px var(--shadow);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--cor-suave);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            background: var(--paper);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px var(--shadow);
+            border: 1px solid var(--borda-card);
+        }
+
+        .carousel-section,
+        .instructions {
+            padding: 25px;
+        }
+
+        .carousel-section {
+            border-bottom: 1px solid var(--borda-card);
+        }
+
+        .carousel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            background: linear-gradient(180deg, rgba(255, 240, 200, 0.98), rgba(200, 150, 70, 0.98));
+            color: var(--ink);
+            padding: 10px 18px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+            font-family: "Roboto", sans-serif;
+            font-size: 0.9rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            filter: saturate(1.05) brightness(1.02);
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        .carousel-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .carousel-btn {
+            background: var(--paper-dark);
+            color: var(--cor-texto);
+            border: 1px solid var(--borda-card);
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: all 0.3s;
+            z-index: 10;
+        }
+
+        .carousel {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            gap: 15px;
+            padding: 10px;
+            max-width: 700px;
+            background: var(--paper-dark);
+            border-radius: 8px;
+        }
+
+        .carousel-item {
+            flex: 0 0 auto;
+            width: 120px;
+            height: 120px;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            border: 3px solid var(--borda-card);
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .carousel-item .model-name {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px;
+            font-size: 0.8rem;
+            text-align: center;
+        }
+
+        .viewer-section {
+            position: relative;
+            width: 100%;
+            height: 500px;
+        }
+
+        #model-viewer {
+            width: 100%;
+            height: 100%;
+            background: var(--paper-dark);
+        }
+
+        .loading {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 1.5rem;
+            text-align: center;
+            z-index: 30;
+        }
+
+        .viewer-controls {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            display: flex;
+            gap: 10px;
+            z-index: 40;
+        }
+
+        .viewer-controls button {
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            backdrop-filter: blur(4px);
+        }
+
+        .camera-control {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 40;
+        }
+
+        .camera-control::before {
+            content: 'Fixo';
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .camera-control.fixed::before {
+            content: 'Livre';
+        }
+
+        .annotation-panel {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--paper);
+            border: 1px solid var(--borda-card);
+            backdrop-filter: blur(10px);
+            border-radius: 8px;
+            padding: 15px;
+            width: 300px;
+            display: none;
+            z-index: 50;
+            box-shadow: 0 8px 25px var(--shadow);
+        }
+
+        .annotation-panel.visible {
+            display: block;
+        }
+
+        .annotation-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--brass);
+        }
+
+        .annotation-textarea {
+            width: 100%;
+            height: 120px;
+            background: var(--paper-dark);
+            border: 1px solid var(--borda-card);
+            border-radius: 5px;
+            padding: 10px;
+            color: var(--cor-texto);
+            font-size: 0.9rem;
+            resize: vertical;
+            font-family: inherit;
+        }
+
+        .annotation-display {
+            background: var(--paper-dark);
+            border-radius: 5px;
+            padding: 10px;
+            min-height: 40px;
+            color: var(--cor-texto);
+            font-size: 0.9rem;
+            line-height: 1.4;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        /* model info overlay */
+        .model-info {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            z-index: 40;
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            padding: 10px 12px;
+            border-radius: 8px;
+            max-width: 45%;
+            backdrop-filter: blur(4px);
+        }
+
+        .model-info h4 {
+            margin-bottom: 6px;
+            font-size: 1rem;
+        }
+
+        .model-info p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        @media (max-width:768px) {
+            .viewer-section {
+                height: 400px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+        }
+
+        /* ===========================
+   HEADER / FOOTER — OVERRIDE
+   Substitua o bloco antigo por este
+   =========================== */
+
+        /* --- variáveis e base (preservei as cores que você tinha) --- */
+        :root {
+            --paper: #f4ead8;
+            --paper-dark: #e8dcc4;
+            --ink: #2b1f16;
+            --muted-ink: #5b463a;
+            --brass: #b07a2b;
+            --brass-dark: #8f5f1c;
+            --cor-fundo-principal: linear-gradient(180deg, var(--paper), #efe2c8);
+            --cor-texto: var(--ink);
+            --cor-suave: #6e5a4a;
+            --borda-card: rgba(0, 0, 0, 0.2);
+            --shadow: rgba(0, 0, 0, 0.15);
+        }
+
+        /* ===========================
+   HEADER (estica full-width mas centraliza conteúdo)
+   =========================== */
+        .site-header {
+            /* força ocupar toda a largura do viewport mesmo com body alinhando itens ao centro */
+            width: 100%;
+            max-width: none;
+            left: 0;
+            right: 0;
+            align-self: stretch;
+            /* necessário se body tiver align-items:center */
+            box-sizing: border-box;
+
+            /* seu visual original */
+            background: var(--paper-dark);
+            padding: 18px 0;
+            /* agora o padding horizontal fica por container */
+            box-shadow: 0 4px 8px var(--shadow);
+            border-bottom: 0.5px solid rgba(0, 0, 0, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 800;
+            backdrop-filter: blur(4px);
+        }
+
+        /* Conteúdo centralizado dentro do header (mantém max-width) */
+        .header-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+            /* padding horizontal do conteúdo */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            box-sizing: border-box;
+        }
+
+        /* logo header */
+        .project-logo {
+            height: 46px;
+            width: auto;
+            filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+            display: block;
+        }
+
+        /* nav */
+        nav.header-nav {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        /* botão primário */
+        .btn {
+            background: linear-gradient(180deg, rgba(255, 240, 200, 0.98), rgba(200, 150, 70, 0.98));
+            color: var(--ink);
+            padding: 10px 14px;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn i {
+            width: 18px;
+            text-align: center;
+            color: var(--cor-texto);
+            transition: color 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            filter: saturate(1.05) brightness(1.02);
+        }
+
+        .btn:active {
+            transform: translateY(-1px);
+            box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+            filter: brightness(0.95);
+        }
+
+        /* secondary */
+        .btn.secondary {
+            background: linear-gradient(180deg, var(--paper), var(--paper-dark));
+            color: var(--cor-texto);
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            font-weight: 500;
+        }
+
+        .btn.secondary i {
+            color: var(--cor-texto);
+        }
+
+        /* dark theme overrides (mantive seu estilo) */
+        :root[data-theme="dark"] .site-header {
+            background: var(--paper-dark);
+            box-shadow: 0 3px 6px var(--shadow);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        :root[data-theme="dark"] .btn {
+            background: linear-gradient(180deg, var(--brass), var(--brass-dark));
+            color: var(--w-3);
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(0, 0, 0, 0.4);
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        :root[data-theme="dark"] .btn.secondary {
+            background: linear-gradient(180deg, #2a2f33, var(--paper));
+            color: var(--w-3);
+            border: 1px solid var(--borda-card);
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        :root[data-theme="dark"] .btn i {
+            color: var(--w-3);
+        }
+
+        /* responsividade header */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 16px;
+            }
+
+            .header-nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                width: 100%;
+                gap: 8px;
+            }
+
+            .header-nav .btn {
+                flex: 1 1 auto;
+                text-align: center;
+                min-width: 120px;
+            }
+
+            .project-logo {
+                height: 40px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-nav .btn {
+                padding: 4px 6px;
+            }
+        }
+
+        /* ===========================
+   FOOTER (estica full-width mas centraliza conteúdo)
+   =========================== */
+        footer.site-footer {
+            width: 100%;
+            max-width: none;
+            left: 0;
+            right: 0;
+            align-self: stretch;
+            box-sizing: border-box;
+
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.04));
+            border-top: 1px solid rgba(0, 0, 0, 0.06);
+            color: var(--cor-suave);
+            padding: 18px 0;
+        }
+
+        /* footer content container */
+        .footer-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        /* logo footer */
+        .footer-logo {
+            height: 50px;
+            width: auto;
+            filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.12));
+            display: block;
+        }
+
+        /* tertiary buttons */
+        .btn-tertiary {
+            background: transparent;
+            border: none;
+            color: var(--muted-ink);
+            padding: 8px;
+            display: inline-flex;
+            gap: 8px;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .btn-tertiary i {
+            width: 18px;
+            text-align: center;
+            display: inline-block;
+            color: var(--cor-texto);
+        }
+
+        .btn-tertiary:hover {
+            color: var(--muted-ink);
+            filter: brightness(1.6);
+        }
+
+        /* footer responsiveness */
+        @media (max-width: 800px) {
+            .footer-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .btn-tertiary {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* dark mode footer */
+        :root[data-theme="dark"] footer.site-footer {
+            background: linear-gradient(90deg, #0f0f0f, #121212);
+            box-shadow: 0 -6px 30px rgba(0, 0, 0, 0.6);
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            color: var(--muted-ink);
+        }
+
+        :root[data-theme="dark"] .btn-tertiary {
+            color: var(--muted-ink);
+            opacity: 0.95;
+        }
+
+        :root[data-theme="dark"] .btn-tertiary i {
+            color: var(--w-2);
+        }
+    </style>
+    <link rel="stylesheet" href="../../css/main-import.css">
+</head>
+
+<body>
+    <header class="site-header" role="banner">
+        <div class="header-container">
+            <a href="../../../index.html" class="logo-link" aria-label="Ir para a página inicial">
+                <img class="project-logo" src="../../imgs/logo-branco.png" alt="Logo do Projeto">
+            </a>
+            <nav class="header-nav" role="navigation" aria-label="Navegação principal">
+                <a class="btn secondary" href="../../pioneiros.html"> <i class="fas fa-person" aria-hidden="true"></i>Pioneiros</a>
+                <a class="btn secondary" href="../../modelos.html"> <i class="fas fa-cube" aria-hidden="true"></i>Modelos 3D</a>
+                <a class="btn secondary" href="../../busca.html"><i class="fas fa-magnifying-glass" aria-hidden="true"></i>Busca</a>
+                <a class="btn" href="../../quiz/quiz.html" title="Ir para o quiz"> <i class="fas fa-brain" aria-hidden="true"></i> Quiz</a>
+            </nav>
+        </div>
+    </header>
+
+
+    <div class="container">
+        <h1 style="margin-left: 1rem;">Modelos Interativos</h1>
+        <p class="subtitle" style="margin-left: 1rem;">Navegue, inspecione e interaja com os modelos 3D</p>
+        <div class="carousel-section">
+            <div class="carousel-header">
+                <h2>Selecione um Modelo</h2>
+                <button class="btn" id="upload-btn"><span>+ Adicionar Modelo</span></button>
+                <input type="file" id="file-input" class="file-input" accept=".glb,.gltf">
+            </div>
+
+            <div class="carousel-container">
+                <button class="carousel-btn" id="prev-btn">&#9664;</button>
+                <div class="carousel" id="model-carousel"></div>
+                <button class="carousel-btn" id="next-btn">&#9654;</button>
+            </div>
+        </div>
+
+        <div class="viewer-section">
+            <div id="model-viewer"></div>
+
+            <div class="loading" id="loading">Carregando modelo...</div>
+
+            <div class="viewer-controls">
+                <button id="fullscreen-btn" title="Tela Cheia">⛶</button>
+                <!-- indicador de modo da câmera (corrigido: elemento existe agora) -->
+                <div id="camera-mode-indicator" style="display:none; align-self:center; padding:6px 8px; border-radius:6px; background:rgba(0,0,0,0.4); color:white; font-size:0.9rem;">Modo: Livre</div>
+            </div>
+
+            <div class="camera-control" id="camera-control" title="Alternar Vista"></div>
+
+            <!-- painel de anotações -->
+            <div class="annotation-panel" id="annotation-panel">
+                <div class="annotation-header">
+                    <div class="annotation-title">Anotações</div>
+                    <button class="annotation-close" id="annotation-close" title="Fechar">✕</button>
+                </div>
+                <div class="annotation-content">
+                    <textarea class="annotation-textarea" id="annotation-textarea" placeholder="Digite aqui..."></textarea>
+                    <div class="annotation-display" id="annotation-display" style="display:none;"></div>
+                </div>
+                <div class="annotation-actions" style="margin-top:10px; display:flex; gap:8px; justify-content:flex-end;">
+                    <button class="btn success" id="annotation-save">Salvar</button>
+                    <button class="btn info" id="annotation-edit" style="display:none;">Editar</button>
+                    <button class="btn danger" id="annotation-clear">Limpar</button>
+                </div>
+            </div>
+
+            <!-- info visível do modelo -->
+            <div class="model-info" id="model-info" style="display:none;">
+                <h4 id="model-title"></h4>
+                <p id="model-description"></p>
+            </div>
+        </div>
+
+        <div class="instructions">
+            <h3>Como usar:</h3>
+            <ul>
+                <li>Selecione um modelo do carrossel para visualizá-lo.</li>
+                <li>Na <strong>vista fixa</strong>, o painel de anotações aparecerá.</li>
+                <li>Arraste com o botão esquerdo para rotacionar.</li>
+                <li>Use a roda do mouse para zoom.</li>
+            </ul>
+        </div>
+    </div>
+    <footer class="site-footer" role="contentinfo">
+        <div class="footer-container">
+            <div>
+                <img class="project-logo footer-logo" src="../../imgs/logo-branco.png" alt="Logo do Projeto">
+            </div>
+
+            <div class="footer-actions">
+                <button class="btn-tertiary" id="theme-toggle" title="Alterar Tema">
+                    <i class="fas fa-adjust" aria-hidden="true"></i>
+                    <span id="theme-text"></span>
+                </button>
+                <button class="btn-tertiary" id="lang-toggle" title="Mudar Idioma">
+                    <i class="fas fa-globe" aria-hidden="true"></i>
+                    <span>Idioma</span>
+                </button>
+                <button class="btn-tertiary" title="Sobre Nós">
+                    <i class="fas fa-info" aria-hidden="true"></i>
+                    <span>Sobre Nós</span>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/timeline.js"></script>
+    <script src="../../js/idioma.js"></script>
+    <script src="../../js/tema.js"></script>
+    <script>
+        // ---------- Variáveis ----------
+        let scene, camera, renderer, controls, model;
+        const viewerContainer = document.getElementById('model-viewer');
+        const loadingIndicator = document.getElementById('loading');
+        const fullscreenBtn = document.getElementById('fullscreen-btn');
+        const cameraControl = document.getElementById('camera-control');
+        const cameraModeIndicator = document.getElementById('camera-mode-indicator');
+        const carousel = document.getElementById('model-carousel');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const uploadBtn = document.getElementById('upload-btn');
+        const fileInput = document.getElementById('file-input');
+
+        // anotação / info
+        const annotationPanel = document.getElementById('annotation-panel');
+        const annotationTextarea = document.getElementById('annotation-textarea');
+        const annotationDisplay = document.getElementById('annotation-display');
+        const annotationSave = document.getElementById('annotation-save');
+        const annotationEdit = document.getElementById('annotation-edit');
+        const annotationClear = document.getElementById('annotation-clear');
+        const annotationClose = document.getElementById('annotation-close');
+
+        const modelInfoEl = document.getElementById('model-info');
+        const modelTitleEl = document.getElementById('model-title');
+        const modelDescriptionEl = document.getElementById('model-description');
+
+        let isFullscreen = false;
+        let isCameraFixed = false;
+        let originalCameraPosition = new THREE.Vector3(5, 5, 5);
+        let originalControlsTarget = new THREE.Vector3(0, 0, 0);
+        let currentModelIndex = 0;
+        let currentAnnotation = "";
+
+        // esferas/alfabeto
+        let keySpheres = [];
+        let keySphereGroup = new THREE.Group();
+        const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+
+        // lista de modelos (adicione "description" se quiser)
+        let modelList = [
+            {
+                name: "writee",
+                type: "preloaded",
+                url: "writee.glb", // coloque na mesma pasta
+                thumbnail: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Crect width='120' height='120' fill='%234CAF50'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='14' font-weight='bold'%3Ewritee%3C/text%3E%3C/svg%3E",
+                description: "Modelo writee (pré-carregado)."
+            }
+        ];
+
+        // ---------- Inicialização ----------
+        function initScene() {
+            scene = new THREE.Scene();
+            scene.background = new THREE.Color(0x1a1a1a);
+            scene.add(new THREE.AmbientLight(0xffffff, 0.6));
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+            directionalLight.position.set(10, 20, 15);
+            scene.add(directionalLight);
+
+            camera = new THREE.PerspectiveCamera(45, viewerContainer.clientWidth / viewerContainer.clientHeight, 0.1, 1000);
+            camera.position.copy(originalCameraPosition);
+
+            renderer = new THREE.WebGLRenderer({ antialias: true });
+            renderer.setSize(viewerContainer.clientWidth, viewerContainer.clientHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+            viewerContainer.innerHTML = '';
+            viewerContainer.appendChild(renderer.domElement);
+
+            // controles
+            controls = new THREE.OrbitControls(camera, renderer.domElement);
+            controls.enableDamping = true;
+            controls.dampingFactor = 0.05;
+            controls.target.copy(originalControlsTarget);
+
+            const gridHelper = new THREE.GridHelper(10, 10);
+            scene.add(gridHelper);
+
+            createKeySpheres();
+
+            function animate() {
+                requestAnimationFrame(animate);
+                if (!isCameraFixed) controls.update();
+                renderer.render(scene, camera);
+            }
+            animate();
+
+            window.addEventListener('resize', () => {
+                camera.aspect = viewerContainer.clientWidth / viewerContainer.clientHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(viewerContainer.clientWidth, viewerContainer.clientHeight);
+            });
+
+            initCarousel();
+            setupKeyboardEvents();
+            setupUpload();
+            setupAnnotationPanel();
+
+            // tentar carregar o primeiro
+            if (modelList.length) loadModel(modelList[0]);
+        }
+
+        // ---------- esferas ----------
+        function createKeySpheres() {
+            keySphereGroup = new THREE.Group();
+            keySpheres = [];
+
+            const spherePositions = [
+                [-0.20, 1.35, 0.09, 0.013], [-0.16, 1.35, 0.09, 0.013], [-0.12, 1.35, 0.09, 0.013], [-0.08, 1.35, 0.09, 0.013], [-0.04, 1.35, 0.09, 0.013], [-0.00, 1.35, 0.09, 0.013], [0.04, 1.35, 0.09, 0.013], [0.08, 1.35, 0.09, 0.013], [0.12, 1.35, 0.09, 0.013], [0.16, 1.35, 0.09, 0.013],
+                [-0.17, 1.33, 0.13, 0.013], [-0.13, 1.33, 0.13, 0.013], [-0.09, 1.33, 0.13, 0.013], [-0.05, 1.33, 0.13, 0.013], [-0.01, 1.33, 0.13, 0.013], [0.03, 1.33, 0.13, 0.013], [0.07, 1.33, 0.13, 0.013], [0.11, 1.33, 0.13, 0.013], [0.15, 1.33, 0.13, 0.013],
+                [-0.14, 1.31, 0.17, 0.013], [-0.10, 1.31, 0.17, 0.013], [-0.06, 1.31, 0.17, 0.013], [-0.02, 1.31, 0.17, 0.013], [0.02, 1.31, 0.17, 0.013], [0.06, 1.31, 0.17, 0.013]
+            ];
+
+            const whiteMaterial = new THREE.MeshPhongMaterial({ color: 0xffffff, transparent: true, opacity: 0.7, shininess: 30 });
+            const grayMaterial = new THREE.MeshPhongMaterial({ color: 0x00FF00, transparent: true, opacity: 0.9, shininess: 30 });
+
+            for (let i = 0; i < 26; i++) {
+                const radius = (spherePositions[i] ? spherePositions[i][3] : 0.13);
+                const geometry = new THREE.SphereGeometry(radius, 16, 16);
+                const sphere = new THREE.Mesh(geometry, whiteMaterial.clone());
+                if (spherePositions[i]) sphere.position.set(spherePositions[i][0], spherePositions[i][1], spherePositions[i][2]);
+                keySphereGroup.add(sphere);
+                keySpheres.push({ mesh: sphere, whiteMaterial: whiteMaterial.clone(), grayMaterial: grayMaterial.clone(), key: alphabet[i] || '?', isActive: false });
+            }
+
+            scene.add(keySphereGroup);
+        }
+
+        // ---------- teclado ----------
+        function setupKeyboardEvents() {
+            document.addEventListener('keydown', (e) => {
+                const key = e.key.toUpperCase();
+                const sphereIndex = alphabet.indexOf(key);
+                if (sphereIndex !== -1 && sphereIndex < keySpheres.length) activateSphere(sphereIndex);
+            });
+            document.addEventListener('keyup', (e) => {
+                const key = e.key.toUpperCase();
+                const sphereIndex = alphabet.indexOf(key);
+                if (sphereIndex !== -1 && sphereIndex < keySpheres.length) deactivateSphere(sphereIndex);
+            });
+        }
+        function activateSphere(index) {
+            const sphereData = keySpheres[index];
+            if (!sphereData.isActive) {
+                sphereData.mesh.material = sphereData.grayMaterial;
+                sphereData.isActive = true;
+                sphereData.mesh.scale.set(1.2, 1.2, 1.2);
+            }
+        }
+        function deactivateSphere(index) {
+            const sphereData = keySpheres[index];
+            if (sphereData.isActive) {
+                sphereData.mesh.material = sphereData.whiteMaterial;
+                sphereData.isActive = false;
+                sphereData.mesh.scale.set(1, 1, 1);
+            }
+        }
+
+        // ---------- upload ----------
+        function setupUpload() {
+            uploadBtn.addEventListener('click', () => fileInput.click());
+            fileInput.addEventListener('change', (e) => {
+                if (e.target.files.length > 0) {
+                    const file = e.target.files[0];
+                    if (/\.(glb|gltf)$/i.test(file.name)) {
+                        addUploadedModel(file);
+                    } else {
+                        alert('Por favor, selecione um arquivo GLB ou GLTF.');
+                    }
+                }
+            });
+        }
+
+        function addUploadedModel(file) {
+            const objectUrl = URL.createObjectURL(file);
+            const newModel = {
+                name: file.name.replace(/\.[^/.]+$/, ''),
+                type: "uploaded",
+                url: objectUrl,
+                thumbnail: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Crect width='120' height='120' fill='%23673ab7'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='12' font-weight='bold'%3E" + encodeURIComponent(file.name.replace(/\.[^/.]+$/, "").substring(0, 12)) + "%3C/text%3E%3C/svg%3E",
+                description: "Modelo enviado: " + file.name
+            };
+            modelList.push(newModel);
+            initCarousel();
+            currentModelIndex = modelList.length - 1;
+            // selecionar visualmente
+            document.querySelectorAll('.carousel-item').forEach((item, i) => item.classList.toggle('active', i === currentModelIndex));
+            loadModel(newModel);
+        }
+
+        // ---------- carousel ----------
+        function initCarousel() {
+            carousel.innerHTML = '';
+            modelList.forEach((modelData, index) => {
+                const carouselItem = document.createElement('div');
+                carouselItem.className = 'carousel-item';
+                if (index === currentModelIndex) carouselItem.classList.add('active');
+
+                const img = document.createElement('img');
+                img.src = modelData.thumbnail || ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Crect width='120' height='120' fill='%23333'/%3E%3C/text%3E%3C/svg%3E");
+                img.alt = modelData.name;
+
+                const modelName = document.createElement('div');
+                modelName.className = 'model-name';
+                modelName.textContent = modelData.name;
+
+                carouselItem.appendChild(img);
+                carouselItem.appendChild(modelName);
+
+                carouselItem.addEventListener('click', () => {
+                    document.querySelectorAll('.carousel-item').forEach(item => item.classList.remove('active'));
+                    carouselItem.classList.add('active');
+                    currentModelIndex = index;
+                    loadModel(modelData);
+                });
+
+                carousel.appendChild(carouselItem);
+            });
+
+            // navegação
+            prevBtn.onclick = () => navigateCarousel(-1);
+            nextBtn.onclick = () => navigateCarousel(1);
+        }
+
+        function navigateCarousel(direction) {
+            if (modelList.length === 0) return;
+            let newIndex = currentModelIndex + direction;
+            if (newIndex < 0) newIndex = modelList.length - 1;
+            else if (newIndex >= modelList.length) newIndex = 0;
+            document.querySelectorAll('.carousel-item').forEach((item, index) => item.classList.toggle('active', index === newIndex));
+            const activeItem = document.querySelectorAll('.carousel-item')[newIndex];
+            if (activeItem) activeItem.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            currentModelIndex = newIndex;
+            loadModel(modelList[newIndex]);
+        }
+
+        // ---------- carregar modelo ----------
+        function loadModel(modelData) {
+            loadingIndicator.style.display = 'block';
+            loadingIndicator.textContent = `Carregando ${modelData.name}...`;
+
+            // remover modelo antigo
+            if (model) {
+                scene.remove(model);
+                model = null;
+            }
+
+            const loader = new THREE.GLTFLoader();
+
+            // tanto preloaded quanto uploaded usam .url agora
+            if (!modelData.url) {
+                loadingIndicator.style.display = 'none';
+                alert('Modelo sem URL definido.');
+                return;
+            }
+
+            loader.load(
+                modelData.url,
+                (gltf) => {
+                    model = gltf.scene;
+                    scene.add(model);
+                    adjustCamera();
+                    loadingIndicator.style.display = 'none';
+                    // mostrar info do modelo (se houver)
+                    showModelInfo(modelData);
+                },
+                (xhr) => {
+                    if (xhr.total) loadingIndicator.textContent = `Carregando ${modelData.name}... ${Math.round((xhr.loaded / xhr.total) * 100)}%`;
+                },
+                (error) => {
+                    console.error('Erro ao carregar:', error);
+                    loadingIndicator.style.display = 'none';
+                    alert('Erro ao carregar o modelo. Verifique o console para detalhes.');
+                }
+            );
+        }
+
+        function showModelInfo(modelData) {
+            if (modelData.description) {
+                modelTitleEl.textContent = modelData.name;
+                modelDescriptionEl.textContent = modelData.description;
+                modelInfoEl.style.display = 'block';
+            } else {
+                modelInfoEl.style.display = 'none';
+            }
+        }
+
+        // ---------- ajustar câmera ----------
+        function adjustCamera() {
+            if (!model) return;
+            const bbox = new THREE.Box3().setFromObject(model);
+            const center = bbox.getCenter(new THREE.Vector3());
+            const size = bbox.getSize(new THREE.Vector3());
+
+            const maxDim = Math.max(size.x, size.y, size.z);
+            const fov = camera.fov * (Math.PI / 180);
+            let cameraZ = Math.abs(maxDim / (2 * Math.tan(fov / 2)));
+            cameraZ *= 1.5;
+
+            camera.position.copy(center);
+            camera.position.z += cameraZ;
+            camera.lookAt(center);
+
+            controls.target.copy(center);
+            controls.update();
+
+            originalCameraPosition.copy(camera.position);
+            originalControlsTarget.copy(controls.target);
+
+            // se estiver em modo fixo, reset (faça com cautela)
+            if (isCameraFixed) {
+                toggleCameraView(); // volta ao livre
+            }
+        }
+
+        // ---------- vista fixa / livre ----------
+        function toggleCameraView() {
+            if (!model) return;
+            isCameraFixed = !isCameraFixed;
+
+            if (isCameraFixed) {
+                const bbox = new THREE.Box3().setFromObject(model);
+                const center = bbox.getCenter(new THREE.Vector3());
+                const size = bbox.getSize(new THREE.Vector3());
+                const maxDim = Math.max(size.x, size.y, size.z);
+                const fov = camera.fov * (Math.PI / 180);
+                let cameraZ = Math.abs(maxDim / (2 * Math.tan(fov / 2)));
+                const fixedPosition = new THREE.Vector3(center.x, center.y + 0.4, center.z - 0.27 + cameraZ * 1.5);
+                controls.enabled = false;
+                animateCameraToPosition(fixedPosition, center);
+                cameraControl.classList.add('fixed');
+                cameraControl.setAttribute('title', 'Voltar para Vista Livre');
+                if (cameraModeIndicator) { cameraModeIndicator.textContent = 'Modo: Vista Fixa'; cameraModeIndicator.style.display = 'block'; }
+                annotationPanel.classList.add('visible');
+            } else {
+                controls.enabled = true;
+                animateCameraToPosition(originalCameraPosition, originalControlsTarget);
+                cameraControl.classList.remove('fixed');
+                cameraControl.setAttribute('title', 'Vista Fixa');
+                if (cameraModeIndicator) { cameraModeIndicator.textContent = 'Modo: Vista Livre'; }
+                setTimeout(() => { if (cameraModeIndicator) cameraModeIndicator.style.display = 'none'; }, 2000);
+                annotationPanel.classList.remove('visible');
+            }
+        }
+
+        function animateCameraToPosition(position, target) {
+            const startPosition = camera.position.clone();
+            const startTarget = controls.target.clone();
+            const duration = 800;
+            const startTime = Date.now();
+            function update() {
+                const elapsed = Date.now() - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const ease = (t) => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+                camera.position.lerpVectors(startPosition, position, ease(progress));
+                controls.target.lerpVectors(startTarget, target, ease(progress));
+                camera.lookAt(controls.target);
+                if (progress < 1) requestAnimationFrame(update);
+                else { camera.position.copy(position); controls.target.copy(target); camera.lookAt(controls.target); }
+            }
+            update();
+        }
+
+        // ---------- fullscreen (usando Fullscreen API) ----------
+        function toggleFullscreen() {
+            // se não estiver em fullscreen, pedir
+            if (!document.fullscreenElement) {
+                // pedir fullscreen no container que tem o canvas
+                viewerContainer.requestFullscreen?.().then(() => {
+                    // ajusta tamanho do renderer após entrar
+                    setTimeout(() => {
+                        camera.aspect = viewerContainer.clientWidth / viewerContainer.clientHeight;
+                        camera.updateProjectionMatrix();
+                        renderer.setSize(viewerContainer.clientWidth, viewerContainer.clientHeight);
+                    }, 100);
+                }).catch(err => {
+                    console.warn('Erro ao pedir fullscreen:', err);
+                });
+            } else {
+                document.exitFullscreen?.();
+            }
+        }
+
+        // manter o estado quando fullscreen muda
+        document.addEventListener('fullscreenchange', () => {
+            isFullscreen = !!document.fullscreenElement;
+            fullscreenBtn.innerHTML = isFullscreen ? '✕' : '⛶';
+            fullscreenBtn.setAttribute('title', isFullscreen ? 'Sair da Tela Cheia' : 'Tela Cheia');
+            // ajustar renderer
+            setTimeout(() => {
+                camera.aspect = viewerContainer.clientWidth / viewerContainer.clientHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(viewerContainer.clientWidth, viewerContainer.clientHeight);
+            }, 120);
+        });
+
+        // atachar eventos de UI
+        fullscreenBtn.addEventListener('click', toggleFullscreen);
+        cameraControl.addEventListener('click', toggleCameraView);
+
+        // ESC já é tratado pelo navegador para sair do fullscreen; mantive sem sobrescrever
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                if (isCameraFixed) toggleCameraView();
+            } else if (e.key === 'ArrowLeft') {
+                navigateCarousel(-1);
+            } else if (e.key === 'ArrowRight') {
+                navigateCarousel(1);
+            }
+        });
+
+        // ---------- painel de anotações ----------
+        function setupAnnotationPanel() {
+            annotationSave.addEventListener('click', () => {
+                currentAnnotation = annotationTextarea.value.trim();
+                if (currentAnnotation) {
+                    annotationDisplay.textContent = currentAnnotation;
+                    annotationTextarea.style.display = 'none';
+                    annotationDisplay.style.display = 'block';
+                    annotationSave.style.display = 'none';
+                    annotationEdit.style.display = 'inline-block';
+                    showTempMessage('Anotação salva!', 'success');
+                } else {
+                    showTempMessage('Digite uma anotação antes de salvar.', 'error');
+                }
+            });
+
+            annotationEdit.addEventListener('click', () => {
+                annotationTextarea.style.display = 'block';
+                annotationDisplay.style.display = 'none';
+                annotationSave.style.display = 'inline-block';
+                annotationEdit.style.display = 'none';
+                annotationTextarea.focus();
+            });
+
+            annotationClear.addEventListener('click', () => {
+                annotationTextarea.value = '';
+                currentAnnotation = '';
+                annotationDisplay.textContent = '';
+                annotationTextarea.style.display = 'block';
+                annotationDisplay.style.display = 'none';
+                annotationSave.style.display = 'inline-block';
+                annotationEdit.style.display = 'none';
+                showTempMessage('Anotação limpa!', 'success');
+            });
+
+            annotationClose.addEventListener('click', () => {
+                annotationPanel.classList.remove('visible');
+            });
+        }
+
+        function showTempMessage(message, type) {
+            const messageEl = document.createElement('div');
+            messageEl.textContent = message;
+            messageEl.style.cssText = `
+        position:fixed; top:20px; right:20px; background:${type === 'success' ? '#4CAF50' : '#f44336'}; color:white; padding:10px 15px; border-radius:5px; z-index:1000; font-size:0.9rem; box-shadow:0 4px 12px rgba(0,0,0,0.3);
+      `;
+            document.body.appendChild(messageEl);
+            setTimeout(() => messageEl.remove(), 3000);
+        }
+
+        // inicializar
+        window.onload = initScene;
+    </script>
+</body>
+
+</html>

@@ -222,92 +222,12 @@ main.main-container {
   box-shadow: 0 4px 8px var(--shadow);
 }
 
-/* responsividade */
-@media (max-width: 1024px) {
-  .card-destaque {
-    width: 250px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 2.2rem 1.2rem;
-    color: var(--w);
-    z-index: 2;
-    background: rgba(20, 20, 40, 0.45);
-    border-radius: 18px;
-    box-shadow: 0 2px 18px rgba(0, 0, 0, 0.13);
-  }
-}
-
-@media (max-width: 768px) {
-  main.container {
-    gap: 32px;
-  }
-  .section-title {
-    font-size: 1.8rem;
-    margin-bottom: 24px;
-  }
-  .carrossel-container {
-    padding: 0;
-  }
-  .carrossel-wrapper {
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-  }
-  .carrossel-wrapper::-webkit-scrollbar {
-    display: none;
-  }
-  .carrossel-track {
-    padding: 0 24px;
-  }
-  .card-destaque {
-    scroll-snap-align: start;
-    width: 280px;
-  }
-  .carrossel-arrow {
-    display: none;
-  }
-  .recent-grid {
-    grid-template-columns: 1fr;
-    font-size: 2.7rem;
-    font-family: "Cormorant Garamond", serif;
-    font-weight: 800;
-    line-height: 1.1;
-    margin-bottom: 1.1rem;
-    color: #ffe7b0;
-    text-shadow: 0 2px 24px #b07a2b99, 0 2px 16px rgba(0, 0, 0, 0.18);
-    letter-spacing: 1px;
-  }
-}
-
-@media (max-width: 480px) {
-  main.container {
-    padding: 0 16px;
-  }
-  .card-destaque {
-    width: calc(100vw - 64px);
-    height: auto;
-  }
-  .carrossel-track {
-    padding: 0 16px;
-  }
-}
-/* ... Outras regras de CSS ... */
-
-/* ESTILO PARA O NOVO BOTÃO DE PIONEIROS (pode reutilizar do anterior) */
-
 .btn-pioneiros-wrapper {
   text-align: center;
   padding: 30px 0 0;
 }
 
 .btn.btn-pioneiros {
-  /* Reutiliza a classe .btn para o estilo base */
   background: var(--brass);
   color: var(--w);
   padding: 16px 30px;
@@ -321,7 +241,6 @@ main.main-container {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  /* Ajuste para o modo escuro */
   border: none;
   text-shadow: none;
 }
@@ -339,10 +258,9 @@ main.main-container {
   color: var(--w-3);
 }
 
-/* --- NOVA SEÇÃO: PIONEIROS GRID --- */
+/* grid pioneiros */
 
 .pioneers-grid-section {
-  /* Fundo preto de alto contraste */
   background: var(--ink);
   padding: 40px 0;
   border-radius: 14px;
@@ -350,7 +268,6 @@ main.main-container {
 }
 
 .pioneers-grid-section .section-title {
-  /* Título em destaque no fundo escuro */
   color: var(--w);
   font-size: 2.5rem;
   margin-bottom: 30px;
@@ -373,8 +290,6 @@ main.main-container {
   text-decoration: none;
   box-shadow: 0 4px 8px var(--shadow);
   transition: all 0.3s;
-
-  /* Layout Horizontal Flex */
   display: flex;
   align-items: center;
   padding: 0;
@@ -408,7 +323,7 @@ main.main-container {
 .pioneers-card.horizontal p {
   font-size: 1rem;
   color: var(--cor-suave);
-  padding-right: 10px; /* Espaço para não encostar na seta */
+  padding-right: 10px;
 }
 
 .pioneers-card.horizontal .card-arrow {
@@ -422,11 +337,9 @@ main.main-container {
   transform: translateX(5px);
 }
 
-/* Modo Escuro */
+/* modo escuro */
 :root[data-theme="dark"] .pioneers-card.horizontal {
-  background: var(
-    --paper
-  ); /* Fundo do card mais claro para contraste com o section */
+  background: var(--paper);
   border: 1px solid var(--borda-card);
 }
 :root[data-theme="dark"] .pioneers-card.horizontal img {
@@ -436,8 +349,89 @@ main.main-container {
   color: var(--brass);
 }
 
-/* Responsividade para o grid */
+/* responsividade*/
+@media (max-width: 1024px) {
+  .hero-content h1 {
+    font-size: 2.4rem;
+  }
+  .hero-content p {
+    font-size: 1.1rem;
+  }
+  .card-destaque {
+    width: 250px;
+    text-align: center;
+    margin: 0 auto;
+  }
+  .pioneers-card.horizontal img {
+    width: 120px;
+    height: 120px;
+  }
+}
+
 @media (max-width: 768px) {
+  main.main-container {
+    gap: 28px;
+    padding: 0 16px;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+
+  .hero-section {
+    min-height: 360px;
+    border-radius: 0 0 24px 24px;
+  }
+  .hero-content,
+  .hero-content h1 {
+    text-align: center;
+  }
+  .hero-content h1 {
+    font-size: 2.2rem;
+  }
+
+  .carrossel-container {
+    padding: 0;
+  }
+  .carrossel-wrapper {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .carrossel-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+  .carrossel-track {
+    display: flex;
+    gap: 16px;
+    padding: 0 16px;
+    min-width: max-content;
+  }
+  .card-destaque {
+    flex: 0 0 auto;
+    width: 260px;
+    height: auto;
+    scroll-snap-align: start;
+  }
+  .carrossel-arrow {
+    display: none;
+  }
+
+  .recent-section .section-title {
+    font-size: 2rem;
+  }
+  .recent-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 16px;
+  }
+
+  .about-content p {
+    font-size: 1rem;
+  }
+
   .pioneers-grid-section {
     padding: 30px 0;
   }
@@ -446,21 +440,65 @@ main.main-container {
     align-items: flex-start;
     text-align: left;
     padding-bottom: 20px;
+    position: relative;
   }
   .pioneers-card.horizontal img {
     width: 100%;
-    height: 150px;
+    height: 160px;
     border-radius: 12px 12px 0 0;
-    margin-right: 0;
-    margin-bottom: 10px;
+    margin: 0 0 10px 0;
   }
   .pioneers-card.horizontal .card-content {
     padding: 0 20px;
   }
   .pioneers-card.horizontal .card-arrow {
     position: absolute;
-    bottom: 10px;
-    right: 15px;
-    padding: 0;
+    bottom: 12px;
+    right: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  main.main-container {
+    padding: 0 12px;
+  }
+  .hero-content {
+    padding: 1.5rem;
+  }
+  .hero-content h1 {
+    font-size: 1.9rem;
+  }
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .card-destaque {
+    width: calc(100vw - 64px);
+  }
+  .carrossel-track {
+    gap: 12px;
+    padding: 0 12px;
+  }
+
+  .recent-card .card-content {
+    padding: 16px;
+  }
+  .recent-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .about-content p {
+    font-size: 0.95rem;
+  }
+
+  .pioneers-card.horizontal h3 {
+    font-size: 1.3rem;
+  }
+  .pioneers-card.horizontal p {
+    font-size: 0.9rem;
+  }
+  .btn.btn-pioneiros {
+    font-size: 1rem;
+    padding: 8px 16px;
   }
 }
