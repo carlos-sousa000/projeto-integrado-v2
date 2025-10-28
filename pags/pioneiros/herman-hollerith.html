@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Herman Hollerith</title>
+  <link rel="stylesheet" href="../../css/artigo/artigo.css">
+</head>
+
+<body class="body-main">
+
+  <header class="site-header" role="banner">
+    <div class="header-container">
+      <a href="../index.html" class="logo-link" aria-label="Ir para a página inicial">
+        <img class="project-logo" src="../../imgs/logo-branco.png" alt="Logo do Projeto">
+      </a>
+      <nav class="header-nav" role="navigation" aria-label="Navegação principal">
+        <a class="btn secondary" href="../pioneiros.html"> <i class="fas fa-person" aria-hidden="true"></i>Pioneiros</a>
+        <a class="btn secondary" href="../modelos.html"> <i class="fas fa-cube" aria-hidden="true"></i>Modelos 3D</a>
+        <a class="btn secondary" href="../busca.html"><i class="fas fa-magnifying-glass" aria-hidden="true"></i>Busca</a>
+        <a class="btn" href=".././quiz/quiz.html" title="Ir para o quiz"> <i class="fas fa-brain" aria-hidden="true"></i> Quiz</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" role="main" aria-labelledby="artigo-title">
+    <div class="article-hero">
+      <div class="article-content">
+        <h1 id="artigo-title">Herman Hollerith (1860–1929)</h1>
+
+        <div class="highlight" role="note" aria-label="Resumo">
+          <p><strong>Herman Hollerith</strong> (1860–1929) foi um engenheiro e inventor norte-americano. Trabalhou no Escritório do Censo dos EUA e enfrentou o desafio de processar grandes volumes de dados manualmente. Formou-se em engenharia e foi professor na Universidade Columbia. Buscava soluções práticas para problemas administrativos e estatísticos. Fundou uma empresa que se tornaria a IBM.</p>
+        </div>
+
+        <div class="article-body">
+          
+          <h2>Como influenciou na história</h2>
+          <p>Hollerith revolucionou o processamento de dados ao introduzir a automação em larga escala. Seu sistema reduziu drasticamente o tempo necessário para tabular o censo norte-americano. Inspirou o uso de tecnologia em administração pública e negócios. Foi pioneiro na era da informação antes mesmo do computador eletrônico. Seu modelo de negócios moldou a indústria de tecnologia do século XX.</p>
+
+          <h2>Feitos ao longo da vida</h2>
+          <p>Inventou a máquina tabuladora que usava cartões perfurados para registrar e processar dados. Desenvolveu perfuradores, leitores e classificadores automáticos de cartões. Criou um sistema integrado de coleta, armazenamento e análise de dados. Patenteou sua máquina em 1889. Fundou a Tabulating Machine Company, precursora da IBM.</p>
+
+          <h2>Como suas invenções/feitos ajudaram na história</h2>
+          <p>Seu sistema foi usado no censo dos EUA de 1890, reduzindo o tempo de processamento de anos para meses. Tornou viável o tratamento de grandes bases de dados em governo, indústria e comércio. Os cartões perfurados foram usados por décadas em computadores até os anos 1970. Abriu caminho para a automação empresarial e governamental. É considerado um dos pais da computação moderna. </p>
+
+
+          <p class="article-footer">
+            <a class="btn secondary btn-article" href="../timeline.html" title="Voltar">← Voltar à Linha do Tempo</a>
+             
+          </p>
+        </div>
+      </div>
+
+
+      <aside class="image-column" aria-hidden="false">
+        <figure class="image-grid" aria-label="Galeria de imagens de Charles Babbage">
+
+          <img class="img-large img-zoomable" loading="lazy" src="../pioneiros/img4_3.jpg" alt="Retrato de Herman Hollerith">
+          <img class="img-side img-zoomable" loading="lazy" src="../pioneiros/img4_2.jpg" alt="Retrato de Herman Hollerith">
+          <img class="img-side img-zoomable" loading="lazy" src="../pioneiros/img4.jpg" alt="Retrato de Herman Hollerith">
+          <figcaption>Retratos e imagens de Herman Hollerith — Clique nas imagens para ampliá-las</figcaption>
+        </figure>
+      </aside>
+    </div>
+  </main>
+
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-container">
+      <div>
+        <img class="project-logo footer-logo" src="../../imgs/logo-branco.png" alt="Logo do Projeto">
+      </div>
+
+      <div class="footer-actions">
+        <button class="btn-tertiary" id="theme-toggle" title="Alterar Tema">
+          <i class="fas fa-adjust" aria-hidden="true"></i>
+          <span id="theme-text"></span>
+        </button>
+        <button class="btn-tertiary" id="lang-toggle" title="Mudar Idioma">
+          <i class="fas fa-globe" aria-hidden="true"></i>
+          <span>Idioma</span>
+        </button>
+        <button class="btn-tertiary" title="Sobre Nós">
+          <i class="fas fa-info" aria-hidden="true"></i>
+          <span>Sobre Nós</span>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  
+
+
+<div id="img-modal" class="img-modal" style="display:none;">
+  <div class="img-modal-content">
+    <span class="img-modal-arrow img-modal-arrow-left" id="modal-arrow-left">&#8592;</span>
+    <span class="img-modal-close" id="close-modal">&times;</span>
+    <img id="modal-img" src="" alt="">
+    <span class="img-modal-arrow img-modal-arrow-right" id="modal-arrow-right">&#8594;</span>
+    <div id="modal-caption" class="img-modal-caption"></div>
+  </div>
+</div>
+
+<script src="../../js/modal-artigo.js"></script>
+<script src="../../js/tema.js"></script>
+</body>
+
+</html>

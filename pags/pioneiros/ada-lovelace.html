@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ada Lovelace</title>
+  <link rel="stylesheet" href="../../css/artigo/artigo.css">
+</head>
+
+<body class="body-main">
+
+  <header class="site-header" role="banner">
+    <div class="header-container">
+      <a href="../index.html" class="logo-link" aria-label="Ir para a página inicial">
+        <img class="project-logo" src="../../imgs/logo-branco.png" alt="Logo do Projeto">
+      </a>
+      <nav class="header-nav" role="navigation" aria-label="Navegação principal">
+        <a class="btn secondary" href="../pioneiros.html"> <i class="fas fa-person" aria-hidden="true"></i>Pioneiros</a>
+        <a class="btn secondary" href="../modelos.html"> <i class="fas fa-cube" aria-hidden="true"></i>Modelos 3D</a>
+        <a class="btn secondary" href="../busca.html"><i class="fas fa-magnifying-glass" aria-hidden="true"></i>Busca</a>
+        <a class="btn" href=".././quiz/quiz.html" title="Ir para o quiz"> <i class="fas fa-brain" aria-hidden="true"></i> Quiz</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" role="main" aria-labelledby="artigo-title">
+    <div class="article-hero">
+      <div class="article-content">
+        <h1 id="artigo-title">Ada Lovelace (1815-1852)</h1>
+
+        <div class="highlight" role="note" aria-label="Resumo">
+          <p><strong>Ada Lovelace</strong> (1815–1852), filha do poeta Lord Byron, foi uma matemática e escritora inglesa. Foi educada em ciências e matemática, algo raro para mulheres de sua época. Tornou-se amiga e colaboradora de Charles Babbage. É considerada a primeira programadora da história. Sua visão combinava criatividade poética com rigor científico.</p>
+        </div>
+
+        <div class="article-body">
+         
+          <h2>Como influenciou na história</h2>
+          <p>Ada foi a primeira a perceber que a Máquina Analítica poderia ir além de cálculos numéricos. Introduziu a ideia de que máquinas poderiam manipular símbolos e criar arte ou música. Seu trabalho foi redescoberto no século XX, tornando-se inspiração para a ciência da computação moderna. Quebrou barreiras de gênero na ciência e tecnologia. É um ícone feminino na história da tecnologia.</p>
+
+          <h2>Feitos ao longo da vida</h2>
+          <p>Desenvolveu o primeiro algoritmo destinado a ser processado por uma máquina. Escreveu extensas notas sobre a Máquina Analítica de Babbage, incluindo um método para calcular números de Bernoulli. Criou conceitos que anteciparam a programação moderna, como loops e variáveis. Seu trabalho foi teórico, mas profundamente inovador. Publicou suas ideias em 1843, sob pseudônimo.</p>
+
+          <h2>Como suas invenções/feitos ajudaram na história</h2>
+          <p>Seus algoritmos e visão de computação simbólica anteciparam a programação por mais de um século. Influenciaram pioneiros como Alan Turing, que citou suas ideias. Mostrou que a computação poderia ter aplicações criativas e não apenas matemáticas. Seu legado reforça a importância da interdisciplinaridade na inovação. Hoje, a linguagem de programação "Ada" leva seu nome em homenagem.</p>
+
+          <p class="article-footer">
+            <a class="btn secondary btn-article" href="../timeline.html" title="Voltar">← Voltar à Linha do Tempo</a>
+             
+          </p>
+        </div>
+      </div>
+
+
+      <aside class="image-column" aria-hidden="false">
+        <figure class="image-grid" aria-label="Galeria de imagens de Charles Babbage">
+
+          <img class="img-large img-zoomable" loading="lazy" src="../pioneiros/img3.jpg" alt="Foto de Ada Lovelace">
+          <img class="img-side img-zoomable" loading="lazy" src="../pioneiros/img3_2.jpg" alt="Retrato de Ada Lovelace">
+          <img class="img-side img-zoomable" loading="lazy" src="../pioneiros/img3_3.jpg" alt="Retrato de Ada Lovelace">
+          <figcaption>Retratos e imagens de Ada Lovelace — Clique nas imagens para ampliá-las</figcaption>
+        </figure>
+      </aside>
+    </div>
+  </main>
+
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-container">
+      <div>
+        <img class="project-logo footer-logo" src="../../imgs/logo-branco.png" alt="Logo do Projeto">
+      </div>
+
+      <div class="footer-actions">
+        <button class="btn-tertiary" id="theme-toggle" title="Alterar Tema">
+          <i class="fas fa-adjust" aria-hidden="true"></i>
+          <span id="theme-text"></span>
+        </button>
+        <button class="btn-tertiary" id="lang-toggle" title="Mudar Idioma">
+          <i class="fas fa-globe" aria-hidden="true"></i>
+          <span>Idioma</span>
+        </button>
+        <button class="btn-tertiary" title="Sobre Nós">
+          <i class="fas fa-info" aria-hidden="true"></i>
+          <span>Sobre Nós</span>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  
+
+
+<div id="img-modal" class="img-modal" style="display:none;">
+  <div class="img-modal-content">
+    <span class="img-modal-arrow img-modal-arrow-left" id="modal-arrow-left">&#8592;</span>
+    <span class="img-modal-close" id="close-modal">&times;</span>
+    <img id="modal-img" src="" alt="">
+    <span class="img-modal-arrow img-modal-arrow-right" id="modal-arrow-right">&#8594;</span>
+    <div id="modal-caption" class="img-modal-caption"></div>
+  </div>
+</div>
+
+<script src="../../js/modal-artigo.js"></script>
+<script src="../../js/tema.js"></script>
+</body>
+
+</html>
