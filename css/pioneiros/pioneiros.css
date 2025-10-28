@@ -39,18 +39,18 @@
   cursor: pointer;
 }
 
-.name-desc{
+.name-desc {
   display: flex;
   flex-direction: column;
 }
 
 .pioneer-img {
-  width: 160px;     
-  height: 160px;        
-  object-fit: cover;   
-  border-radius: 6px;  
-  flex-shrink: 0;    
-  background-color: #f0f0f0; 
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
+  background-color: #f0f0f0;
 }
 
 .pioneer-name {
