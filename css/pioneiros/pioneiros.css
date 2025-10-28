@@ -38,7 +38,31 @@
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
   cursor: pointer;
 }
+.pioneer-name {
+  font-family: serif;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+  padding-left: 10px;
+}
 
+.pioneer-name::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translateY(10%);
+  width: 5px;
+  height: 30px;
+  background-color: var(--brass);
+  opacity: 0.8;
+}
+
+.pioneer-desc {
+  font-size: 1rem;
+  text-align: left;
+  padding-left: 10px;
+}
 .name-desc {
   display: flex;
   flex-direction: column;
@@ -48,22 +72,15 @@
   width: 160px;
   height: 160px;
   object-fit: cover;
+  object-position: top;
+
   border-radius: 6px;
   flex-shrink: 0;
   background-color: #f0f0f0;
 }
-
-.pioneer-name {
-  font-family: serif;
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
+.center {
+  object-position: center;
 }
-
-.pioneer-desc {
-  font-size: 1rem;
-  text-align: left;
-}
-
 @media (max-width: 600px) {
   .pioneer-card {
     flex-direction: column;
