@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Charles Babbage</title>
+    <link rel="stylesheet" href="../../../css/artigo/artigo.css">
+    <link rel="icon" type="image/x-icon" href="../../../imgs/logo-tab.png">
+</head>
+
+<body class="body-main">
+
+    <header class="site-header">
+        <div class="header-container">
+            <a href="../../../index-en.html" class="logo-link">
+                <img class="project-logo" src="../../../imgs/logo-branco.png" alt="Project logo">
+                <span>Pioneer<br>Minds</span>
+            </a>
+            <nav class="header-nav" role="navigation" aria-label="Main navigation">
+                <a class="btn secondary" href="../../timeline-en.html"> <i class="fas fa-timeline" aria-hidden="true"></i>Timeline</a>
+                <a class="btn secondary" href="../../modelos-en.html"> <i class="fas fa-cube" aria-hidden="true"></i>3D Models</a>
+                <a class="btn secondary" href="../../busca-en.html"><i class="fas fa-magnifying-glass" aria-hidden="true"></i>Search</a>
+                <a class="btn" href="../../quiz/quiz-en.html" title="Go to quiz"> <i class="fas fa-brain" aria-hidden="true"></i> Quiz</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container" role="main" aria-labelledby="artigo-title">
+        <div class="article-hero">
+            <div class="article-content">
+                <h1 id="artigo-title">NAND & NOR - Charles Peirce</h1>
+
+                <div class="highlight" role="note" aria-label="Summary">
+                    <p>Around 1880, <strong>Charles Pierce</strong> studied boolean logic operator tables with two variables. At the time, it was known that there were 16 logical operators, but he realized that just two of them — NAND and NOR — were sufficient to construct all other classical logical operators, such as AND, OR, NOT, etc.</p>
+                </div>
+
+                <div class="article-body">
+                    <p><span class="callout">Overview</span> NAND and NOR are logical operators derived from boolean algebra. Pierce realized that, with combinations of these two operators, it was possible to represent any logical operation, including AND, OR, and NOT. This discovery showed that logic could be simplified in terms of a few fundamental elements.</p>
+
+                    <h2>Historical Context</h2>
+                    <p>In the late 19th century, boolean logic was beginning to be explored as a formal tool for reasoning and calculation. Charles Sanders Peirce contributed by showing that logic could be simplified using 2 fundamental operators, which would later directly influence the design of digital circuits and computers, as modern logic gates are implemented based on NAND and NOR.</p>
+
+                    <h2>How did it work?</h2>
+                    <p>NAND: only false when both inputs are true. Example: if A and B are true, A NAND B = false; in any other case, the result is true. NOR: only true when both inputs are false. In all other cases, the result is false.</p>
+
+                    <h2>Importance of the inventor</h2>
+                    <p>Pierce's discovery was fundamental to computing theory and electrical engineering, as it allowed logic circuits to be designed with fewer components, increasing efficiency and reliability. This conceptual simplicity is one of the pillars of modern digital electronics.</p>
+
+                    <p class="article-footer">
+                        <a class="btn secondary btn-article" href="../../timeline-en.html" title="Go back">← Back to Timeline</a>
+
+                    </p>
+                </div>
+            </div>
+
+
+            <aside class="image-column" aria-hidden="false">
+                <figure class="image-grid" aria-label="Gallery of Charles Pierce images">
+
+                    <img class="img-large img-zoomable" loading="lazy" src="../../../imgs/artigos/14img2.jpg" alt="Portrait of Charles Sanders Peirce">
+                    <img class="img-side img-zoomable" loading="lazy" src="../../../imgs/artigos/14img1.jpg" alt="Examples of symbols used in NAND & NOR logic operators">
+                    <img class="img-side img-zoomable" loading="lazy" src="../../../imgs/artigos/14img3.jpg" alt="NAND & NOR exemplified">
+                    <figcaption>Portraits and images of NAND & NOR logic — Click on images to enlarge.</figcaption>
+                </figure>
+            </aside>
+        </div>
+    </main>
+
+
+    <footer class="site-footer" role="contentinfo">
+        <div class="footer-container">
+            <div>
+                <img class="project-logo footer-logo" src="../../../imgs/logo-branco.png" alt="Project Logo">
+            </div>
+
+            <div class="footer-actions">
+                <button class="btn-tertiary" id="theme-toggle" title="Toggle Theme">
+                    <i class="fas fa-adjust" aria-hidden="true"></i>
+                    <span id="theme-text"></span>
+                </button>
+                <button class="btn-tertiary" id="lang-toggle" title="Change Language">
+                    <i class="fas fa-globe" aria-hidden="true"></i>
+                    <span>Language</span>
+                </button>
+                <a href="../../sobre-en.html" class="btn-tertiary" title="About Us">
+                    <i class="fas fa-info" aria-hidden="true"></i>
+                    <span>About Us</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+    <div id="img-modal" class="img-modal" style="display:none;">
+        <div class="img-modal-content">
+            <span class="img-modal-arrow img-modal-arrow-left" id="modal-arrow-left">&#8592;</span>
+            <span class="img-modal-close" id="close-modal">&times;</span>
+            <img id="modal-img" src="" alt="">
+            <span class="img-modal-arrow img-modal-arrow-right" id="modal-arrow-right">&#8594;</span>
+            <div id="modal-caption" class="img-modal-caption"></div>
+        </div>
+    </div>
+
+    <script src="../../../js/modal-artigo.js"></script>
+    <script src="../../../js/tema.js"></script>
+</body>
+
+</html>

@@ -1,1 +1,587 @@
+/* Importa o global */
 @import url(.././main-import.css);
+
+:root {
+  --article-border: hsla(from var(--ink) h s l / 0.15);
+  --article-shadow: rgba(0, 0, 0, 0.3);
+}
+
+:root[data-theme="dark"] {
+  --article-border: rgba(255, 255, 255, 0.1);
+  --article-shadow: rgba(0, 0, 0, 0.5);
+}
+
+main.container {
+  max-width: 1100px;
+  margin: 2.5rem auto;
+  padding: 2rem;
+  background-image: linear-gradient(180deg, var(--paper), var(--paper-dark));
+  :root[data-theme="dark"] & {
+    background-image: linear-gradient(180deg, #202529, var(--paper));
+  }
+  border-radius: 8px;
+  border: 1px solid var(--article-border);
+  box-shadow: 0 2px 5px var(--article-shadow);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+.carousel-section {
+  padding: 0;
+  text-align: center;
+  border-bottom: 1px solid var(--article-border); /* Variável do artigo */
+  position: relative;
+}
+.carousel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+} /* ADICIONADO: Grupo para Título + Botão de Ajuda */
+.header-title-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+} /* ADICIONADO: Estilo do Botão de Ajuda */
+.btn-help {
+  background: none;
+  border: none;
+  color: var(--cor-suave);
+  font-size: 1.25rem;
+  padding: 0 5px;
+  cursor: pointer;
+  transition: color 0.3s, transform 0.3s;
+}
+.btn-help:hover {
+  color: var(--brass);
+  transform: scale(1.1);
+}
+.btn-help i {
+  color: inherit;
+}
+.carousel-header h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2rem;
+  color: var(--cor-texto);
+  margin: 0;
+}
+.carousel-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin: 15px 0;
+}
+.carousel-btn {
+  background-color: var(--paper);
+  color: var(--cor-texto);
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 50%;
+
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 10;
+
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+:root[data-theme="dark"] .carousel-btn {
+  background: rgba(0, 0, 0, 0.5);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: var(--w-2);
+}
+.carousel-btn:hover {
+  background-color: var(--brass);
+  color: var(--w);
+  filter: brightness(1.1);
+  transform: scale(1.07);
+}
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  gap: 15px;
+  padding: 10px;
+  max-width: 700px;
+  background: var(--paper);
+  border-radius: 8px;
+  border: 1px solid var(--article-border);
+}
+:root[data-theme="dark"] .carousel {
+  background: rgba(0, 0, 0, 0.2);
+}
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+.carousel-item {
+  flex: 0 0 auto;
+  width: 120px;
+  height: 60px;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+  border: 3px solid var(--article-border); /* Variável do artigo */
+}
+.carousel-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 2px 4px var(--article-shadow); /* Variável do artigo */
+}
+.carousel-item.active {
+  border-color: var(--brass);
+}
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.carousel-item .model-name {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  color: var(--w-3);
+  padding: 5px;
+  font-size: 0.8rem;
+  text-align: center;
+}
+.upload-btn {
+  background: var(--brass);
+  color: var(--w);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.upload-btn:hover {
+  background: var(--brass-dark);
+  transform: translateY(-2px);
+}
+.upload-btn i {
+  color: var(--w); /* Garante que o ícone seja branco */
+}
+.file-input {
+  display: none;
+}
+.empty-carousel {
+  text-align: center;
+  padding: 30px;
+  color: var(--cor-suave);
+}
+.viewer-section {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  min-height: 300px;
+  flex: 0 1 auto;
+  border-radius: 8px;
+  overflow: hidden; /* BORDA REMOVIDA DAQUI */
+}
+#model-viewer {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: relative;
+  background: #1a1a1a;
+}
+#model-viewer canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+.loading {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 1.5rem;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 1rem;
+  border-radius: 8px;
+}
+.loading.spin {
+  display: block;
+}
+.instructions {
+  padding: 20px;
+  background: var(--paper-dark);
+  border: 1px solid var(--article-border);
+  border-radius: 8px;
+  flex: 0 0 auto;
+  min-height: 130px;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--cor-texto);
+  margin-top: 24px;
+}
+:root[data-theme="dark"] .instructions {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--article-border); /* Borda sutil no modo escuro */
+}
+.instructions h3 {
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+  font-family: "Cormorant Garamond", serif;
+  color: var(--cor-texto);
+}
+.instructions ul {
+  list-style-position: inside;
+  padding-left: 10px;
+  color: var(--cor-suave);
+}
+.instructions li {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+.controls-info {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  background: rgba(0, 0, 0, 0.6);
+  color: var(--w-2);
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+.viewer-controls {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+.viewer-controls button {
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: all 0.3s;
+}
+.viewer-controls button:hover {
+  background: rgba(0, 0, 0, 0.8);
+  transform: scale(1.1);
+}
+.camera-control {
+  position: absolute;
+  bottom: 15px;
+  right: 70px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 5;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  transition: all 0.3s;
+  color: var(--w-2);
+}
+.camera-control:hover {
+  background: rgba(0, 0, 0, 0.5);
+  transform: scale(1.05);
+} /* MODIFICADO: Usa a variável CSS para o texto */
+.camera-control::before {
+  content: var(--content-before, "Fixo");
+  font-size: 12px;
+  font-weight: bold;
+}
+.camera-mode-indicator {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: rgba(0, 0, 0, 0.6);
+  color: var(--w-2);
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  display: none;
+  z-index: 5;
+}
+.camera-mode-indicator.visible {
+  display: block;
+}
+.annotation-panel {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  padding: 15px;
+  width: 300px;
+  max-width: 80%;
+  display: none;
+  z-index: 20;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  color: var(--w-2);
+}
+.annotation-panel.visible {
+  display: block;
+}
+.annotation-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.annotation-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #4caf50;
+}
+.annotation-close {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 3px;
+  transition: all 0.3s;
+}
+.annotation-close:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+.annotation-content {
+  margin-bottom: 15px;
+}
+.annotation-textarea {
+  width: 100%;
+  height: 120px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  padding: 10px;
+  color: white;
+  font-size: 0.9rem;
+  resize: vertical;
+  font-family: inherit;
+}
+.annotation-textarea:focus {
+  outline: none;
+  border-color: #4caf50;
+  background: rgba(255, 255, 255, 0.15);
+}
+.annotation-textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+.annotation-display {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  padding: 10px;
+  min-height: 40px;
+  color: white;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+.annotation-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+.annotation-btn {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.3s;
+}
+.annotation-save {
+  background: #4caf50;
+  color: white;
+}
+.annotation-save:hover {
+  background: #3e8e41;
+}
+.annotation-edit {
+  background: #2196f3;
+  color: white;
+}
+.annotation-edit:hover {
+  background: #0b7dda;
+}
+.annotation-clear {
+  background: #f44336;
+  color: white;
+}
+.annotation-clear:hover {
+  background: #d32f2f;
+}
+body.fullscreen.body-main {
+  overflow: hidden;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin: 0;
+}
+body.fullscreen main.container {
+  width: 100%;
+  max-width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+}
+body.fullscreen .site-header,
+body.fullscreen .site-footer {
+  display: none !important;
+}
+body.fullscreen .carousel-section,
+body.fullscreen .instructions {
+  display: none;
+}
+body.fullscreen .viewer-section {
+  height: 100vh;
+  min-height: 100vh;
+  flex-grow: 1;
+  border: none;
+  border-radius: 0;
+}
+body.fullscreen .viewer-controls {
+  top: 20px;
+  right: 20px;
+}
+body.fullscreen .controls-info {
+  bottom: 20px;
+  left: 20px;
+}
+body.fullscreen .camera-control {
+  bottom: 20px;
+  right: 80px;
+}
+body.fullscreen .camera-mode-indicator {
+  top: 20px;
+  left: 20px;
+}
+body.fullscreen .annotation-panel {
+  top: 20px;
+  left: 20px;
+}
+@media (max-width: 600px) {
+  .carousel-section {
+    padding: 15px 0;
+  }
+  .carousel-header {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+  .header-title-group {
+    width: 100%;
+    justify-content: center; /* Centraliza título e ajuda */
+  }
+  .upload-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .carousel-container {
+    width: 100%;
+    justify-content: flex-start;
+    margin: 10px 0;
+  }
+  .carousel {
+    max-width: none;
+    padding: 5px;
+    gap: 10px;
+  }
+  .carousel-item {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+  }
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+  .viewer-section {
+    height: 350px;
+    min-height: 250px;
+  }
+  .instructions {
+    padding: 15px;
+    min-height: auto;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+  }
+  .instructions h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  .instructions li {
+    margin-bottom: 5px;
+  }
+  .viewer-controls {
+    top: 10px;
+    right: 10px;
+  }
+  .viewer-controls button {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+  }
+  .controls-info {
+    font-size: 0.75rem;
+    padding: 6px;
+    bottom: 10px;
+    left: 10px;
+  }
+  .camera-control {
+    width: 40px;
+    height: 40px;
+    bottom: 10px;
+    right: 55px;
+  }
+  .camera-mode-indicator {
+    top: 10px;
+    left: 10px;
+    font-size: 0.75rem;
+    padding: 6px 10px;
+  }
+  .annotation-panel {
+    width: 90%;
+    max-width: 300px;
+    top: 10px;
+    left: 5%;
+    padding: 10px;
+  }
+  .annotation-textarea {
+    height: 80px;
+  }
+}
