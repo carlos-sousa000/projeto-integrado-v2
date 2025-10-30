@@ -21,6 +21,17 @@ main.main-container {
   padding: 0.5rem;
 }
 
+/* Regra para o <hr> que você está usando */
+hr.section-divider {
+  width: 80px;
+  margin: 1.5rem auto;
+  /* Espaçamento ajustado */
+  height: 2px;
+  background: var(--brass);
+  border: 0;
+  opacity: 0.8;
+}
+
 /* hero */
 .hero-section {
   min-height: 420px;
@@ -186,62 +197,6 @@ main.main-container {
 
 .carrossel-arrow.right {
   right: 0;
-}
-
-/* recentes */
-.recent-section {
-  background: linear-gradient(90deg, #181a1d 60%, #242121 100%);
-  padding: 24px 0 16px 0;
-  border-radius: 14px;
-  box-shadow: 0 0 20px #b07a2b22;
-}
-
-.recent-section .section-title {
-  color: var(--w);
-  font-size: 2.5rem;
-}
-
-.recent-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 32px;
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
-.recent-card {
-  background: var(--paper);
-  color: var(--cor-texto);
-  border-radius: 12px;
-  overflow: hidden;
-  text-decoration: none;
-  box-shadow: 0 4px 8px var(--shadow);
-  transition: 0.3s;
-}
-
-.recent-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 5px 10px var(--shadow);
-}
-
-.recent-card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-}
-
-.recent-card .card-content {
-  padding: 24px;
-}
-
-.recent-card h3 {
-  font-size: 1.4rem;
-  margin-bottom: 8px;
-}
-
-.recent-card p {
-  color: var(--cor-suave);
 }
 
 /* sobre o projeto */
@@ -422,6 +377,127 @@ main.main-container {
   color: var(--brass);
 }
 
+/* ADICIONADO: Estilos da Seção "Invenções em Foco" */
+.machines-showcase-section {
+  padding: 18px 0 12px 0;
+  /* Alinha com padding da seção 'destaques' */
+  position: relative;
+  /* Para as cantoneiras */
+}
+
+/* ADICIONADO: Cantoneiras para consistência */
+.machines-showcase-section::before,
+.machines-showcase-section::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-color: var(--brass);
+  border-style: solid;
+  opacity: 0.5;
+}
+
+.machines-showcase-section::before {
+  top: 0;
+  left: 0;
+  border-width: 2px 0 0 2px;
+}
+
+.machines-showcase-section::after {
+  top: 0;
+  right: 0;
+  border-width: 2px 2px 0 0;
+}
+
+/* Fim Cantoneiras */
+
+.machines-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  max-width: 900px;
+  /* Alinha com a seção de pioneiros */
+  margin: 0 auto;
+}
+
+.machine-card {
+  background: var(--paper-dark);
+  border-radius: 8px;
+  border: 1px solid var(--borda-card);
+  text-decoration: none;
+  box-shadow: 0 2px 5px var(--shadow);
+  transition: transform 0.3s, box-shadow 0.3s;
+  overflow: hidden;
+}
+
+.machine-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 4px 8px var(--shadow);
+}
+
+.machine-image-wrapper {
+  overflow: hidden;
+  border-bottom: 1px solid var(--borda-card);
+}
+
+.machine-image-wrapper img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  /* Efeito de "blueprint" / foto antiga */
+  filter: sepia(0.5) grayscale(0.1) contrast(0.9);
+  transition: filter 0.3s, transform 0.3s;
+}
+
+.machine-card:hover .machine-image-wrapper img {
+  filter: sepia(0) grayscale(0) contrast(1);
+  transform: scale(1.05);
+}
+
+.machine-content {
+  padding: 1rem 1.25rem;
+}
+
+.machine-year {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--cor-suave);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.machine-content h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.6rem;
+  color: var(--brass-dark);
+  margin: 0.25rem 0 0.5rem 0;
+}
+
+.machine-content p {
+  font-size: 0.95rem;
+  color: var(--muted-ink);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Modo escuro para a nova seção */
+:root[data-theme="dark"] .machine-card {
+  background: var(--paper);
+  /* Fundo #181a1d */
+}
+
+:root[data-theme="dark"] .machine-content h3 {
+  color: var(--brass);
+}
+
+:root[data-theme="dark"] .machine-content p {
+  color: var(--muted-ink);
+}
+
+/* FIM DOS ESTILOS DA SEÇÃO */
+
 /* responsividade*/
 @media (max-width: 1024px) {
   .hero-content h1 {
@@ -472,6 +548,10 @@ main.main-container {
   /* ADICIONADO: Esconde as cantoneiras no mobile para não poluir */
   .destaques-section::before,
   .destaques-section::after,
+  .machines-showcase-section::before,
+  /* Esconde da nova seção tbm */
+  .machines-showcase-section::after,
+  /* Esconde da nova seção tbm */
   .pioneers-grid-section::before,
   .pioneers-grid-section::after {
     display: none;
@@ -523,6 +603,19 @@ main.main-container {
   .about-content p {
     font-size: 1rem;
   }
+
+  /* ADICIONADO: Responsividade das Invenções */
+  .machines-grid {
+    grid-template-columns: 1fr;
+    /* Empilha em telas menores */
+  }
+
+  .machine-image-wrapper img {
+    height: 180px;
+    /* Ajusta altura da imagem */
+  }
+
+  /* Fim da responsividade */
 
   .pioneers-grid-section {
     padding: 30px 0;
