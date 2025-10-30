@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +15,7 @@
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         body {
             background: linear-gradient(150deg, #f8d77e, #dcbf6a);
             min-height: 100vh;
@@ -24,26 +25,26 @@
             padding: 20px;
             color: white;
         }
-        
+
         header {
             text-align: center;
             margin-bottom: 30px;
             width: 100%;
             max-width: 1000px;
         }
-        
+
         h1 {
             font-size: 2.5rem;
             margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
-        
+
         .subtitle {
             font-size: 1.2rem;
             opacity: 0.9;
             margin-bottom: 20px;
         }
-        
+
         .container {
             display: flex;
             flex-direction: column;
@@ -55,21 +56,21 @@
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
-        
+
         .carousel-section {
             padding: 20px;
             text-align: center;
             border-bottom: 1px solid rgba(255, 255, 255, 0.2);
             position: relative;
         }
-        
+
         .carousel-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 15px;
         }
-        
+
         .carousel-container {
             display: flex;
             align-items: center;
@@ -77,7 +78,7 @@
             gap: 15px;
             margin: 15px 0;
         }
-        
+
         .carousel-btn {
             background: rgba(0, 0, 0, 0.5);
             color: white;
@@ -93,27 +94,30 @@
             transition: all 0.3s;
             z-index: 10;
         }
-        
+
         .carousel-btn:hover {
             background: rgba(0, 0, 0, 0.8);
             transform: scale(1.1);
         }
-        
+
         .carousel {
             display: flex;
             overflow-x: auto;
             scroll-behavior: smooth;
-            scrollbar-width: none; /* Firefox */
-            -ms-overflow-style: none; /* IE and Edge */
+            scrollbar-width: none;
+            /* Firefox */
+            -ms-overflow-style: none;
+            /* IE and Edge */
             gap: 15px;
             padding: 10px;
             max-width: 700px;
         }
-        
+
         .carousel::-webkit-scrollbar {
-            display: none; /* Chrome, Safari and Opera */
+            display: none;
+            /* Chrome, Safari and Opera */
         }
-        
+
         .carousel-item {
             flex: 0 0 auto;
             width: 120px;
@@ -125,22 +129,22 @@
             position: relative;
             border: 3px solid transparent;
         }
-        
+
         .carousel-item:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
-        
+
         .carousel-item.active {
             border-color: #4CAF50;
         }
-        
+
         .carousel-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-        
+
         .carousel-item .model-name {
             position: absolute;
             bottom: 0;
@@ -151,7 +155,7 @@
             font-size: 0.8rem;
             text-align: center;
         }
-        
+
         .upload-btn {
             background: #9c27b0;
             color: white;
@@ -165,28 +169,28 @@
             align-items: center;
             gap: 8px;
         }
-        
+
         .upload-btn:hover {
             background: #7b1fa2;
             transform: translateY(-2px);
         }
-        
+
         .file-input {
             display: none;
         }
-        
+
         .empty-carousel {
             text-align: center;
             padding: 30px;
             color: rgba(255, 255, 255, 0.7);
         }
-        
+
         .viewer-section {
             position: relative;
             width: 100%;
             height: 500px;
         }
-        
+
         #model-viewer {
             width: 100%;
             height: 100%;
@@ -195,11 +199,11 @@
             align-items: center;
             background: #1a1a1a;
         }
-        
+
         #model-viewer canvas {
             border-radius: 5px;
         }
-        
+
         .loading {
             display: none;
             position: absolute;
@@ -210,32 +214,32 @@
             font-size: 1.5rem;
             text-align: center;
         }
-        
+
         .loading.spin {
             display: block;
         }
-        
+
         .instructions {
             padding: 20px;
             background: rgba(0, 0, 0, 0.2);
             border-radius: 0 0 15px 15px;
         }
-        
+
         .instructions h3 {
             margin-bottom: 15px;
             font-size: 1.3rem;
         }
-        
+
         .instructions ul {
             list-style-position: inside;
             padding-left: 10px;
         }
-        
+
         .instructions li {
             margin-bottom: 10px;
             line-height: 1.5;
         }
-        
+
         .controls-info {
             position: absolute;
             bottom: 15px;
@@ -245,7 +249,7 @@
             border-radius: 5px;
             font-size: 0.9rem;
         }
-        
+
         .viewer-controls {
             position: absolute;
             top: 15px;
@@ -254,7 +258,7 @@
             gap: 10px;
             z-index: 10;
         }
-        
+
         .viewer-controls button {
             background: rgba(0, 0, 0, 0.6);
             color: white;
@@ -269,12 +273,12 @@
             font-size: 1.2rem;
             transition: all 0.3s;
         }
-        
+
         .viewer-controls button:hover {
             background: rgba(0, 0, 0, 0.8);
             transform: scale(1.1);
         }
-        
+
         /* Círculo de controle de câmera */
         .camera-control {
             position: absolute;
@@ -293,22 +297,22 @@
             border: 2px solid rgba(255, 255, 255, 0.5);
             transition: all 0.3s;
         }
-        
+
         .camera-control:hover {
             background: rgba(0, 0, 0, 0.5);
             transform: scale(1.05);
         }
-        
+
         .camera-control::before {
             content: 'Fixo';
             font-size: 12px;
             font-weight: bold;
         }
-        
+
         .camera-control.fixed::before {
             content: 'Livre';
         }
-        
+
         /* Indicador de modo de câmera */
         .camera-mode-indicator {
             position: absolute;
@@ -321,11 +325,11 @@
             display: none;
             z-index: 5;
         }
-        
+
         .camera-mode-indicator.visible {
             display: block;
         }
-        
+
         /* Painel de anotações */
         .annotation-panel {
             position: absolute;
@@ -342,11 +346,11 @@
             border: 1px solid rgba(255, 255, 255, 0.2);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
         }
-        
+
         .annotation-panel.visible {
             display: block;
         }
-        
+
         .annotation-header {
             display: flex;
             justify-content: space-between;
@@ -355,13 +359,13 @@
             padding-bottom: 10px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         }
-        
+
         .annotation-title {
             font-size: 1.1rem;
             font-weight: bold;
             color: #4CAF50;
         }
-        
+
         .annotation-close {
             background: none;
             border: none;
@@ -372,15 +376,15 @@
             border-radius: 3px;
             transition: all 0.3s;
         }
-        
+
         .annotation-close:hover {
             background: rgba(255, 255, 255, 0.1);
         }
-        
+
         .annotation-content {
             margin-bottom: 15px;
         }
-        
+
         .annotation-textarea {
             width: 100%;
             height: 120px;
@@ -393,17 +397,17 @@
             resize: vertical;
             font-family: inherit;
         }
-        
+
         .annotation-textarea:focus {
             outline: none;
             border-color: #4CAF50;
             background: rgba(255, 255, 255, 0.15);
         }
-        
+
         .annotation-textarea::placeholder {
             color: rgba(255, 255, 255, 0.5);
         }
-        
+
         .annotation-display {
             background: rgba(255, 255, 255, 0.1);
             border-radius: 5px;
@@ -415,13 +419,13 @@
             white-space: pre-wrap;
             word-wrap: break-word;
         }
-        
+
         .annotation-actions {
             display: flex;
             gap: 10px;
             justify-content: flex-end;
         }
-        
+
         .annotation-btn {
             padding: 8px 15px;
             border: none;
@@ -430,40 +434,40 @@
             font-size: 0.9rem;
             transition: all 0.3s;
         }
-        
+
         .annotation-save {
             background: #4CAF50;
             color: white;
         }
-        
+
         .annotation-save:hover {
             background: #3e8e41;
         }
-        
+
         .annotation-edit {
             background: #2196F3;
             color: white;
         }
-        
+
         .annotation-edit:hover {
             background: #0b7dda;
         }
-        
+
         .annotation-clear {
             background: #f44336;
             color: white;
         }
-        
+
         .annotation-clear:hover {
             background: #d32f2f;
         }
-        
+
         /* Estilos para modo de tela cheia */
         body.fullscreen {
             overflow: hidden;
             padding: 0;
         }
-        
+
         body.fullscreen .container {
             width: 100%;
             max-width: 100%;
@@ -471,171 +475,170 @@
             border-radius: 0;
             justify-content: flex-start;
         }
-        
+
         body.fullscreen .carousel-section,
         body.fullscreen .instructions {
             display: none;
         }
-        
+
         body.fullscreen .viewer-section {
             height: 100%;
             flex-grow: 1;
         }
-        
+
         body.fullscreen .viewer-controls {
             top: 20px;
             right: 20px;
         }
-        
+
         body.fullscreen .controls-info {
             bottom: 20px;
             left: 20px;
         }
-        
+
         body.fullscreen .camera-control {
             bottom: 20px;
             right: 80px;
         }
-        
+
         body.fullscreen .camera-mode-indicator {
             top: 20px;
             left: 20px;
         }
-        
+
         body.fullscreen .annotation-panel {
             top: 20px;
             left: 20px;
         }
-        
+
         @media (max-width: 768px) {
             h1 {
                 font-size: 2rem;
             }
-            
+
             .viewer-section {
                 height: 400px;
             }
-            
+
             .controls-info {
                 font-size: 0.8rem;
             }
-            
+
             .viewer-controls button {
                 width: 35px;
                 height: 35px;
                 font-size: 1rem;
             }
-            
+
             .carousel-item {
                 width: 100px;
                 height: 100px;
             }
-            
+
             .carousel-btn {
                 width: 40px;
                 height: 40px;
                 font-size: 1.2rem;
             }
-            
+
             .camera-control {
                 width: 45px;
                 height: 45px;
                 bottom: 10px;
                 right: 60px;
             }
-            
+
             .camera-mode-indicator {
                 top: 10px;
                 left: 10px;
                 font-size: 0.8rem;
             }
-            
+
             .carousel-header {
                 flex-direction: column;
                 gap: 10px;
             }
-            
+
             .annotation-panel {
                 width: 250px;
                 padding: 12px;
             }
-            
+
             .annotation-textarea {
                 height: 100px;
             }
         }
     </style>
+    <link rel="icon" type="image/x-icon" href="../../imgs/logo-tab.png">
 </head>
-<body>
-<header>
-    <h1>Interactive Models</h1>
-    <p class="subtitle">3D Interactive Models</p>
-</header>
 
-<div class="container">
-    <div class="carousel-section">
-        <div class="carousel-header">
-            <h2>Models</h2>
-            <button class="upload-btn" id="upload-btn">
-                <span>+ Add Model</span>
-            </button>
-            <input type="file" id="file-input" class="file-input" accept=".glb,.gltf">
-        </div>
-        <div class="carousel-container">
-            <button class="carousel-btn" id="prev-btn">&#9664;</button>
-            <div class="carousel" id="model-carousel">
-                <!-- Carousel items will be added via JavaScript -->
+<body>
+    <header>
+        <h1>Interactive Models</h1>
+        <p class="subtitle">3D Interactive Models</p>
+    </header>
+
+    <div class="container">
+        <div class="carousel-section">
+            <div class="carousel-header">
+                <h2>Models</h2>
+                <button class="upload-btn" id="upload-btn">
+                    <span>+ Add Model</span>
+                </button>
+                <input type="file" id="file-input" class="file-input" accept=".glb,.gltf">
             </div>
-            <button class="carousel-btn" id="next-btn">&#9654;</button>
+            <div class="carousel-container">
+                <button class="carousel-btn" id="prev-btn">&#9664;</button>
+                <div class="carousel" id="model-carousel">
+                    <!-- Carousel items will be added via JavaScript -->
+                </div>
+                <button class="carousel-btn" id="next-btn">&#9654;</button>
+            </div>
+        </div>
+
+        <div class="viewer-section">
+            <div id="model-viewer"></div>
+            <div class="loading" id="loading">Loading model writee...</div>
+
+            <div class="viewer-controls">
+                <button id="fullscreen-btn" title="Fullscreen">⛶</button>
+            </div>
+            <div class="camera-control" id="camera-control" title="Fixed View"></div>
+            <div class="camera-mode-indicator" id="camera-mode-indicator">Mode: Fixed View</div>
+
+            <!-- Annotation Panel -->
+            <div class="annotation-panel" id="annotation-panel">
+                <div class="annotation-header">
+                    <div class="annotation-title">Write here</div>
+                    <button class="annotation-close" id="annotation-close" title="Close">✕</button>
+                </div>
+                <div class="annotation-content">
+                    <textarea class="annotation-textarea" id="annotation-textarea" placeholder="Type here..."></textarea>
+                    <div class="annotation-display" id="annotation-display" style="display: none;"></div>
+                </div>
+                <div class="annotation-actions">
+                    <button class="annotation-btn annotation-save" id="annotation-save">Save</button>
+                    <button class="annotation-btn annotation-edit" id="annotation-edit" style="display: none;">Edit</button>
+                    <button class="annotation-btn annotation-clear" id="annotation-clear">Clear</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="instructions">
+            <h3>How to use:</h3>
+            <ul>
+                <li>Select a model from the carousel to view it</li>
+                <li>Use the arrows to navigate through the carousel</li>
+                <li>Use the camera button to switch between fixed and free view</li>
+                <li>In <strong>fixed view</strong>, a note panel will appear in the top-left corner</li>
+                <li>Use your mouse to interact with the 3D model</li>
+                <li>Drag with the left button to rotate the model</li>
+                <li>Use the mouse wheel to zoom in/out</li>
+                <li>Drag with the middle button to move the model</li>
+                <li>Use the ⛶ button in the top-right corner to enter fullscreen mode</li>
+            </ul>
         </div>
     </div>
-    
-    <div class="viewer-section">
-        <div id="model-viewer"></div>
-        <div class="loading" id="loading">Loading model writee...</div>
-        
-        <div class="viewer-controls">
-            <button id="fullscreen-btn" title="Fullscreen">⛶</button>
-        </div>
-        <div class="camera-control" id="camera-control" title="Fixed View"></div>
-        <div class="camera-mode-indicator" id="camera-mode-indicator">Mode: Fixed View</div>
-        
-        <!-- Annotation Panel -->
-        <div class="annotation-panel" id="annotation-panel">
-            <div class="annotation-header">
-                <div class="annotation-title">Write here</div>
-                <button class="annotation-close" id="annotation-close" title="Close">✕</button>
-            </div>
-            <div class="annotation-content">
-                <textarea 
-                    class="annotation-textarea" 
-                    id="annotation-textarea" 
-                    placeholder="Type here..."></textarea>
-                <div class="annotation-display" id="annotation-display" style="display: none;"></div>
-            </div>
-            <div class="annotation-actions">
-                <button class="annotation-btn annotation-save" id="annotation-save">Save</button>
-                <button class="annotation-btn annotation-edit" id="annotation-edit" style="display: none;">Edit</button>
-                <button class="annotation-btn annotation-clear" id="annotation-clear">Clear</button>
-            </div>
-        </div>
-    </div>
-    
-    <div class="instructions">
-        <h3>How to use:</h3>
-        <ul>
-            <li>Select a model from the carousel to view it</li>
-            <li>Use the arrows to navigate through the carousel</li>
-            <li>Use the camera button to switch between fixed and free view</li>
-            <li>In <strong>fixed view</strong>, a note panel will appear in the top-left corner</li>
-            <li>Use your mouse to interact with the 3D model</li>
-            <li>Drag with the left button to rotate the model</li>
-            <li>Use the mouse wheel to zoom in/out</li>
-            <li>Drag with the middle button to move the model</li>
-            <li>Use the ⛶ button in the top-right corner to enter fullscreen mode</li>
-        </ul>
-    </div>
-</div>
 
     <script>
         // Variáveis globais
@@ -650,7 +653,7 @@
         const nextBtn = document.getElementById('next-btn');
         const uploadBtn = document.getElementById('upload-btn');
         const fileInput = document.getElementById('file-input');
-        
+
         // Elementos do painel de anotações
         const annotationPanel = document.getElementById('annotation-panel');
         const annotationTextarea = document.getElementById('annotation-textarea');
@@ -659,21 +662,21 @@
         const annotationEdit = document.getElementById('annotation-edit');
         const annotationClear = document.getElementById('annotation-clear');
         const annotationClose = document.getElementById('annotation-close');
-        
+
         let isFullscreen = false;
         let isCameraFixed = false;
         let originalCameraPosition = new THREE.Vector3(5, 5, 5);
         let originalControlsTarget = new THREE.Vector3(0, 0, 0);
         let currentModelIndex = 0;
         let currentAnnotation = "";
-        
+
         // Variáveis para as esferas 3D
         let keySpheres = [];
         let keySphereGroup = new THREE.Group();
-        
+
         // Lista de teclas do alfabeto
         const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
-        
+
         // Lista de modelos - começando com o writee
         let modelList = [
             {
@@ -683,93 +686,93 @@
                 thumbnail: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Crect width='120' height='120' fill='%234CAF50'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='14' font-weight='bold'%3Ewritee%3C/text%3E%3C/svg%3E"
             }
         ];
-        
+
         // Inicializar a cena Three.js
         function initScene() {
             // Criar cena
             scene = new THREE.Scene();
             scene.background = new THREE.Color(0x1a1a1a);
             scene.add(new THREE.AmbientLight(0xffffff, 0.6));
-            
+
             // Adicionar luz direcional
             const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
             directionalLight.position.set(10, 20, 15);
             scene.add(directionalLight);
-            
+
             // Criar câmera
             camera = new THREE.PerspectiveCamera(
-                45, 
-                viewerContainer.clientWidth / viewerContainer.clientHeight, 
-                0.1, 
+                45,
+                viewerContainer.clientWidth / viewerContainer.clientHeight,
+                0.1,
                 1000
             );
             camera.position.copy(originalCameraPosition);
-            
+
             // Criar renderizador
             renderer = new THREE.WebGLRenderer({ antialias: true });
             renderer.setSize(viewerContainer.clientWidth, viewerContainer.clientHeight);
             renderer.setPixelRatio(window.devicePixelRatio);
             viewerContainer.innerHTML = '';
             viewerContainer.appendChild(renderer.domElement);
-            
+
             // Adicionar controles de órbita
             controls = new THREE.OrbitControls(camera, renderer.domElement);
             controls.enableDamping = true;
             controls.dampingFactor = 0.05;
             controls.target.copy(originalControlsTarget);
-            
+
             // Adicionar grid helper
             const gridHelper = new THREE.GridHelper(10, 10);
             scene.add(gridHelper);
-            
+
             // Adicionar eixos helper
             //const axesHelper = new THREE.AxesHelper(5);
             //scene.add(axesHelper);
-            
+
             // Criar as 27 esferas 3D
             createKeySpheres();
-            
+
             // Animação
             function animate() {
                 requestAnimationFrame(animate);
-                
+
                 // Atualizar controles apenas se não estiver no modo fixo
                 if (!isCameraFixed) {
                     controls.update();
                 }
-                
+
                 renderer.render(scene, camera);
             }
             animate();
-            
+
             // Lidar com redimensionamento da janela
             window.addEventListener('resize', () => {
                 camera.aspect = viewerContainer.clientWidth / viewerContainer.clientHeight;
                 camera.updateProjectionMatrix();
                 renderer.setSize(viewerContainer.clientWidth, viewerContainer.clientHeight);
             });
-            
+
             // Inicializar o carrossel
             initCarousel();
-            
+
             // Configurar eventos de teclado
             setupKeyboardEvents();
-            
+
             // Carregar o modelo writee automaticamente
             loadModel(modelList[0]);
-            
+
             // Configurar eventos de upload
             setupUpload();
-            
+
             // Configurar eventos do painel de anotações
             setupAnnotationPanel();
         }
-        
+
         // Criar as 27 esferas 3D
         function createKeySpheres() {
             keySphereGroup = new THREE.Group();
             keySpheres = [];
-            
+
             // POSIÇÃO DAS ESFERAS - AJUSTE AQUI!
             // Formato: [x, y, z, radius]
             const spherePositions = [
@@ -780,7 +783,7 @@
                 // Linha 3 - ZXCVBNM
                 [-0.14, 1.31, 0.17, 0.013], [-0.10, 1.31, 0.17, 0.013], [-0.06, 1.31, 0.17, 0.013], [-0.02, 1.31, 0.17, 0.013], [0.02, 1.31, 0.17, 0.013], [0.06, 1.31, 0.17, 0.013], [0.10, 1.31, 0.17, 0.013], [0.14, 1.31, 0.17, 0.013], [0.18, 1.31, 0.17, 0.013]
             ];
-            
+
             // Material branco transparente
             const whiteMaterial = new THREE.MeshPhongMaterial({
                 color: 0xffffff,
@@ -788,7 +791,7 @@
                 opacity: 0.7,
                 shininess: 30
             });
-            
+
             // Material cinza (quando pressionado)
             const grayMaterial = new THREE.MeshPhongMaterial({
                 color: 0x00FF00,
@@ -796,22 +799,22 @@
                 opacity: 0.9,
                 shininess: 30
             });
-            
+
             // Criar 27 esferas
             for (let i = 0; i < 26; i++) {
                 const geometry = new THREE.SphereGeometry(
-                    spherePositions[i] ? spherePositions[i][3] : 0.2, 
-                    16, 
+                    spherePositions[i] ? spherePositions[i][3] : 0.2,
+                    16,
                     16
                 );
-                
+
                 const sphere = new THREE.Mesh(geometry, whiteMaterial.clone());
-                
+
                 // Posicionar a esfera
                 if (spherePositions[i]) {
                     sphere.position.set(
                         spherePositions[i][0],
-                        spherePositions[i][1], 
+                        spherePositions[i][1],
                         spherePositions[i][2]
                     );
                 } else {
@@ -822,7 +825,7 @@
                         0
                     );
                 }
-                
+
                 // Armazenar informações da esfera
                 const sphereData = {
                     mesh: sphere,
@@ -831,29 +834,29 @@
                     key: alphabet[i] || '?',
                     isActive: false
                 };
-                
+
                 keySphereGroup.add(sphere);
                 keySpheres.push(sphereData);
             }
-            
+
             scene.add(keySphereGroup);
         }
-        
+
         // Configurar eventos de teclado
         function setupKeyboardEvents() {
             document.addEventListener('keydown', (e) => {
                 const key = e.key.toUpperCase();
-                
+
                 // Encontrar a esfera correspondente à tecla
                 const sphereIndex = alphabet.indexOf(key);
                 if (sphereIndex !== -1 && sphereIndex < keySpheres.length) {
                     activateSphere(sphereIndex);
                 }
             });
-            
+
             document.addEventListener('keyup', (e) => {
                 const key = e.key.toUpperCase();
-                
+
                 // Encontrar a esfera correspondente à tecla
                 const sphereIndex = alphabet.indexOf(key);
                 if (sphereIndex !== -1 && sphereIndex < keySpheres.length) {
@@ -861,37 +864,37 @@
                 }
             });
         }
-        
+
         // Ativar uma esfera (tecla pressionada)
         function activateSphere(index) {
             const sphereData = keySpheres[index];
             if (!sphereData.isActive) {
                 sphereData.mesh.material = sphereData.grayMaterial;
                 sphereData.isActive = true;
-                
+
                 // Efeito de escala (ligeiro aumento)
                 sphereData.mesh.scale.set(1.2, 1.2, 1.2);
             }
         }
-        
+
         // Desativar uma esfera (tecla liberada)
         function deactivateSphere(index) {
             const sphereData = keySpheres[index];
             if (sphereData.isActive) {
                 sphereData.mesh.material = sphereData.whiteMaterial;
                 sphereData.isActive = false;
-                
+
                 // Voltar ao tamanho normal
                 sphereData.mesh.scale.set(1, 1, 1);
             }
         }
-        
+
         // Configurar eventos de upload
         function setupUpload() {
             uploadBtn.addEventListener('click', () => {
                 fileInput.click();
             });
-            
+
             fileInput.addEventListener('change', (e) => {
                 if (e.target.files.length > 0) {
                     const file = e.target.files[0];
@@ -903,7 +906,7 @@
                 }
             });
         }
-        
+
         // Configurar eventos do painel de anotações
         function setupAnnotationPanel() {
             // Salvar anotação
@@ -915,14 +918,14 @@
                     annotationDisplay.style.display = 'block';
                     annotationSave.style.display = 'none';
                     annotationEdit.style.display = 'inline-block';
-                    
+
                     // Mostrar mensagem de confirmação
                     showTempMessage('Annotation saved!', 'success');
                 } else {
                     showTempMessage('Type an annotation before saving.', 'error');
                 }
             });
-            
+
             // Editar anotação
             annotationEdit.addEventListener('click', () => {
                 annotationTextarea.style.display = 'block';
@@ -931,7 +934,7 @@
                 annotationEdit.style.display = 'none';
                 annotationTextarea.focus();
             });
-            
+
             // Limpar anotação
             annotationClear.addEventListener('click', () => {
                 annotationTextarea.value = '';
@@ -943,13 +946,13 @@
                 annotationEdit.style.display = 'none';
                 showTempMessage('Annotation cleared!', 'success');
             });
-            
+
             // Fechar painel
             annotationClose.addEventListener('click', () => {
                 annotationPanel.classList.remove('visible');
             });
         }
-        
+
         // Mostrar mensagem temporária
         function showTempMessage(message, type) {
             const messageEl = document.createElement('div');
@@ -966,61 +969,61 @@
                 font-size: 0.9rem;
                 box-shadow: 0 4px 12px rgba(0,0,0,0.3);
             `;
-            
+
             document.body.appendChild(messageEl);
-            
+
             setTimeout(() => {
                 messageEl.remove();
             }, 3000);
         }
-        
+
         // Adicionar modelo carregado ao carrossel
         function addUploadedModel(file) {
             const reader = new FileReader();
-            
-            reader.onload = function(e) {
+
+            reader.onload = function (e) {
                 // Criar objeto URL para miniatura (não é possível gerar miniatura de GLB diretamente)
                 const objectUrl = URL.createObjectURL(file);
-                
+
                 // Adicionar à lista de modelos
                 const newModel = {
                     name: file.name.replace(/\.[^/.]+$/, ""), // Remover extensão
                     type: "uploaded",
                     file: file,
                     objectUrl: objectUrl,
-                    thumbnail: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Crect width='120' height='120' fill='%23673ab7'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='12' font-weight='bold'%3E" + 
-                              file.name.replace(/\.[^/.]+$/, "").substring(0, 12) + "%3C/text%3E%3C/svg%3E"
+                    thumbnail: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Crect width='120' height='120' fill='%23673ab7'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='12' font-weight='bold'%3E" +
+                        file.name.replace(/\.[^/.]+$/, "").substring(0, 12) + "%3C/text%3E%3C/svg%3E"
                 };
-                
+
                 modelList.push(newModel);
-                
+
                 // Atualizar carrossel
                 initCarousel();
-                
+
                 // Selecionar o novo modelo
                 currentModelIndex = modelList.length - 1;
                 document.querySelectorAll('.carousel-item').forEach((item, index) => {
                     item.classList.toggle('active', index === currentModelIndex);
                 });
-                
+
                 // Carregar o modelo
                 loadModel(newModel);
             };
-            
+
             reader.readAsDataURL(file);
         }
-        
+
         // Inicializar o carrossel de modelos
         function initCarousel() {
             // Limpar carrossel
             carousel.innerHTML = '';
-            
+
             // Adicionar itens ao carrossel
             modelList.forEach((modelData, index) => {
                 const carouselItem = document.createElement('div');
                 carouselItem.className = 'carousel-item';
                 if (index === currentModelIndex) carouselItem.classList.add('active');
-                
+
                 // Criar elemento de imagem ou placeholder
                 const img = document.createElement('img');
                 if (modelData.thumbnail) {
@@ -1031,94 +1034,94 @@
                     img.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Crect width='120' height='120' fill='%23333'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='14'%3E" + modelData.name + "%3C/text%3E%3C/svg%3E";
                     img.alt = modelData.name + " placeholder";
                 }
-                
+
                 const modelName = document.createElement('div');
                 modelName.className = 'model-name';
                 modelName.textContent = modelData.name;
-                
+
                 carouselItem.appendChild(img);
                 carouselItem.appendChild(modelName);
-                
+
                 // Adicionar evento de clique
                 carouselItem.addEventListener('click', () => {
                     // Remover classe active de todos os itens
                     document.querySelectorAll('.carousel-item').forEach(item => {
                         item.classList.remove('active');
                     });
-                    
+
                     // Adicionar classe active ao item clicado
                     carouselItem.classList.add('active');
-                    
+
                     // Carregar o modelo
                     currentModelIndex = index;
                     loadModel(modelData);
                 });
-                
+
                 carousel.appendChild(carouselItem);
             });
-            
+
             // Configurar eventos de navegação
             prevBtn.addEventListener('click', () => {
                 navigateCarousel(-1);
             });
-            
+
             nextBtn.addEventListener('click', () => {
                 navigateCarousel(1);
             });
         }
-        
+
         // Navegar pelo carrossel
         function navigateCarousel(direction) {
             // Calcular novo índice
             let newIndex = currentModelIndex + direction;
-            
+
             // Verificar limites
             if (newIndex < 0) {
                 newIndex = modelList.length - 1;
             } else if (newIndex >= modelList.length) {
                 newIndex = 0;
             }
-            
+
             // Atualizar carrossel
             document.querySelectorAll('.carousel-item').forEach((item, index) => {
                 item.classList.toggle('active', index === newIndex);
             });
-            
+
             // Rolar para o item ativo
             const activeItem = document.querySelectorAll('.carousel-item')[newIndex];
             if (activeItem) {
                 activeItem.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
             }
-            
+
             // Carregar o modelo
             currentModelIndex = newIndex;
             loadModel(modelList[newIndex]);
         }
-        
+
         // Carregar modelo
         function loadModel(modelData) {
             // Mostrar indicador de carregamento
             loadingIndicator.style.display = 'block';
             loadingIndicator.textContent = `Carregando ${modelData.name}...`;
-            
+
             // Limpar modelo anterior, se existir
             if (model) {
                 scene.remove(model);
             }
-            
+
             if (modelData.type === 'preloaded') {
                 // Carregar modelo pré-carregado (writee)
                 const loader = new THREE.GLTFLoader();
-                
+
                 loader.load(
                     modelData.url,
                     (gltf) => {
                         model = gltf.scene;
                         scene.add(model);
-                        
+
                         // Ajustar a câmera
                         adjustCamera();
-                        
+
                         // Ocultar indicador de carregamento
                         loadingIndicator.style.display = 'none';
                     },
@@ -1136,18 +1139,18 @@
             } else if (modelData.type === 'uploaded') {
                 // Carregar modelo GLTF/GLB enviado pelo usuário
                 const loader = new THREE.GLTFLoader();
-                
+
                 const reader = new FileReader();
-                reader.onload = function(e) {
+                reader.onload = function (e) {
                     loader.load(
                         e.target.result,
                         (gltf) => {
                             model = gltf.scene;
                             scene.add(model);
-                            
+
                             // Ajustar a câmera
                             adjustCamera();
-                            
+
                             // Ocultar indicador de carregamento
                             loadingIndicator.style.display = 'none';
                         },
@@ -1163,124 +1166,124 @@
                         }
                     );
                 };
-                
+
                 reader.readAsDataURL(modelData.file);
             }
         }
-        
+
         // Ajustar a câmera para o modelo
         function adjustCamera() {
             if (!model) return;
-            
+
             const bbox = new THREE.Box3().setFromObject(model);
             const center = bbox.getCenter(new THREE.Vector3());
             const size = bbox.getSize(new THREE.Vector3());
-            
+
             // Ajustar a câmera para visualizar o modelo completo
             const maxDim = Math.max(size.x, size.y, size.z);
             const fov = camera.fov * (Math.PI / 180);
             let cameraZ = Math.abs(maxDim / (2 * Math.tan(fov / 2)));
-            
+
             cameraZ *= 1.5; // Ajuste para garantir que o modelo esteja totalmente visível
-            
+
             camera.position.copy(center);
             camera.position.z += cameraZ;
             camera.lookAt(center);
-            
+
             controls.target.copy(center);
             controls.update();
-            
+
             // Salvar posição original da câmera
             originalCameraPosition.copy(camera.position);
             originalControlsTarget.copy(controls.target);
-            
+
             // Resetar modo de câmera se estiver fixo
             if (isCameraFixed) {
                 toggleCameraView();
             }
         }
-        
+
         // Alternar entre vista fixa e livre
         function toggleCameraView() {
             if (!model) return;
-            
+
             isCameraFixed = !isCameraFixed;
-            
+
             if (isCameraFixed) {
                 // Calcular posição para vista frontal fixa
                 const bbox = new THREE.Box3().setFromObject(model);
                 const center = bbox.getCenter(new THREE.Vector3());
                 const size = bbox.getSize(new THREE.Vector3());
-                
+
                 const maxDim = Math.max(size.x, size.y, size.z);
                 const fov = camera.fov * (Math.PI / 180);
                 let cameraZ = Math.abs(maxDim / (2 * Math.tan(fov / 2)));
-                
+
                 // Posição frontal com valores específicos
                 const fixedPosition = new THREE.Vector3(
                     center.x,
                     center.y + 0.4, // Ajuste de altura
                     center.z - 0.27 + cameraZ * 1.5 // Ajuste de distância
                 );
-                
+
                 // Desativar controles de órbita
                 controls.enabled = false;
-                
+
                 // Animação suave para a posição fixa
                 animateCameraToPosition(fixedPosition, center);
-                
+
                 // Atualizar UI
                 cameraControl.classList.add('fixed');
                 cameraControl.setAttribute('title', 'Voltar para Vista Livre');
                 cameraModeIndicator.textContent = 'Modo: Vista Fixa';
                 cameraModeIndicator.classList.add('visible');
-                
+
                 // Mostrar painel de anotações
                 annotationPanel.classList.add('visible');
-                
+
             } else {
                 // Reativar controles de órbita
                 controls.enabled = true;
-                
+
                 // Voltar para a posição original
                 animateCameraToPosition(originalCameraPosition, originalControlsTarget);
-                
+
                 // Atualizar UI
                 cameraControl.classList.remove('fixed');
                 cameraControl.setAttribute('title', 'Vista Fixa');
                 cameraModeIndicator.textContent = 'Modo: Vista Livre';
-                
+
                 // Ocultar painel de anotações
                 annotationPanel.classList.remove('visible');
-                
+
                 // Ocultar indicador após um tempo
                 setTimeout(() => {
                     cameraModeIndicator.classList.remove('visible');
                 }, 3000);
             }
         }
-        
+
         // Animação suave da câmera para uma posição
         function animateCameraToPosition(position, target) {
             const startPosition = camera.position.clone();
             const startTarget = controls.target.clone();
             const duration = 1000; // 1 segundo
             const startTime = Date.now();
-            
+
             function update() {
                 const elapsed = Date.now() - startTime;
                 const progress = Math.min(elapsed / duration, 1);
-                
+
                 // Função de easing suave
                 const ease = (t) => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
-                
+
                 if (progress < 1) {
                     camera.position.lerpVectors(startPosition, position, ease(progress));
                     controls.target.lerpVectors(startTarget, target, ease(progress));
-                    
+
                     // Atualizar manualmente já que controls.update() está desativado
                     camera.lookAt(controls.target);
-                    
+
                     requestAnimationFrame(update);
                 } else {
                     // Garantir que chegamos exatamente à posição final
@@ -1289,14 +1292,14 @@
                     camera.lookAt(controls.target);
                 }
             }
-            
+
             update();
         }
-        
+
         // Alternar modo de tela cheia
         function toggleFullscreen() {
             isFullscreen = !isFullscreen;
-            
+
             if (isFullscreen) {
                 document.body.classList.add('fullscreen');
                 fullscreenBtn.innerHTML = '✕';
@@ -1306,30 +1309,30 @@
                 fullscreenBtn.innerHTML = '⛶';
                 fullscreenBtn.setAttribute('title', 'Tela Cheia');
             }
-            
+
             // Atualizar o tamanho do renderizador
             camera.aspect = viewerContainer.clientWidth / viewerContainer.clientHeight;
             camera.updateProjectionMatrix();
             renderer.setSize(viewerContainer.clientWidth, viewerContainer.clientHeight);
         }
-        
+
         // Configurar botão de tela cheia
         fullscreenBtn.addEventListener('click', toggleFullscreen);
-        
+
         // Configurar controle de câmera
         cameraControl.addEventListener('click', toggleCameraView);
-        
+
         // Sair do modo de tela cheia ao pressionar ESC
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && isFullscreen) {
                 toggleFullscreen();
             }
-            
+
             // Sair da vista fixa com ESC
             if (e.key === 'Escape' && isCameraFixed) {
                 toggleCameraView();
             }
-            
+
             // Navegação por teclado
             if (e.key === 'ArrowLeft') {
                 navigateCarousel(-1);
@@ -1337,9 +1340,10 @@
                 navigateCarousel(1);
             }
         });
-        
+
         // Inicializar a cena quando a página carregar
         window.onload = initScene;
     </script>
 </body>
+
 </html>
