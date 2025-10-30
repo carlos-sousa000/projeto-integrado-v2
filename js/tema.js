@@ -5,32 +5,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const headerLogo = document.querySelector(".project-logo:not(.footer-logo)");
   const footerLogo = document.querySelector(".footer-logo");
 
-  const pathParts = window.location.pathname.split("/");
-  const repoName = pathParts.includes("projeto-integrado-v2")
-    ? "/projeto-integrado-v2"
-    : "";
-
   const LOGOS = {
-    light: `${repoName}/imgs/logo-preto.png`,
-    dark: `${repoName}/imgs/logo-branco.png`,
+    light: "./imgs/logo-preto.png",
+    dark: "./imgs/logo-branco.png",
   };
 
   function getThemeLabels() {
-    const defaultLabels = { light: "Modo Claro", dark: "Modo Escuro" };
-    try {
-      if (window.__i18n && window.__i18n.themeLabels) {
-        const t = window.__i18n.themeLabels;
-        return {
-          light: t.light || defaultLabels.light,
-          dark: t.dark || defaultLabels.dark,
-        };
-      }
-    } catch (e) {
-      /* ignore */
-    }
-    return defaultLabels;
-  }
+    const lang = document.documentElement.lang;
 
+    if (lang === "en") {
+      return { light: "Light Mode", dark: "Dark Mode" };
+    }
+
+    return { light: "Modo Claro", dark: "Modo Escuro" };
+  }
   let theme = localStorage.getItem("theme") || "light";
 
   function applyTheme(mode) {
@@ -41,10 +29,16 @@ document.addEventListener("DOMContentLoaded", () => {
       themeText.textContent = mode === "light" ? labels.light : labels.dark;
     }
 
-    const logoPath = LOGOS[mode];
+    const isSubpage = window.location.pathname.includes("/pags/");
+    const pathPrefix = isSubpage ? "../../" : "./";
 
-    if (headerLogo) headerLogo.src = logoPath;
-    if (footerLogo) footerLogo.src = logoPath;
+    const logoPathLight = pathPrefix + "imgs/logo-preto.png";
+    const logoPathDark = pathPrefix + "imgs/logo-branco.png";
+
+    if (headerLogo)
+      headerLogo.src = mode === "light" ? logoPathLight : logoPathDark;
+    if (footerLogo)
+      footerLogo.src = mode === "light" ? logoPathLight : logoPathDark;
   }
 
   applyTheme(theme);
@@ -63,12 +57,4 @@ document.addEventListener("DOMContentLoaded", () => {
         applyTheme(theme);
       }
     });
-
-  window.addEventListener("i18n:labels", () => {
-    applyTheme(theme);
-  });
-
-  if (window.__i18n && window.__i18n.themeLabels) {
-    applyTheme(theme);
-  }
 });
