@@ -21,11 +21,10 @@ main.main-container {
   padding: 0.5rem;
 }
 
-/* Regra para o <hr> que você está usando */
 hr.section-divider {
   width: 80px;
   margin: 1.5rem auto;
-  /* Espaçamento ajustado */
+
   height: 2px;
   background: var(--brass);
   border: 0;
@@ -291,8 +290,6 @@ hr.section-divider {
   border-width: 0 3px 3px 0;
 }
 
-/* --------------------------------- */
-
 .pioneers-grid-section .section-title {
   color: var(--w);
   font-size: 2.5rem;
@@ -376,16 +373,12 @@ hr.section-divider {
 :root[data-theme="dark"] .pioneers-card.horizontal h3 {
   color: var(--brass);
 }
-
-/* ADICIONADO: Estilos da Seção "Invenções em Foco" */
+/* invenções em foco */
 .machines-showcase-section {
   padding: 18px 0 12px 0;
-  /* Alinha com padding da seção 'destaques' */
   position: relative;
-  /* Para as cantoneiras */
 }
 
-/* ADICIONADO: Cantoneiras para consistência */
 .machines-showcase-section::before,
 .machines-showcase-section::after {
   content: "";
@@ -409,14 +402,12 @@ hr.section-divider {
   border-width: 2px 2px 0 0;
 }
 
-/* Fim Cantoneiras */
 
 .machines-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 24px;
   max-width: 900px;
-  /* Alinha com a seção de pioneiros */
   margin: 0 auto;
 }
 
@@ -445,14 +436,13 @@ hr.section-divider {
   height: 200px;
   object-fit: cover;
   display: block;
-  /* Efeito de "blueprint" / foto antiga */
   filter: sepia(0.5) grayscale(0.1) contrast(0.9);
   transition: filter 0.3s, transform 0.3s;
 }
 
 .machine-card:hover .machine-image-wrapper img {
-  filter: sepia(0) grayscale(0) contrast(1);
-  transform: scale(1.05);
+  filter: sepia(0) grayscale(0) contrast(95%);
+  transform: scale(1.02);
 }
 
 .machine-content {
@@ -482,10 +472,9 @@ hr.section-divider {
   margin: 0;
 }
 
-/* Modo escuro para a nova seção */
+/* modo escuro invenções*/
 :root[data-theme="dark"] .machine-card {
   background: var(--paper);
-  /* Fundo #181a1d */
 }
 
 :root[data-theme="dark"] .machine-content h3 {
@@ -496,7 +485,7 @@ hr.section-divider {
   color: var(--muted-ink);
 }
 
-/* FIM DOS ESTILOS DA SEÇÃO */
+
 
 /* responsividade*/
 @media (max-width: 1024px) {
@@ -545,13 +534,10 @@ hr.section-divider {
     font-size: 2.2rem;
   }
 
-  /* ADICIONADO: Esconde as cantoneiras no mobile para não poluir */
   .destaques-section::before,
   .destaques-section::after,
   .machines-showcase-section::before,
-  /* Esconde da nova seção tbm */
   .machines-showcase-section::after,
-  /* Esconde da nova seção tbm */
   .pioneers-grid-section::before,
   .pioneers-grid-section::after {
     display: none;
@@ -604,19 +590,13 @@ hr.section-divider {
     font-size: 1rem;
   }
 
-  /* ADICIONADO: Responsividade das Invenções */
   .machines-grid {
     grid-template-columns: 1fr;
-    /* Empilha em telas menores */
   }
 
   .machine-image-wrapper img {
     height: 180px;
-    /* Ajusta altura da imagem */
   }
-
-  /* Fim da responsividade */
-
   .pioneers-grid-section {
     padding: 30px 0;
   }
