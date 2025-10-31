@@ -1,12 +1,15 @@
 /* base */
 .site-header {
-  background: #e8dcc4d9;
+  /* background: #e8dcc4d9; */
+  /* background: #e8dcc4e5; */
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.05)),
+    var(--paper-dark);
   padding: 18px 20px;
   box-shadow: 0 4px 8px var(--shadow);
   border-bottom: 0.5px solid rgba(0, 0, 0, 0.3);
   position: sticky;
   top: 0;
-  z-index: 800;
+  z-index: 900;
 }
 
 .header-container {
@@ -126,12 +129,13 @@ nav.header-nav {
 @media (max-width: 768px) {
   .site-header {
     position: static;
+    padding: 12px 16px;
   }
 
   .header-container {
     flex-wrap: wrap;
     justify-content: center;
-    gap: 16px;
+    gap: 12px;
   }
 
   .header-nav {
@@ -148,11 +152,33 @@ nav.header-nav {
   }
 
   .project-logo {
-    height: 40px;
+    height: 32px;
+  }
+
+  .logo-link span {
+    font-size: 1.2rem;
+    margin-left: 10px;
   }
 }
 
 @media (max-width: 480px) {
+  .site-header {
+    padding: 10px 12px;
+  }
+
+  .header-container {
+    gap: 10px;
+  }
+
+  .project-logo {
+    height: 30px;
+  }
+
+  .logo-link span {
+    font-size: 1.1rem;
+    margin-left: 8px;
+  }
+
   .header-nav .btn {
     padding: 4px 6px;
   }
