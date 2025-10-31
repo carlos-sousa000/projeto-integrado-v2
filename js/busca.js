@@ -163,6 +163,39 @@
       date: "1884",
       url: "../pags/artigos/artigos-pt/artigo15.html",
     },
+    {
+      id: "a18",
+      title: "Herman Hollerith",
+      excerpt:
+        "Inventor da maquina de senso, cujo revolucionou a forma que informações são guardadas e processadas",
+      tags: "herman,censo,pioneiro",
+      url: "../pags/pioneiros/herman-hollerith.html",
+    },
+    {
+      id: "a19",
+      title: "Ada Lovelace",
+      excerpt:
+        "Considerada a primeira programadora de computadores por seu trabalho com a máquina diferencial de Charles Babbage",
+      tags: "programa,pioneiro,pioneira,primeira",
+      url: "../pags/pioneiros/ada-lovelace.html",
+    },
+    {
+      id: "a20",
+      title: "Joseph Henry",
+      excerpt:
+        "Contribiu para a criação do telegrafo e foi fundamental para o desenvolvimento da comunicação eletrica",
+      tags: "eletrico,telegrafo,pioneiro,communicação",
+      url: "../pags/pioneiros/joseph-henry.html",
+      
+    },
+    {
+      id: "a20",
+      title: "Charles Babbage",
+      excerpt:
+        "Criou a maquina diferencial, considerada a precursora dos computadores modernos",
+      tags: ",computador,pioneiro,communicação",
+      url: "../pags/pioneiros/charles-babbage.html",
+    },
   ];
 
   function normalize(s) {
