@@ -1,5 +1,4 @@
 @import url("./main-import.css");
-
 main.main-container {
   max-width: 1100px;
   margin: 0 auto;
@@ -9,29 +8,23 @@ main.main-container {
   gap: 22px;
   box-sizing: border-box;
 }
-
 .section-title {
   font-size: 2.2rem;
   font-weight: 700;
   text-align: center;
   margin-bottom: 40px;
 }
-
 .card-content {
   padding: 0.5rem;
 }
-
 hr.section-divider {
   width: 80px;
   margin: 1.5rem auto;
-
   height: 2px;
   background: var(--brass);
   border: 0;
   opacity: 0.8;
-}
-
-/* hero */
+} /* hero */
 .hero-section {
   min-height: 420px;
   display: flex;
@@ -49,7 +42,6 @@ hr.section-divider {
   border-radius: 0 0 32px 32px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-
 .hero-content,
 .hero-content h1 {
   max-width: 700px;
@@ -57,30 +49,23 @@ hr.section-divider {
   color: var(--w);
   padding: 1rem 0;
 }
-
 .hero-content h1 {
   font-size: 2.8rem;
   font-weight: 800;
   line-height: 1.1;
 }
-
 .hero-content p {
   font-size: 1.2rem;
   margin-bottom: 2rem;
 }
-
 .btn-hero {
   transition: 0.3s;
   padding: 14px 20px;
-}
-
-/* destaques */
+} /* destaques */
 .destaques-section {
   padding: 18px 0 12px 0;
   position: relative;
-}
-
-/* canto decorado */
+} /* canto decorado */
 .destaques-section::before,
 .destaques-section::after {
   content: "";
@@ -91,36 +76,30 @@ hr.section-divider {
   border-style: solid;
   opacity: 0.5;
 }
-
 .destaques-section::before {
   top: 0;
   left: 0;
   border-width: 2px 0 0 2px;
 }
-
 .destaques-section::after {
   top: 0;
   right: 0;
   border-width: 2px 2px 0 0;
 }
-
 .carrossel-container {
   position: relative;
   width: 100%;
   margin: 0 auto;
   padding: 0 50px;
 }
-
 .carrossel-wrapper {
   overflow: hidden;
 }
-
 .carrossel-track {
   display: flex;
   gap: 32px;
   transition: transform 0.5s ease-in-out;
 }
-
 .card-destaque {
   background: var(--paper);
   border-radius: 12px;
@@ -135,12 +114,10 @@ hr.section-divider {
   transition: 0.3s;
   border: 1px solid rgba(0, 0, 0, 0.16);
 }
-
 .card-destaque:hover {
   transform: translateY(-4px);
   box-shadow: 0 2px 4px var(--shadow);
 }
-
 .card-destaque img {
   width: 100%;
   height: 180px;
@@ -148,22 +125,18 @@ hr.section-divider {
   border-radius: 12px 12px 0 0;
   margin-bottom: 20px;
 }
-
 .card-destaque .card-content {
   padding: 0 20px 20px;
 }
-
 .card-destaque h3 {
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 12px;
 }
-
 .card-destaque p {
   font-size: 1rem;
   color: var(--cor-suave);
 }
-
 .carrossel-arrow {
   position: absolute;
   top: 50%;
@@ -183,49 +156,39 @@ hr.section-divider {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
   transition: all 0.3s ease;
 }
-
 .carrossel-arrow:hover {
   background-color: var(--brass);
   color: var(--w);
   filter: brightness(1.1);
   transform: translateY(-50%) scale(1.07);
 }
-
 .carrossel-arrow.left {
   left: 0;
 }
-
 .carrossel-arrow.right {
   right: 0;
-}
-
-/* sobre o projeto */
+} /* sobre o projeto */
 .about-preview {
   padding: 14px 0 8px 0;
   text-align: center;
 }
-
 .about-content {
   max-width: 700px;
   margin: 0 auto;
 }
-
 .about-content p {
   font-size: 1.15rem;
   color: var(--cor-suave);
   margin-bottom: 32px;
 }
-
 .btn.btn-hero:hover {
   color: #181a1d;
   box-shadow: 0 4px 8px var(--shadow);
 }
-
 .btn-pioneiros-wrapper {
   text-align: center;
   padding: 30px 0 0;
 }
-
 .btn.btn-pioneiros {
   background: var(--brass);
   color: var(--w);
@@ -243,23 +206,18 @@ hr.section-divider {
   border: none;
   text-shadow: none;
 }
-
 .btn.btn-pioneiros:hover {
   background: var(--brass-dark);
   transform: translateY(-2px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
 }
-
 .btn.btn-pioneiros i {
   color: var(--w);
 }
-
 :root[data-theme="dark"] .btn.btn-pioneiros {
   background: linear-gradient(180deg, var(--brass), var(--brass-dark));
   color: var(--w-3);
-}
-
-/* grid + decoração */
+} /* grid + decoração */
 .pioneers-grid-section {
   background: var(--ink);
   padding: 40px 0;
@@ -267,7 +225,6 @@ hr.section-divider {
   box-shadow: 0 0 20px #b07a2b22;
   position: relative;
 }
-
 .pioneers-grid-section::before,
 .pioneers-grid-section::after {
   content: "";
@@ -278,25 +235,21 @@ hr.section-divider {
   border-style: solid;
   opacity: 0.3;
 }
-
 .pioneers-grid-section::before {
   top: 15px;
   left: 15px;
   border-width: 3px 0 0 3px;
 }
-
 .pioneers-grid-section::after {
   bottom: 15px;
   right: 15px;
   border-width: 0 3px 3px 0;
 }
-
 .pioneers-grid-section .section-title {
   color: var(--w);
   font-size: 2.5rem;
   margin-bottom: 30px;
 }
-
 .pioneers-card-grid {
   display: flex;
   flex-direction: column;
@@ -305,7 +258,6 @@ hr.section-divider {
   margin: 0 auto;
   padding: 0 20px;
 }
-
 .pioneers-card.horizontal {
   background: var(--paper);
   color: var(--cor-texto);
@@ -318,12 +270,10 @@ hr.section-divider {
   align-items: center;
   padding: 0;
 }
-
 .pioneers-card.horizontal:hover {
   transform: translateX(5px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
-
 .pioneers-card.horizontal img {
   width: 150px;
   height: 150px;
@@ -332,273 +282,240 @@ hr.section-divider {
   border-radius: 12px 0 0 12px;
   margin-right: 20px;
 }
-
 .pioneers-card.horizontal .card-content {
   padding: 20px 0;
   flex-grow: 1;
 }
-
 .pioneers-card.horizontal h3 {
   font-size: 1.5rem;
   margin-bottom: 5px;
   color: var(--brass-dark);
 }
-
 .pioneers-card.horizontal p {
   font-size: 1rem;
   color: var(--cor-suave);
   padding-right: 10px;
 }
-
 .pioneers-card.horizontal .card-arrow {
   font-size: 1.2rem;
   color: var(--brass);
   padding: 0 20px;
   transition: transform 0.3s;
 }
-
 .pioneers-card.horizontal:hover .card-arrow {
   transform: translateX(5px);
-}
-
-/* modo escuro */
+} /* modo escuro */
 :root[data-theme="dark"] .pioneers-card.horizontal {
   background: var(--paper);
   border: 1px solid var(--borda-card);
 }
-
 :root[data-theme="dark"] .pioneers-card.horizontal img {
   opacity: 0.9;
 }
-
 :root[data-theme="dark"] .pioneers-card.horizontal h3 {
   color: var(--brass);
 }
-/* invenções em foco */
+
+/* polaroids */
 .machines-showcase-section {
-  padding: 18px 0 12px 0;
+  padding: 40px 20px;
   position: relative;
+  background-color: var(--paper-dark);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+  background-size: 25px 25px;
+  border-radius: 14px;
+  box-shadow: 0 0 20px #b07a2b22;
 }
-
-.machines-showcase-section::before,
-.machines-showcase-section::after {
-  content: "";
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  border-color: var(--brass);
-  border-style: solid;
-  opacity: 0.5;
+:root[data-theme="dark"] .machines-showcase-section {
+  background-color: var(--paper);
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.05) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
 }
-
-.machines-showcase-section::before {
-  top: 0;
-  left: 0;
-  border-width: 2px 0 0 2px;
+.machines-showcase-section .section-title {
+  color: var(--ink);
 }
-
-.machines-showcase-section::after {
-  top: 0;
-  right: 0;
-  border-width: 2px 2px 0 0;
+:root[data-theme="dark"] .machines-showcase-section .section-title {
+  color: var(--w);
 }
-
-.machines-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
+.machines-polaroid-container {
+  display: block;
+  position: relative;
   max-width: 900px;
   margin: 0 auto;
+  height: 400px;
 }
-
-.machine-card {
-  background: var(--paper-dark);
-  border-radius: 8px;
+.polaroid-card {
+  position: absolute;
+  background: var(--paper);
   border: 1px solid var(--borda-card);
+  padding: 12px 12px 60px 12px;
+  border-radius: 4px;
+  box-shadow: 0 3px 6px var(--shadow);
   text-decoration: none;
-  box-shadow: 0 2px 5px var(--shadow);
-  transition: transform 0.3s, box-shadow 0.3s;
-  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, z-index 0s 0.3s;
+  z-index: 1;
+  width: 300px;
 }
-
-.machine-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 4px 8px var(--shadow);
+.polaroid-card:hover {
+  transform: scale(1.08) rotate(0deg) !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
-.machine-image-wrapper {
+.polaroid-image {
+  width: 100%;
+  height: 200px;
   overflow: hidden;
   border-bottom: 1px solid var(--borda-card);
 }
-
-.machine-image-wrapper img {
+.polaroid-image img {
   width: 100%;
-  height: 200px;
+  height: 100%;
   object-fit: cover;
-  display: block;
   filter: sepia(0.5) grayscale(0.1) contrast(0.9);
-  transition: filter 0.3s, transform 0.3s;
 }
-
-.machine-card:hover .machine-image-wrapper img {
-  filter: sepia(0) grayscale(0) contrast(95%);
-  transform: scale(1.02);
+.polaroid-card:hover .polaroid-image img {
+  filter: sepia(0) grayscale(0) contrast(1);
 }
-
-.machine-content {
-  padding: 1rem 1.25rem;
+.polaroid-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
 }
-
-.machine-year {
-  display: block;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--cor-suave);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.machine-content h3 {
+.polaroid-caption h3 {
   font-family: "Cormorant Garamond", serif;
-  font-size: 1.6rem;
-  color: var(--brass-dark);
-  margin: 0.25rem 0 0.5rem 0;
-}
-
-.machine-content p {
-  font-size: 0.95rem;
-  color: var(--muted-ink);
-  line-height: 1.5;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--ink);
   margin: 0;
 }
 
-/* modo escuro invenções*/
-:root[data-theme="dark"] .machine-card {
-  background: var(--paper);
+:root[data-theme="dark"] .polaroid-caption h3 {
+  color: var(--w-3);
 }
-
-:root[data-theme="dark"] .machine-content h3 {
-  color: var(--brass);
+:root[data-theme="dark"] .polaroid-card {
+  background: rgb(30, 30, 30);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
-
-:root[data-theme="dark"] .machine-content p {
-  color: var(--muted-ink);
+/* posição dos cards polaroid */
+#polaroid-1 {
+  top: 40px;
+  left: 5%;
+  transform: rotate(-10deg);
 }
-
-/* responsividade*/
+#polaroid-2 {
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%) rotate(3deg);
+  z-index: 2;
+}
+#polaroid-2:hover {
+  transform: translateX(-50%) scale(1.08) rotate(0deg) !important;
+}
+#polaroid-3 {
+  top: 60px;
+  right: 5%;
+  transform: rotate(12deg);
+}
+.machines-grid,
+.machine-card,
+.machine-image-wrapper,
+.machine-content {
+  all: unset;
+}
 @media (max-width: 1024px) {
   .hero-content h1 {
     font-size: 2.4rem;
   }
-
   .hero-content p {
     font-size: 1.1rem;
   }
-
   .card-destaque {
     width: 250px;
     text-align: center;
     margin: 0 auto;
   }
-
   .pioneers-card.horizontal img {
     width: 120px;
     height: 120px;
   }
 }
-
 @media (max-width: 768px) {
   main.main-container {
     gap: 28px;
     padding: 0 16px;
   }
-
   .section-title {
     font-size: 1.8rem;
     margin-bottom: 20px;
   }
-
   .hero-section {
     min-height: 360px;
     border-radius: 0 0 24px 24px;
   }
-
   .hero-content,
   .hero-content h1 {
     text-align: center;
   }
-
   .hero-content h1 {
     font-size: 2.2rem;
   }
-
   .destaques-section::before,
   .destaques-section::after,
-  .machines-showcase-section::before,
-  .machines-showcase-section::after,
   .pioneers-grid-section::before,
   .pioneers-grid-section::after {
     display: none;
   }
-
   .carrossel-container {
     padding: 0;
   }
-
   .carrossel-wrapper {
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
   }
-
   .carrossel-wrapper::-webkit-scrollbar {
     display: none;
   }
-
   .carrossel-track {
     display: flex;
     gap: 16px;
     padding: 0 16px;
     min-width: max-content;
   }
-
   .card-destaque {
     flex: 0 0 auto;
     width: 260px;
     height: auto;
     scroll-snap-align: start;
   }
-
   .carrossel-arrow {
     display: none;
-  }
-
-  .recent-section .section-title {
-    font-size: 2rem;
-  }
-
-  .recent-grid {
-    grid-template-columns: 1fr;
+  } /* Responsividade da Seção Polaroid */
+  .machines-polaroid-container {
+    height: auto; /* Altura automática no mobile */
+    display: flex;
+    flex-direction: column;
     gap: 20px;
-    padding: 0 16px;
+    align-items: center;
   }
-
-  .about-content p {
-    font-size: 1rem;
-  }
-
-  .machines-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .machine-image-wrapper img {
-    height: 180px;
-  }
+  .polaroid-card {
+    position: static; /* Remove posicionamento absoluto */
+    transform: rotate(0deg) !important; /* Remove rotação */
+    width: 90%; /* Ocupa mais largura */
+    max-width: 320px;
+  } /* Fim da responsividade */
   .pioneers-grid-section {
     padding: 30px 0;
   }
-
   .pioneers-card.horizontal {
     flex-direction: column;
     align-items: flex-start;
@@ -606,73 +523,55 @@ hr.section-divider {
     padding-bottom: 20px;
     position: relative;
   }
-
   .pioneers-card.horizontal img {
     width: 100%;
     height: 160px;
     border-radius: 12px 12px 0 0;
     margin: 0 0 10px 0;
   }
-
   .pioneers-card.horizontal .card-content {
     padding: 0 20px;
   }
-
   .pioneers-card.horizontal .card-arrow {
     position: absolute;
     bottom: 12px;
     right: 16px;
   }
 }
-
 @media (max-width: 480px) {
   main.main-container {
     padding: 0 12px;
   }
-
   .hero-content {
     padding: 1.5rem;
   }
-
   .hero-content h1 {
     font-size: 1.9rem;
   }
-
   .hero-content p {
     font-size: 1rem;
   }
-
   .card-destaque {
     width: calc(100vw - 64px);
   }
-
   .carrossel-track {
     gap: 12px;
     padding: 0 12px;
   }
-
-  .recent-card .card-content {
-    padding: 16px;
-  }
-
-  .recent-card h3 {
-    font-size: 1.2rem;
-  }
-
   .about-content p {
     font-size: 0.95rem;
   }
-
   .pioneers-card.horizontal h3 {
     font-size: 1.3rem;
   }
-
   .pioneers-card.horizontal p {
     font-size: 0.9rem;
   }
-
   .btn.btn-pioneiros {
     font-size: 1rem;
     padding: 8px 16px;
+  }
+  .polaroid-card {
+    width: 100%;
   }
 }
