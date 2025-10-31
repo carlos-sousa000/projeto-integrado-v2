@@ -21,7 +21,7 @@ main.container {
   gap: 28px;
 }
 
-/* trilho  */
+/* trilho */
 .timeline::after {
   content: "";
   position: absolute;
@@ -124,6 +124,24 @@ main.container {
   transform: translateY(-50%) scaleX(1.05);
 }
 
+/* --- NOVO: Estilo e corte do texto do card --- */
+.timeline-event .card p {
+  color: var(--cor-suave);
+  line-height: 1.6;
+  font-size: 1rem;
+
+  /* Trunca o texto em 4 linhas */
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  /* Garante altura mínima para 4 linhas */
+  min-height: calc(1.6em * 4);
+}
+/* --- FIM DA NOVA REGRA --- */
+
 /* titulo e icon - card */
 .card-title .card-icon {
   width: 40px;
@@ -153,17 +171,6 @@ main.container {
   margin: 0;
   vertical-align: middle;
   display: inline-block;
-}
-
-@media (max-width: 700px) {
-  .card-title .card-icon {
-    width: 34px;
-    height: 34px;
-    min-width: 34px;
-  }
-  .card-title .card-icon i {
-    font-size: 14px !important;
-  }
 }
 
 .card-title {
@@ -323,6 +330,10 @@ main.container {
 /* responsividade */
 
 @media (max-width: 1000px) {
+  .timeline {
+    align-items: stretch; /* Garante que os filhos ocupem 100% da largura */
+  }
+
   .timeline::after {
     left: 32px;
     transform: none;
@@ -333,20 +344,37 @@ main.container {
     padding-left: 90px;
     padding-right: 14px;
   }
+  .timeline-event:nth-child(2n + 1) {
+    padding-left: 90px; /* Garante que ambos os lados sejam iguais */
+  }
+
   .timeline-event .card::after {
     left: -28px !important;
     right: auto !important;
     transform: translateY(-50%);
   }
+
+  /* CORRIGIDO: Centraliza o balão na linha */
   .timeline-event::before {
-    left: 0 !important;
+    left: 35px !important; /* Centro da linha (32px + 3px) */
     right: auto !important;
-    transform: translate(28px, -50%) !important;
+    transform: translate(-50%, -50%) !important; /* Centraliza pelo meio */
   }
+
+  .timeline-event:nth-child(2n) .card-title {
+    flex-direction: row;
+  }
+  .timeline-event:nth-child(2n) .card-title .card-icon {
+    margin-left: 0;
+    margin-right: 8px;
+  }
+
   .timeline-header {
     grid-template-columns: 1fr;
     gap: 6px;
     text-align: left;
+    padding: 0;
+    padding-left: 90px; /* CORRIGIDO: Alinha header com os cards */
   }
   .timeline-header #timeline-title {
     font-size: 1.3rem;
@@ -358,8 +386,20 @@ main.container {
     text-align: left;
     white-space: normal;
   }
+
   .timeline-end {
     margin: 24px 0 48px;
+    align-items: flex-start;
+  }
+  .timeline-end .end-badge {
+    margin-left: 35px;
+    transform: translateX(-50%);
+  }
+  .timeline-end .end-note {
+    margin-left: 45px;
+    margin-right: 14px;
+    text-align: left;
+    width: calc(100% - 90px - 14px);
   }
 }
 
@@ -378,6 +418,69 @@ main.container {
   }
 }
 
+/* Otimizações para celular */
+@media (max-width: 600px) {
+  .timeline {
+    gap: 15px;
+  }
+  .timeline::after {
+    left: 20px;
+    width: 4px;
+  }
+  .timeline-event {
+    padding-left: 65px;
+    padding-right: 10px;
+    margin: 10px 0;
+  }
+  .timeline-event:nth-child(2n + 1) {
+    padding-left: 65px;
+  }
+
+  .timeline-event::before {
+    width: 50px;
+    height: 50px;
+    font-size: 1.1rem;
+    border-width: 3px;
+    left: 22px !important; /* Centro da linha (20px + 2px) */
+    transform: translate(-50%, -50%) !important;
+  }
+  .timeline-event .card {
+    padding: 20px;
+    min-height: auto;
+  }
+  .timeline-event .card::after {
+    width: 21px; /* (65px - 22px - 22px) */
+    left: -21px !important;
+  }
+  .card-title h3 {
+    font-size: 1.25rem;
+  }
+  .timeline-event .card p {
+    font-size: 0.95rem;
+    min-height: calc(1.6em * 3);
+    -webkit-line-clamp: 3;
+  }
+
+  .timeline-header {
+    padding-left: 65px; /* Alinha header */
+  }
+
+  .timeline-end .end-badge {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+    margin-left: 22px; /* Alinha balão final */
+  }
+  .timeline-end .end-note {
+    padding: 10px;
+    font-size: 1rem;
+    margin-top: 1rem;
+    margin-left: 65px; /* Alinha nota final */
+    margin-right: 10px;
+    width: calc(100% - 65px - 10px);
+  }
+}
+
 /* modo escuro */
 :root[data-theme="dark"] .timeline-event .card {
   background: linear-gradient(180deg, #1d2226, var(--paper));
@@ -387,7 +490,8 @@ main.container {
 :root[data-theme="dark"] .card-title h3 {
   color: var(--cor-texto);
 }
-:root[data-theme="dark"] .card p {
+:root[data-theme="dark"] .timeline-event .card p {
+  /* Seletor mais específico */
   color: var(--muted-ink);
 }
 
