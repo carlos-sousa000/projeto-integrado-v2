@@ -2,7 +2,7 @@
 .site-header {
   /* background: #e8dcc4d9; */
   /* background: #e8dcc4e5; */
-  background: linear-gradient(90deg, rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.05)),
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.06)),
     var(--paper-dark);
   padding: 18px 20px;
   box-shadow: 0 4px 8px var(--shadow);
