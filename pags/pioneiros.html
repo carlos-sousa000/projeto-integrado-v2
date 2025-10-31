@@ -4,32 +4,28 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Pioneiros — Babbage a Hollerith</title>
+  <title>Pioneiros - Mentes Pioneiras</title>
 
   <link rel="icon" type="image/x-icon" href="../imgs/logo-tab.png">
   <link rel="stylesheet" href="../css/pioneiros/pioneiros.css">
-  <link rel="stylesheet" href="../../../css/timeline.css">
 </head>
 
 <body class="body-main">
   <header class="site-header">
     <div class="header-container">
       <a href="../index.html" class="logo-link">
-        <img class="project-logo" src="./imgs/logo-branco.png" alt="Logotipo do projeto">
+        <img class="project-logo" src="../imgs/logo-branco.png" alt="Logotipo do projeto">
         <span>Mentes<br>Pioneiras</span>
       </a>
       <nav class="header-nav" role="navigation" aria-label="Navegação principal">
-        <a class="btn secondary" href="./timeline.html"> <i class="fas fa-timeline" aria-hidden="true"></i>Linha do Tempo</a>
-        <a class="btn secondary" href="./modelos/modelos.html"> <i class="fas fa-cube" aria-hidden="true"></i>Modelos 3D</a>
-        <a class="btn secondary" href="./busca.html"><i class="fas fa-magnifying-glass" aria-hidden="true"></i>Busca</a>
-        <a class="btn" href="./quiz/quiz.html" title="Ir para o quiz"> <i class="fas fa-brain" aria-hidden="true"></i> Quiz</a>
+        <a class="btn secondary" href="./timeline.html"> <i class="fas fa-timeline" aria-hidden="true"></i>Linha do Tempo</a> <a class="btn secondary" href="./modelos/modelos.html"> <i class="fas fa-cube" aria-hidden="true"></i>Modelos 3D</a> <a class="btn secondary" href="./busca.html"><i class="fas fa-magnifying-glass" aria-hidden="true"></i>Busca</a> <a class="btn" href="./quiz/quiz.html" title="Ir para o quiz"> <i class="fas fa-brain" aria-hidden="true"></i> Quiz</a>
       </nav>
     </div>
   </header>
 
-  <main>
+  <main class="container">
     <section class="pioneers-detailed-section">
-      <h2 class="pioneers-detailed-title">Artigos mais detalhados sobre os inovadores da época</h2>
+      <h2 class="pioneers-detailed-title">Inovadores da Época</h2>
       <div class="pioneers-detailed-flex">
         <a href="./pioneiros/charles-babbage.html">
           <div class="pioneer-card">
@@ -38,7 +34,6 @@
               <h3 class="pioneer-name">Babbage</h3>
               <p class="pioneer-desc">Considerado o pai do computador, Charles Babbage idealizou a Máquina Analítica, precursora dos computadores modernos. Sua visão de uma máquina capaz de realizar cálculos automáticos abriu caminho para a ciência da computação.</p>
             </div>
-
           </div>
         </a>
         <a href="./pioneiros/joseph-henry.html">
@@ -68,13 +63,31 @@
             </div>
           </div>
         </a>
+        <a href="./pioneiros/gottlob-frege.html">
+          <div class="pioneer-card">
+            <img src="../imgs/home/Gottlob Frege.jpg" alt="Retrato de Gottlob Frege" class="pioneer-img center">
+            <div class="name-desc">
+              <h3 class="pioneer-name">Gottlob Frege</h3>
+              <p class="pioneer-desc">Filósofo e matemático alemão, Frege é considerado o fundador da lógica matemática moderna. Seu "cálculo de predicados" formalizou o pensamento lógico, estabelecendo os fundamentos teóricos essenciais para a ciência da computação.</p>
+            </div>
+          </div>
+        </a>
+        <a href="./pioneiros/alfred-smee.html">
+          <div class="pioneer-card">
+            <img src="../imgs/home/Alfred Smee.jpg" alt="Retrato de Alfred Smee" class="pioneer-img center">
+            <div class="name-desc">
+              <h3 class="pioneer-name">Alfred Smee</h3>
+              <p class="pioneer-desc">Cirurgião e inventor britânico, Smee propôs a "Máquina Relacional" em 1851. Sua teoria descrevia um dispositivo mecânico capaz de imitar processos de pensamento e memória associativa, um dos primeiros conceitos ligados à inteligência artificial.</p>
+            </div>
+          </div>
+        </a>
       </div>
     </section>
   </main>
   <footer class="site-footer" role="contentinfo">
     <div class="footer-container">
       <div>
-        <img class="project-logo footer-logo" src="../../imgs/logo-branco.png" alt="Logo do Projeto">
+        <img class="project-logo footer-logo" src="../imgs/logo-branco.png" alt="Logo do Projeto">
       </div>
 
       <div class="footer-actions">
@@ -82,10 +95,10 @@
           <i class="fas fa-adjust" aria-hidden="true"></i>
           <span id="theme-text"></span>
         </button>
-        <button class="btn-tertiary" id="lang-toggle" title="Mudar Idioma">
+        <a href="./pioneiros-en.html" class="btn-tertiary" title="Mudar Idioma">
           <i class="fas fa-globe" aria-hidden="true"></i>
           <span>Idioma</span>
-        </button>
+        </a>
         <button class="btn-tertiary" title="Sobre Nós">
           <i class="fas fa-info" aria-hidden="true"></i>
           <span>Sobre Nós</span>
@@ -93,9 +106,7 @@
       </div>
     </div>
   </footer>
-
   <script src="../js/tema.js"></script>
 </body>
-
 
 </html>
