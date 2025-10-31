@@ -6,59 +6,107 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Sobre Nós - Mentes Pioneiras</title>
 
-  <link rel="stylesheet" href=".././css/sobre.css">
+  <link rel="stylesheet" href="../css/sobre.css">
   <link rel="icon" type="image/x-icon" href="../imgs/logo-tab.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 </head>
 
 <body class="body-main">
   <header class="site-header">
     <div class="header-container">
       <a href="../index.html" class="logo-link">
-        <img class="project-logo" src="./imgs/logo-branco.png" alt="Logotipo do projeto">
+        <img class="project-logo" src="../imgs/logo-branco.png" alt="Logotipo do projeto">
         <span>Mentes<br>Pioneiras</span>
       </a>
       <nav class="header-nav" role="navigation" aria-label="Navegação principal">
-        <a class="btn secondary" href="./timeline.html"> <i class="fas fa-timeline" aria-hidden="true"></i>Linha do Tempo</a>
-        <a class="btn secondary" href="./modelos/modelos.html"> <i class="fas fa-cube" aria-hidden="true"></i>Modelos 3D</a>
-        <a class="btn secondary" href="./busca.html"><i class="fas fa-magnifying-glass" aria-hidden="true"></i>Busca</a>
-        <a class="btn" href="./quiz/quiz.html" title="Ir para o quiz"> <i class="fas fa-brain" aria-hidden="true"></i> Quiz</a>
+        <a class="btn secondary" href="./timeline.html"> <i class="fas fa-timeline" aria-hidden="true"></i>Linha do Tempo</a> <a class="btn secondary" href="./modelos/modelos.html"> <i class="fas fa-cube" aria-hidden="true"></i>Modelos 3D</a> <a class="btn secondary" href="./busca.html"><i class="fas fa-magnifying-glass" aria-hidden="true"></i>Busca</a> <a class="btn" href="./quiz/quiz.html" title="Ir para o quiz"> <i class="fas fa-brain" aria-hidden="true"></i> Quiz</a>
       </nav>
     </div>
   </header>
 
   <main class="container">
     <section class="about-section">
-      <h2 class="about-title">Sobre Nós</h2>
-      <div class="about-project">
-        <h3 class="about-subtitle">O que é esse projeto?</h3>
-        <div class="about-project-box">
-          <p>Nosso site é resultado de um projeto interdisciplinar desenvolvido na Etec Sebrae, reunindo diversas áreas e matérias. O objetivo é mostrar o que aprendemos.</p>
-          <p>Decidimos juntar interatividade e aprendizado, focando tanto nos artigos quanto nos recursos digitais como o quiz e os modelos 3D.</p>
-        </div>
+      <h2 class="section-title">Sobre o Projeto</h2>
+
+      <h3 class="section-subtitle">Nosso Propósito</h3>
+      <div class="about-content-box">
+        <p>Este projeto, "Mentes Pioneiras", é a nossa contribuição como alunos da Etec Sebrae. Embora inspirado pela obra fundamental "História da Computação" de Raul Sidnei Wazlawick, nosso objetivo não foi apenas recontar a história, mas sim expandi-la.</p>
+        <p>Acreditamos que a melhor forma de aprender é interagindo. Por isso, criamos uma plataforma digital que convida você a explorar essa jornada através de artigos, uma linha do tempo visual, um quiz interativo e modelos 3D das invenções que moldaram o nosso mundo.</p>
       </div>
-      <h3 class="about-members-title">Integrantes</h3>
-      <div class="about-members-grid">
-        <div class="about-member-card">
-          <img src="../imgs/integrantes/jp.jpeg" alt="João" class="about-member-img">
-          <h4 class="about-member-name">João</h4>
-          <p class="about-member-desc">Responsável pelo quiz, logo, página de busca e a capa</p>
+
+      <hr class="section-divider-subtle">
+
+      <section class="inspiration-section">
+        <h3 class="section-subtitle">Nossa Inspiração: Uma Releitura</h3>
+        <div class="about-content-box">
+          <p>Nossa proposta foi ir além do texto, transformando os conceitos fundamentais em experiências. Abaixo, comparamos a capa original do livro com a nossa releitura, que busca capturar a estética "steampunk" e a essência mecânica dos primeiros inventores.</p>
         </div>
-        <div class="about-member-card">
-          <img src="../imgs/integrantes/enzo.jpeg" alt="Enzo" class="about-member-img">
-          <h4 class="about-member-name">Enzo</h4>
-          <p class="about-member-desc">Produziu os artigos e textos para o site.</p>
+
+        <div class="book-comparison-grid">
+          <figure class="book-cover-card">
+            <img src="../imgs/sobre/capa-original.jpg" alt="Capa Original do Livro 'História da Computação'" class="book-cover-img">
+            <figcaption>Capa Original (Raul S. Wazlawick)</figcaption>
+          </figure>
+          <figure class="book-cover-card">
+            <img src="../imgs/sobre/capa-releitura.jpg" alt="Nossa Releitura da Capa" class="book-cover-img">
+            <figcaption>Nossa Releitura (Mentes Pioneiras)</figcaption>
+          </figure>
         </div>
-        <div class="about-member-card">
-          <img src="../imgs/integrantes/isaac.jpeg" alt="Isaac" class="about-member-img">
-          <h4 class="about-member-name">Isaac</h4>
-          <p class="about-member-desc">Desenvolveu os modelos 3D e a página para os próprios.</p>
+      </section>
+
+      <hr class="section-divider-subtle">
+
+      <section class="members-section">
+        <h3 class="section-subtitle">Integrantes</h3>
+        <div class="about-members-grid">
+
+          <div class="about-member-card">
+            <img src="../imgs/integrantes/jp.jpeg" alt="João" class="about-member-img">
+            <h4 class="about-member-name">João</h4>
+            <p class="about-member-desc">Responsável pelo quiz, logo, página de busca e a capa.</p>
+            <div class="member-socials">
+              <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+              <a href="mailto:email@institucional.com" title="Email"><i class="fas fa-envelope"></i></a>
+              <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+
+          <div class="about-member-card">
+            <img src="../imgs/integrantes/enzo.jpeg" alt="Enzo" class="about-member-img">
+            <h4 class="about-member-name">Enzo</h4>
+            <p class="about-member-desc">Produziu os artigos e textos para o site.</p>
+            <div class="member-socials">
+              <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+              <a href="mailto:email@institucional.com" title="Email"><i class="fas fa-envelope"></i></a>
+              <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+
+          <div class="about-member-card">
+            <img src="../imgs/integrantes/isaac.jpeg" alt="Isaac" class="about-member-img">
+            <h4 class="about-member-name">Isaac</h4>
+            <p class="about-member-desc">Desenvolveu os modelos 3D e a página para os próprios.</p>
+            <div class="member-socials">
+              <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+              <a href="mailto:email@institucional.com" title="Email"><i class="fas fa-envelope"></i></a>
+              <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+
+          <div class="about-member-card">
+            <img src="../imgs/integrantes/ce.jpeg" alt="Carlos" class="about-member-img">
+            <h4 class="about-member-name">Carlos</h4>
+            <p class="about-member-desc">Criou a homepage e a página dedicada aos pioneiros.</p>
+            <div class="member-socials">
+              <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+              <a href="mailto:email@institucional.com" title="Email"><i class="fas fa-envelope"></i></a>
+              <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+
         </div>
-        <div class="about-member-card">
-          <img src="../imgs/integrantes/ce.jpeg" alt="Carlos" class="about-member-img">
-          <h4 class="about-member-name">Carlos</h4>
-          <p class="about-member-desc">Criou a homepage e a página dedicada aos pioneiros.</p>
-        </div>
-      </div>
+      </section>
+
       <div class="about-footer">
         1ºDS - Etec Sebrae - 2025
       </div>
@@ -67,7 +115,7 @@
 
   <footer class="site-footer">
     <div class="footer-container">
-      <a href="timeline.html" class="logo-link">
+      <a href="../index.html" class="logo-link">
         <img class="project-logo footer-logo" src="../imgs/logo-branco.png" alt="Logo do Projeto">
       </a>
 
@@ -76,19 +124,18 @@
           <i class="fas fa-adjust" aria-hidden="true"></i>
           <span id="theme-text"></span>
         </button>
-        <button class="btn-tertiary" id="lang-toggle" title="Mudar Idioma">
+        <a href="./sobre-en.html" class="btn-tertiary" title="Mudar Idioma">
           <i class="fas fa-globe" aria-hidden="true"></i>
           <span>Idioma</span>
-        </button>
-        <button class="btn-tertiary" title="Sobre Nós">
+        </a>
+        <a href="./sobre.html" class="btn-tertiary" title="Sobre Nós">
           <i class="fas fa-info" aria-hidden="true"></i>
           <span>Sobre Nós</span>
-        </button>
+        </a>
       </div>
     </div>
   </footer>
 
-  <script src="../js/idioma.js"></script>
   <script src="../js/tema.js"></script>
 </body>
 

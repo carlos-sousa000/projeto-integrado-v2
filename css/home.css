@@ -185,6 +185,11 @@ hr.section-divider {
   color: #181a1d;
   box-shadow: 0 4px 8px var(--shadow);
 }
+:root[data-theme="dark"] .btn.btn-hero:hover {
+  color: var(--w-3);
+  box-shadow: 0 4px 8px var(--shadow);
+}
+
 .btn-pioneiros-wrapper {
   text-align: center;
   padding: 30px 0 0;
@@ -210,6 +215,9 @@ hr.section-divider {
   background: var(--brass-dark);
   transform: translateY(-2px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+:root[data-theme="dark"] .btn.btn-pioneiros:hover {
+  filter: brightness(95%);
 }
 .btn.btn-pioneiros i {
   color: var(--w);
@@ -499,20 +507,20 @@ hr.section-divider {
   }
   .carrossel-arrow {
     display: none;
-  } /* Responsividade da Seção Polaroid */
+  }
   .machines-polaroid-container {
-    height: auto; /* Altura automática no mobile */
+    height: auto;
     display: flex;
     flex-direction: column;
     gap: 20px;
     align-items: center;
   }
   .polaroid-card {
-    position: static; /* Remove posicionamento absoluto */
-    transform: rotate(0deg) !important; /* Remove rotação */
-    width: 90%; /* Ocupa mais largura */
+    position: static;
+    transform: rotate(0deg) !important;
+    width: 90%;
     max-width: 320px;
-  } /* Fim da responsividade */
+  }
   .pioneers-grid-section {
     padding: 30px 0;
   }
