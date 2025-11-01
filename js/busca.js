@@ -15,7 +15,7 @@
       title: "Máquina Diferencial — Charles Babbage",
       excerpt:
         "Projetada para calcular e imprimir tabelas matemáticas automaticamente. Era mecânica, com engrenagens.",
-      tags: "babbage,diferencial,computacao,máquina",
+      tags: "babbage,diferencial,computacao,maquina",
       date: "1821",
       url: "../pags/artigos/artigos-pt/artigo1.html",
     },
@@ -164,63 +164,93 @@
       url: "../pags/artigos/artigos-pt/artigo15.html",
     },
     {
-      id: "a18",
+      id: "p1",
       title: "Herman Hollerith",
       excerpt:
-        "Inventor da maquina de senso, cujo revolucionou a forma que informações são guardadas e processadas",
+        "Inventor da máquina de tabulação, que revolucionou a forma como informações são armazenadas e processadas.",
       tags: "herman,censo,pioneiro",
+      date: "-",
       url: "../pags/pioneiros/herman-hollerith.html",
     },
     {
-      id: "a19",
+      id: "p2",
       title: "Ada Lovelace",
       excerpt:
-        "Considerada a primeira programadora de computadores por seu trabalho com a máquina diferencial de Charles Babbage",
-      tags: "programa,pioneiro,pioneira,primeira",
+        "Considerada a primeira programadora por seu trabalho com as máquinas de Charles Babbage.",
+      tags: "ada,lovelace,programadora",
+      date: "-",
       url: "../pags/pioneiros/ada-lovelace.html",
     },
     {
-      id: "a20",
+      id: "p3",
       title: "Joseph Henry",
       excerpt:
-        "Contribiu para a criação do telegrafo e foi fundamental para o desenvolvimento da comunicação eletrica",
-      tags: "eletrico,telegrafo,pioneiro,communicação",
+        "Contribuiu para a eletrônica e inventos que auxiliaram a comunicação elétrica (relés).",
+      tags: "henry,eletrico,telecomunicacao",
+      date: "-",
       url: "../pags/pioneiros/joseph-henry.html",
-      
     },
     {
-      id: "a20",
+      id: "p4",
       title: "Charles Babbage",
       excerpt:
-        "Criou a maquina diferencial, considerada a precursora dos computadores modernos",
-      tags: ",computador,pioneiro,communicação",
-      url: "../pags/pioneiros/charles-babbage.html",
-    },
-        {
-      id: "a21",
-      title: "Charles Babbage",
-      excerpt:
-        "Criou a maquina diferencial, considerada a precursora dos computadores modernos.",
-      tags: "computador,pioneiro,communicação",
+        "Criador da Máquina Diferencial e da Máquina Analítica, precursor das ideias de programação.",
+      tags: "babbage,computador,pioneiro",
+      date: "-",
       url: "../pags/pioneiros/charles-babbage.html",
     },
     {
-      id: "a22",
+      id: "p5",
       title: "Alfred Smee",
       excerpt:
-        "Criou a maquina relacional, um dos primeiros dispositivos criados para processar informações.",
-      tags: "processar,maquina,pioneiro,relacional",
+        "Autor de estudos sobre máquinas relacionais e circuitos elétricos aplicados ao processamento de informações.",
+      tags: "smee,relacional,maquina",
+      date: "-",
       url: "../pags/pioneiros/alfred-smee.html",
     },
     {
-      id: "a23",
+      id: "p6",
       title: "Gottlob Frege",
       excerpt:
-        "Desenvolveu a lógica de frege, que criou bases para a lógica moderna.",
-      tags: "logica,matematica,pioneiro",
+        "Filósofo e lógico que fundou a lógica moderna formal, influenciando a computação teórica.",
+      tags: "frege,logica,matematica",
+      date: "-",
       url: "../pags/pioneiros/gottlob-frege.html",
     },
 
+    // simple entries for site sections (searchable)
+    {
+      id: "s-modelos",
+      title: "Modelos 3D",
+      excerpt: "Coleção de modelos 3D do projeto.",
+      tags: "modelos,3d,modelos 3d",
+      date: "-",
+      url: "../pags/modelos/modelos.html",
+    },
+    {
+      id: "s-timeline",
+      title: "Linha do Tempo",
+      excerpt: "Navegue pela linha do tempo dos pioneiros da computação.",
+      tags: "linha do tempo,timeline,cronologia",
+      date: "-",
+      url: "../pags/timeline.html",
+    },
+    {
+      id: "s-pioneiros",
+      title: "Pioneiros",
+      excerpt: "Página de pioneiros e biografias.",
+      tags: "pioneiros,biografias",
+      date: "-",
+      url: "../pags/pioneiros/pioneiros.html",
+    },
+    {
+      id: "s-quiz",
+      title: "Quiz",
+      excerpt: "Teste seus conhecimentos com nosso quiz.",
+      tags: "quiz,testes",
+      date: "-",
+      url: "../pags/quiz/quiz.html",
+    },
   ];
 
   function normalize(s) {
