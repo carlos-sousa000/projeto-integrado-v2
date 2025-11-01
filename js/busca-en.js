@@ -10,78 +10,207 @@
   };
 
   const DATA = [
-    {
-      id: "a1",
-      title: "Differential Engine — Charles Babbage",
-      excerpt:
-        "Designed to calculate and print mathematical tables automatically. It was mechanical, using gears.",
-      tags: "babbage,engine,differential",
-      date: "1821",
-      url: ".././pags/artigos/artigo.html",
-    },
-    {
-      id: "a2",
-      title: "Semyon Korsakov — Card-based storage",
-      excerpt:
-        "Used punched cards and registrars to organize information, anticipating mechanical data indexing systems.",
-      tags: "korsakov,cards,storage",
-      date: "1832",
-      url: ".././pags/artigos/artigo.html",
-    },
-    {
-      id: "a3",
-      title: "Keyboard Calculator — Torchi",
-      excerpt:
-        "Early examples of machines with keyboard input, easing direct number entry.",
-      tags: "torchi,keyboard",
-      date: "1834",
-      url: ".././pags/artigos/artigo.html",
-    },
-    {
-      id: "a4",
-      title: "Electromechanical Relay — Joseph Henry",
-      excerpt:
-        "Electromechanical components that enabled signal control and anticipated logic circuits.",
-      tags: "henry,relay,electromechanical",
-      date: "1835",
-      url: ".././pags/artigos/artigo.html",
-    },
-    {
-      id: "a5",
-      title: "Analytical Engine — Charles Babbage",
-      excerpt:
-        "Concept of a general-purpose computer: arithmetic unit, memory, control and instruction cards.",
-      tags: "babbage,analytical",
-      date: "1837",
-      url: ".././pags/artigos/artigo.html",
-    },
-    {
-      id: "a6",
-      title: "Ada Lovelace — First algorithm",
-      excerpt:
-        "Notes on the Analytical Engine including an algorithm to compute Bernoulli numbers. Recognized as the first programmer.",
-      tags: "ada,lovelace,algorithm",
-      date: "1842",
-      url: ".././pags/artigos/artigo.html",
-    },
-    {
-      id: "a7",
-      title: "Boolean Algebra and symbolic logic",
-      excerpt:
-        "George Boole's formalization of logic enabled treatment of logical operations algebraically — basis of digital circuits.",
-      tags: "boole,logic",
-      date: "1854",
-      url: ".././pags/artigos/artigo.html",
-    },
-    {
-      id: "a8",
-      title: "Tabulating Machine — Herman Hollerith",
-      excerpt:
-        "Used punched cards and electromechanical readers to speed up processing of the US census — milestone in data automation.",
-      tags: "hollerith,tabulation,cards",
-      date: "1890",
-      url: ".././pags/artigos/hollerith.html",
-    },
+{
+  id: "a1",
+  title: "Difference Engine — Charles Babbage",
+  excerpt:
+    "Designed to automatically calculate and print mathematical tables. It was mechanical, with gears.",
+  tags: "babbage,differential,computation,machine",
+  date: "1821",
+  url: "../pags/artigos/artigos-pt/artigo1-en.html",
+},
+{
+  id: "a2",
+  title: "Semyon Korsakov — Card Storage",
+  excerpt:
+    "Used punched cards/recorders to organize information, anticipating mechanical data indexing systems.",
+  tags: "korsakov,cards,storage",
+  date: "1832",
+  url: "../pags/artigos/artigos-pt/artigo-en.html",
+},
+{
+  id: "a3",
+  title: "Keyboard Calculator — Torchi",
+  excerpt:
+    "Early examples of machines with keyboard input, allowing direct number entry.",
+  tags: "torchi,keyboard,calculator",
+  date: "1834",
+  url: "../pags/artigos/artigos-pt/artigo2-en.html",
+},
+{
+  id: "a4",
+  title: "Electromechanical Relay — Joseph Henry",
+  excerpt:
+    "Electromechanical components that enabled signal control and were precursors to logic circuits.",
+  tags: "henry,relay,electromechanical",
+  date: "1835",
+  url: "../pags/artigos/artigos-pt/artigo3-en.html",
+},
+{
+  id: "a5",
+  title: "Analytical Engine — Charles Babbage",
+  excerpt:
+    "Concept of a general-purpose computer: arithmetic unit, memory, control, and use of cards for instructions.",
+  tags: "babbage,analytical,computer",
+  date: "1837",
+  url: "../pags/artigos/artigos-pt/artigo4-en.html",
+},
+{
+  id: "a6",
+  title: "Ada Lovelace — First Algorithm",
+  excerpt:
+    "A note about the Analytical Engine containing an algorithm to calculate Bernoulli numbers. Recognized as the first programmer.",
+  tags: "ada,lovelace,algorithm",
+  date: "1842",
+  url: "../pags/artigos/artigos-pt/artigo5-en.html",
+},
+{
+  id: "a7",
+  title: "Boolean Algebra and Symbolic Logic",
+  excerpt:
+    "Formalization of logic by George Boole, enabling logical operations in digital circuits.",
+  tags: "boole,logic,algebra",
+  date: "1854",
+  url: "../pags/artigos/artigos-pt/artigo8-en.html",
+},
+{
+  id: "a8",
+  title: "Tabulating Machine — Herman Hollerith",
+  excerpt:
+    "Used punched cards and electromechanical readers to speed up the U.S. census processing.",
+  tags: "hollerith,tabulation,cards",
+  date: "1890",
+  url: "../pags/artigos/artigos-pt/artigo16-en.html",
+},
+{
+  id: "a9",
+  title: "The Relational Machine — Alfred Smee",
+  excerpt:
+    "Proposed machines to represent and compare ideas mechanically — influential concepts, though rarely built.",
+  tags: "smee,relational,machine",
+  date: "1851",
+  url: "../pags/artigos/artigos-pt/artigo6-en.html",
+},
+{
+  id: "a10",
+  title: "Teletrophone — Antonio Meucci",
+  excerpt:
+    "A forerunner of the modern telephone, designed to transmit voice through electrical signals.",
+  tags: "meucci,teletrophone,communication",
+  date: "1856",
+  url: "../pags/artigos/artigos-pt/artigo7-en.html",
+},
+{
+  id: "a11",
+  title: "Single-Column Calculator — Caroline Winter",
+  excerpt:
+    "A mechanical calculator designed to perform simple calculations efficiently.",
+  tags: "winter,calculator,mechanical",
+  date: "1859",
+  url: "../pags/artigos/artigos-pt/artigo9-en.html",
+},
+{
+  id: "a12",
+  title: "The Typewriter",
+  excerpt:
+    "A mechanical device that revolutionized writing, enabling faster document production.",
+  tags: "typewriter,machine,documents",
+  date: "1867",
+  url: "../pags/artigos/artigos-pt/artigo10-en.html",
+},
+{
+  id: "a13",
+  title: "The Logical Piano — William Stanley Jevons",
+  excerpt:
+    "A machine designed to solve logical problems using mathematical principles.",
+  tags: "jevons,logic,piano",
+  date: "1869",
+  url: "../pags/artigos/artigos-pt/artigo11-en.html",
+},
+{
+  id: "a14",
+  title: "Direct Multiplication — Edmund Barbour",
+  excerpt:
+    "A mechanical device designed to perform multiplications directly and efficiently.",
+  tags: "barbour,multiplication,mechanical",
+  date: "1872",
+  url: "../pags/artigos/artigos-pt/artigo12-en.html",
+},
+{
+  id: "a15",
+  title: "Frege’s Logic — Gottlob Frege",
+  excerpt:
+    "Groundbreaking work that laid the foundations for modern logic and computing.",
+  tags: "frege,logic,computation",
+  date: "1879",
+  url: "../pags/artigos/artigos-pt/artigo13-en.html",
+},
+{
+  id: "a16",
+  title: "NOR and NAND — Charles Peirce",
+  excerpt:
+    "Fundamental logical concepts developed by Peirce that influenced symbolic logic.",
+  tags: "peirce,logic,symbolic",
+  date: "1880",
+  url: "../pags/artigos/artigos-pt/artigo14-en.html",
+},
+{
+  id: "a17",
+  title: "Brazilian Calculator — Azevedo Coutinho",
+  excerpt:
+    "A mechanical calculator developed in Brazil, notable for its local innovation.",
+  tags: "coutinho,calculator,brazilian",
+  date: "1884",
+  url: "../pags/artigos/artigos-pt/artigo15-en.html",
+},
+{
+  id: "a18",
+  title: "Herman Hollerith",
+  excerpt:
+    "Inventor of the census machine, which revolutionized how information was stored and processed.",
+  tags: "herman,census,pioneer",
+  url: "../pags/pioneiros/herman-hollerith-en.html",
+},
+{
+  id: "a19",
+  title: "Ada Lovelace",
+  excerpt:
+    "Considered the first computer programmer for her work with Charles Babbage’s Difference Engine.",
+  tags: "program, pioneer, first",
+  url: "../pags/pioneiros/ada-lovelace-en.html",
+},
+{
+  id: "a20",
+  title: "Joseph Henry",
+  excerpt:
+    "Contributed to the creation of the telegraph and was key to the development of electronic communication.",
+  tags: "electric,telegraph,pioneer,communication",
+  url: "../pags/pioneiros/joseph-henry-en.html",
+},
+{
+  id: "a21",
+  title: "Charles Babbage",
+  excerpt:
+    "Created the Difference Engine, considered the precursor of modern computers.",
+  tags: "computer,pioneer,communication",
+  url: "../pags/pioneiros/charles-babbage-en.html",
+},
+{
+  id: "a22",
+  title: "Alfred Smee",
+  excerpt:
+    "Created the Relational Machine, one of the first devices built to process information.",
+  tags: "process,machine,pioneer,relational",
+  url: "../pags/pioneiros/alfred-smee-en.html",
+},
+{
+  id: "a23",
+  title: "Gottlob Frege",
+  excerpt:
+    "Developed Frege’s logic, which laid the groundwork for modern logic.",
+  tags: "logic,mathematics,pioneer",
+  url: "../pags/pioneiros/gottlob-frege-en.html",
+},
   ];
 
   function normalize(s) {

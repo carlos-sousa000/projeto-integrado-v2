@@ -196,6 +196,31 @@
       tags: ",computador,pioneiro,communicação",
       url: "../pags/pioneiros/charles-babbage.html",
     },
+        {
+      id: "a21",
+      title: "Charles Babbage",
+      excerpt:
+        "Criou a maquina diferencial, considerada a precursora dos computadores modernos.",
+      tags: "computador,pioneiro,communicação",
+      url: "../pags/pioneiros/charles-babbage.html",
+    },
+    {
+      id: "a22",
+      title: "Alfred Smee",
+      excerpt:
+        "Criou a maquina relacional, um dos primeiros dispositivos criados para processar informações.",
+      tags: "processar,maquina,pioneiro,relacional",
+      url: "../pags/pioneiros/alfred-smee.html",
+    },
+    {
+      id: "a23",
+      title: "Gottlob Frege",
+      excerpt:
+        "Desenvolveu a lógica de frege, que criou bases para a lógica moderna.",
+      tags: "logica,matematica,pioneiro",
+      url: "../pags/pioneiros/gottlob-frege.html",
+    },
+
   ];
 
   function normalize(s) {
