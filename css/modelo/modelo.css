@@ -165,6 +165,7 @@ main.container {
   display: flex;
   align-items: center;
   gap: 8px;
+  display: none;
 }
 .upload-btn:hover {
   background: var(--brass-dark);
@@ -511,7 +512,8 @@ body.fullscreen .annotation-panel {
   }
   .carousel-container {
     width: 100%;
-    justify-content: flex-start;
+    justify-content: center;
+    align-items: center;
     margin: 10px 0;
   }
   .carousel {

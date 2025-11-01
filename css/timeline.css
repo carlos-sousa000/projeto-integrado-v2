@@ -124,22 +124,20 @@ main.container {
   transform: translateY(-50%) scaleX(1.05);
 }
 
-/* --- CORREÇÃO DE ALTURA (TEXTO) --- */
 .timeline-event .card p {
   color: var(--cor-suave);
   line-height: 1.6;
   font-size: 1rem;
 
   display: -webkit-box;
-  -webkit-line-clamp: 4; /* 4 linhas no desktop */
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
 
-  /* Força a altura de 4 linhas */
   height: calc(1.6em * 4);
 }
-/* --- FIM DA CORREÇÃO --- */
 
 /* titulo e icon - card */
 .card-title .card-icon {
@@ -398,6 +396,7 @@ main.container {
   .timeline-event .card p {
     height: calc(1.6em * 4); /* 4 linhas de texto */
     -webkit-line-clamp: 4;
+    line-clamp: 4;
   }
   /* --- FIM DA CORREÇÃO --- */
 
@@ -460,12 +459,14 @@ main.container {
     width: 4px;
   }
   .timeline-event {
-    padding-left: 65px;
-    padding-right: 10px;
+    /* Space reserved for the vertical line and date badge */
+    padding-left: 72px;
+    padding-right: 12px;
+    box-sizing: border-box;
     margin: 10px 0;
   }
   .timeline-event:nth-child(2n + 1) {
-    padding-left: 65px;
+    padding-left: 72px;
   }
 
   .timeline-event::before {
@@ -478,34 +479,44 @@ main.container {
   }
   .timeline-event .card {
     padding: 20px;
-    min-height: auto;
+    /* Force a consistent card height on small screens so all cards align vertically */
+    min-height: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+  }
+
+  .timeline-event > a {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    color: inherit;
+    text-decoration: none;
   }
   .timeline-event .card::after {
     width: 21px; /* 65px - 22px - 22px = 21px */
     left: -21px !important;
   }
 
-  /* =========================================== */
-  /* --- ESTA É A CORREÇÃO QUE VOCÊ PRECISA --- */
-  /* =========================================== */
-
   .card-title h3 {
-    font-size: 1.3rem; /* Texto maior */
+    font-size: 1.3rem;
     line-height: 1.3;
-    /* Força espaço para 3 linhas de título */
     min-height: calc(1.3em * 3);
-    display: flex; /* Ajuda a centralizar se for menor */
+    display: flex;
     align-items: center;
   }
   .timeline-event .card p {
-    font-size: 1rem; /* Texto maior */
+    font-size: 1rem;
     -webkit-line-clamp: 3;
-    /* Força altura de 3 linhas de parágrafo */
+    line-clamp: 3;
     height: calc(1.6em * 3);
   }
 
   .timeline-header {
-    padding-left: 65px; /* Alinha header */
+    padding-left: 65px;
   }
 
   /* Alinhamento do Final (Mobile) */
