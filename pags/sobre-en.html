@@ -1,60 +1,142 @@
-<!-- timeline.html (trecho completo com cores dos .card-icon ajustadas) -->
 <!doctype html>
-<html lang="pt-BR">
+<html lang="en">
 
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>3D Models — Babbage and Hollerith</title>
+  <title>About Us - Pioneering Minds</title>
 
-  <link rel="stylesheet" href="../css/modelo/modelo.css">
+  <link rel="stylesheet" href="../css/sobre.css">
   <link rel="icon" type="image/x-icon" href="../imgs/logo-tab.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 </head>
 
 <body class="body-main">
   <header class="site-header">
     <div class="header-container">
-      <a href=".././index.html" class="logo-link">
-        <img class="project-logo" src="./imgs/logo-branco.png" alt="Project logo">
+      <a href="../index-en.html" class="logo-link">
+        <img class="project-logo" src="../imgs/logo-branco.png" alt="Project logo">
+        <span>Pioneering<br>Minds</span>
       </a>
       <nav class="header-nav" role="navigation" aria-label="Main navigation">
-        <a class="btn secondary" href="./pioneiros-en.html"> <i class="fas fa-person" aria-hidden="true"></i>Pioneers</a>
-        <a class="btn secondary" href="./modelos/modelos-en.html"> <i class="fas fa-cube" aria-hidden="true"></i>3D Models</a>
-        <a class="btn secondary" href="./busca-en.html"><i class="fas fa-magnifying-glass" aria-hidden="true"></i>Search</a>
-        <a class="btn" href="./quiz/quiz.html" title="Go to the quiz"> <i class="fas fa-brain" aria-hidden="true"></i>Quiz</a>
+        <a class="btn secondary" href="./timeline-en.html"> <i class="fas fa-timeline" aria-hidden="true"></i>Timeline</a> <a class="btn secondary" href="./modelos/modelos-en.html"> <i class="fas fa-cube" aria-hidden="true"></i>3D Models</a> <a class="btn secondary" href="./busca-en.html"><i class="fas fa-magnifying-glass" aria-hidden="true"></i>Search</a> <a class="btn" href="./quiz/quiz-en.html" title="Go to quiz"> <i class="fas fa-brain" aria-hidden="true"></i> Quiz</a>
       </nav>
     </div>
   </header>
 
-  <main>
+  <main class="container">
+    <section class="about-section">
+      <h2 class="section-title">About the Project</h2>
+
+      <h3 class="section-subtitle">Our Purpose</h3>
+      <div class="about-content-box">
+        <p>This project, "Pioneering Minds," is our contribution as students from Etec Sebrae. Although inspired by the foundational work "História da Computação" by Raul Sidnei Wazlawick, our goal was not just to retell history, but to expand upon it.</p>
+        <p>We believe the best way to learn is by interacting. Therefore, we created a digital platform that invites you to explore this journey through articles, a visual timeline, an interactive quiz, and 3D models of the inventions that shaped our world.</p>
+      </div>
+
+      <hr class="section-divider-subtle">
+
+      <section class="inspiration-section">
+        <h3 class="section-subtitle">Our Inspiration: A Reinterpretation</h3>
+        <div class="about-content-box">
+          <p>Our proposal was to go beyond the text, transforming fundamental concepts into experiences. Below, we compare the original book cover with our reinterpretation, which seeks to capture the "steampunk" aesthetic and the mechanical essence of the first inventors.</p>
+        </div>
+
+        <div class="book-comparison-grid">
+          <figure class="book-cover-card">
+            <img src="../imgs/capa-original.jpg" alt="Original Cover of the Book 'História da Computação'" class="book-cover-img">
+            <figcaption>Original Cover (Raul S. Wazlawick)</figcaption>
+          </figure>
+          <figure class="book-cover-card">
+            <img src="../imgs/capa-releitura.png" alt="Our Reinterpretation of the Cover" class="book-cover-img">
+            <figcaption>Our Reinterpretation (Pioneering Minds)</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <hr class="section-divider-subtle">
+
+      <section class="members-section">
+        <h3 class="section-subtitle">Members</h3>
+        <div class="about-members-grid">
+
+          <div class="about-member-card">
+            <img src="../imgs/integrantes/jp.jpeg" alt="João" class="about-member-img">
+            <h4 class="about-member-name">João</h4>
+            <p class="about-member-desc">Responsible for the quiz, logo, search page, and cover.</p>
+            <div class="member-socials">
+              <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+              <a href="mailto:email@institucional.com" title="Email"><i class="fas fa-envelope"></i></a>
+              <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+
+          <div class="about-member-card">
+            <img src="../imgs/integrantes/enzo.jpeg" alt="Enzo" class="about-member-img">
+            <h4 class="about-member-name">Enzo</h4>
+            <p class="about-member-desc">Produced the articles and texts for the site.</p>
+            <div class="member-socials">
+              <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+              <a href="mailto:email@institucional.com" title="Email"><i class="fas fa-envelope"></i></a>
+              <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+
+          <div class="about-member-card">
+            <img src="../imgs/integrantes/isaac.jpeg" alt="Isaac" class="about-member-img">
+            <h4 class="about-member-name">Isaac</h4>
+            <p class="about-member-desc">Developed the 3D models and their dedicated page.</p>
+            <div class="member-socials">
+              <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+              <a href="mailto:email@institucional.com" title="Email"><i class="fas fa-envelope"></i></a>
+              <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+
+          <div class="about-member-card">
+            <img src="../imgs/integrantes/ce.jpeg" alt="Carlos" class="about-member-img">
+            <h4 class="about-member-name">Carlos</h4>
+            <p class="about-member-desc">Created the homepage and the page dedicated to the pioneers.</p>
+            <div class="member-socials">
+              <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+              <a href="mailto:email@institucional.com" title="Email"><i class="fas fa-envelope"></i></a>
+              <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <div class="about-footer">
+        1ºDS - Etec Sebrae - 2025
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
     <div class="footer-container">
-      <a href="timeline.html" class="logo-link">
-        <img class="project-logo footer-logo" src="./imgs/logo-branco.png" alt="Project logo">
+      <a href="../index-en.html" class="logo-link">
+        <img class="project-logo footer-logo" src="../imgs/logo-branco.png" alt="Project Logo">
       </a>
 
       <div class="footer-actions">
-        <button class="btn-tertiary" id="theme-toggle" title="Toggle theme">
+        <button class="btn-tertiary" id="theme-toggle" title="Change Theme">
           <i class="fas fa-adjust" aria-hidden="true"></i>
-          <span id="theme-text">Theme</span>
+          <span id="theme-text"></span>
         </button>
-        <button class="btn-tertiary" id="lang-toggle" title="Change language">
+        <a href="./sobre.html" class="btn-tertiary" title="Change Language">
           <i class="fas fa-globe" aria-hidden="true"></i>
           <span>Language</span>
-        </button>
-        <button class="btn-tertiary" onclick="location.href='./pags/sobre-en.html'" title="About us">
+        </a>
+        <a href="./sobre-en.html" class="btn-tertiary" title="About Us">
           <i class="fas fa-info" aria-hidden="true"></i>
-          <span>About us</span>
-        </button>
+          <span>About Us</span>
+        </a>
       </div>
     </div>
   </footer>
 
-  <script src="../js/idioma.js"></script>
   <script src="../js/tema.js"></script>
 </body>
-
 
 </html>

@@ -176,6 +176,9 @@ hr.section-divider {
   max-width: 700px;
   margin: 0 auto;
 }
+.about-content .btn-hero {
+  margin-bottom: 30px;
+}
 .about-content p {
   font-size: 1.15rem;
   color: var(--cor-suave);

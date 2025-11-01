@@ -1,59 +1,111 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="en">
 
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Pioneiros — Babbage a Hollerith</title>
+  <title>Pioneers - Pioneering Minds</title>
 
-  <link rel="stylesheet" href="../css/modelo/modelo.css">
   <link rel="icon" type="image/x-icon" href="../imgs/logo-tab.png">
+  <link rel="stylesheet" href="../css/pioneiros/pioneiros.css">
 </head>
 
 <body class="body-main">
   <header class="site-header">
     <div class="header-container">
-      <a href="../index.html" class="logo-link">
-        <img class="project-logo" src="../imgs/logo-branco.png" alt="Logo do Projeto">
+      <a href="../index-en.html" class="logo-link">
+        <img class="project-logo" src="../imgs/logo-branco.png" alt="Project logo">
+        <span>Pioneering<br>Minds</span>
       </a>
-      <nav class="header-nav" role="navigation" aria-label="Navegação principal">
-        <a class="btn secondary" href="./pioneiros.html"> <i class="fas fa-person" aria-hidden="true"></i>Pioneiros</a>
-        <a class="btn secondary" href="./modelos/modelos.html"> <i class="fas fa-cube" aria-hidden="true"></i>Modelos 3D</a>
-        <a class="btn secondary" href="./busca.html"><i class="fas fa-magnifying-glass" aria-hidden="true"></i>Busca</a>
-        <a class="btn" href="./quiz/quiz.html" title="Ir para o quiz"> <i class="fas fa-brain" aria-hidden="true"></i> Quiz</a>
+      <nav class="header-nav" role="navigation" aria-label="Main navigation">
+        <a class="btn secondary" href="./timeline-en.html"> <i class="fas fa-timeline" aria-hidden="true"></i>Timeline</a> <a class="btn secondary" href="./modelos/modelos-en.html"> <i class="fas fa-cube" aria-hidden="true"></i>3D Models</a> <a class="btn secondary" href="./busca-en.html"><i class="fas fa-magnifying-glass" aria-hidden="true"></i>Search</a> <a class="btn" href="./quiz/quiz-en.html" title="Go to quiz"> <i class="fas fa-brain" aria-hidden="true"></i> Quiz</a>
       </nav>
     </div>
   </header>
 
-  <main>
-
-
+  <main class="container">
+    <section class="pioneers-detailed-section">
+      <h2 class="pioneers-detailed-title">Innovators of the Era</h2>
+      <div class="pioneers-detailed-flex">
+        <a href="./pioneiros/charles-babbage.html">
+          <div class="pioneer-card">
+            <img src="../imgs/home/charles babbage.jpeg" alt="Portrait of Babbage" class="pioneer-img">
+            <div class="name-desc">
+              <h3 class="pioneer-name">Babbage</h3>
+              <p class="pioneer-desc">Considered the father of the computer, Charles Babbage conceptualized the Analytical Engine, a forerunner to modern computers. His vision of a machine capable of performing automatic calculations paved the way for computer science.</p>
+            </div>
+          </div>
+        </a>
+        <a href="./pioneiros/joseph-henry.html">
+          <div class="pioneer-card">
+            <img src="../imgs/home/joseph henry.jpeg" alt="Portrait of Joseph Henry" class="pioneer-img center">
+            <div class="name-desc">
+              <h3 class="pioneer-name">Joseph Henry</h3>
+              <p class="pioneer-desc">American physicist and inventor, Joseph Henry was a pioneer in the studies of electromagnetism. His discoveries influenced the creation of the telegraph and spurred the development of electrical communication.</p>
+            </div>
+          </div>
+        </a>
+        <a href="./pioneiros/ada-lovelace.html">
+          <div class="pioneer-card">
+            <img src="../imgs/home/ada lovelace.jpeg" alt="Portrait of Ada Lovelace" class="pioneer-img">
+            <div class="name-desc">
+              <h3 class="pioneer-name">Ada Lovelace</h3>
+              <p class="pioneer-desc">Mathematician and writer, Ada Lovelace was the first to recognize that a machine could go beyond just numbers. She created the first algorithm for Babbage's Analytical Engine, being recognized as the first programmer in history.</p>
+            </div>
+          </div>
+        </a>
+        <a href="./pioneiros/herman-hollerith.html">
+          <div class="pioneer-card">
+            <img src="../imgs/home/herman hollerith.jpg" alt="Portrait of Hollerith" class="pioneer-img center">
+            <div class="name-desc">
+              <h3 class="pioneer-name">Hollerith</h3>
+              <p class="pioneer-desc">Herman Hollerith revolutionized data processing by creating the tabulating machine based on punched cards. His system was essential for the 1890 United States census and gave rise to the future IBM.</p>
+            </div>
+          </div>
+        </a>
+        <a href="./pioneiros/gottlob-frege.html">
+          <div class="pioneer-card">
+            <img src="../imgs/pioneiros/Gottlob/gottlob.jpg" alt="Portrait of Gottlob Frege" class="pioneer-img center">
+            <div class="name-desc">
+              <h3 class="pioneer-name">Gottlob Frege</h3>
+              <p class="pioneer-desc">German philosopher and mathematician, Frege is considered the founder of modern mathematical logic. His "predicate calculus" formalized logical thought, establishing the essential theoretical foundations for computer science.</p>
+            </div>
+          </div>
+        </a>
+        <a href="./pioneiros/alfred-smee.html">
+          <div class="pioneer-card">
+            <img src="../imgs/pioneiros/Smee/alfredsmee3.jpg" alt="Portrait of Alfred Smee" class="pioneer-img center">
+            <div class="name-desc">
+              <h3 class="pioneer-name">Alfred Smee</h3>
+              <p class="pioneer-desc">British surgeon and inventor, Smee proposed the "Relational Machine" in 1851. His theory described a mechanical device capable of imitating thought processes and associative memory, one of the first concepts linked to artificial intelligence.</p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
   </main>
-
-  <footer class="site-footer">
+  <footer class="site-footer" role="contentinfo">
     <div class="footer-container">
-      <a href="timeline.html" class="logo-link">
-        <img class="project-logo footer-logo" src="../imgs/logo-branco.png" alt="Logo do Projeto">
-      </a>
+      <div>
+        <img class="project-logo footer-logo" src="../imgs/logo-branco.png" alt="Project Logo">
+      </div>
 
       <div class="footer-actions">
-        <button class="btn-tertiary" id="theme-toggle" title="Alterar Tema">
+        <button class="btn-tertiary" id="theme-toggle" title="Change Theme">
           <i class="fas fa-adjust" aria-hidden="true"></i>
           <span id="theme-text"></span>
         </button>
-        <button class="btn-tertiary" id="lang-toggle" title="Mudar Idioma">
+        <a href="./pioneiros.html" class="btn-tertiary" title="Change Language">
           <i class="fas fa-globe" aria-hidden="true"></i>
-          <span>Idioma</span>
-        </button>
-        <button class="btn-tertiary" title="Sobre Nós">
+          <span>Language</span>
+        </a>
+        <a href="./sobre-en.html" class="btn-tertiary" title="About Us">
           <i class="fas fa-info" aria-hidden="true"></i>
-          <span>Sobre Nós</span>
-        </button>
+          <span>About Us</span>
+        </a>
       </div>
     </div>
   </footer>
-
-  <script src="../js/idioma.js"></script>
   <script src="../js/tema.js"></script>
 </body>
 
