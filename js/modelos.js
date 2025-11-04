@@ -6,6 +6,7 @@
       lang: "pt-br",
       models: {
         writee: "Máquina de Escrever",
+        tabuladora: "Máquina de Tabulação",
         uploaded: "Seu Modelo",
       },
       carouselTitle: "Modelos",
@@ -55,6 +56,7 @@
       lang: "en",
       models: {
         writee: "Typewriter",
+        tabuladora: "Tabulating Machine",
         uploaded: "Your Model",
       },
       carouselTitle: "Models",
@@ -146,6 +148,13 @@
       url: "writee.glb", // Caminho relativo à pasta /pags/modelos/
       thumbnail:
         "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Crect width='120' height='120' fill='%234CAF50'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='14' font-weight='bold'%3Ewritee%3C/text%3E%3C/svg%3E",
+    },
+    {
+      id: "tabuladora",
+      type: "preloaded",
+      url: "tabuladora.glb",
+      thumbnail:
+        "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Crect width='120' height='120' fill='%23C6862C'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='12' font-weight='bold'%3Etabuladora%3C/text%3E%3C/svg%3E",
     },
   ]; // --- 3. FUNÇÕES PRINCIPAIS ---
 
@@ -361,20 +370,20 @@
     });
   }
   function activateSphere(index) {
+    if (!keySpheres || !keySpheres.length) return;
     const sphereData = keySpheres[index];
-    if (!sphereData.isActive) {
-      sphereData.mesh.material = sphereData.grayMaterial;
-      sphereData.isActive = true;
-      sphereData.mesh.scale.set(1.2, 1.2, 1.2);
-    }
+    if (!sphereData || sphereData.isActive) return;
+    sphereData.mesh.material = sphereData.grayMaterial;
+    sphereData.isActive = true;
+    sphereData.mesh.scale.set(1.2, 1.2, 1.2);
   }
   function deactivateSphere(index) {
+    if (!keySpheres || !keySpheres.length) return;
     const sphereData = keySpheres[index];
-    if (sphereData.isActive) {
-      sphereData.mesh.material = sphereData.whiteMaterial;
-      sphereData.isActive = false;
-      sphereData.mesh.scale.set(1, 1, 1);
-    }
+    if (!sphereData || !sphereData.isActive) return;
+    sphereData.mesh.material = sphereData.whiteMaterial;
+    sphereData.isActive = false;
+    sphereData.mesh.scale.set(1, 1, 1);
   }
   function setupUpload() {
     uploadBtn.addEventListener("click", () => {
@@ -530,7 +539,49 @@
         modelData.url,
         (gltf) => {
           model = gltf.scene;
+
+          // Position correction: move model up so its bbox.min.y sits at y=0
+          try {
+            const bbox = new THREE.Box3().setFromObject(model);
+            const minY = bbox.min.y || 0;
+            if (minY !== 0) {
+              model.position.y -= minY;
+            }
+          } catch (e) {
+            // ignore bbox errors
+          }
+
           scene.add(model);
+
+          // Manage key spheres and UI depending on model id
+          // Remove existing key spheres first
+          if (keySphereGroup && keySphereGroup.parent) {
+            try {
+              scene.remove(keySphereGroup);
+            } catch (e) {}
+            keySpheres = [];
+          }
+
+          // If the loaded model is the writee (typewriter), recreate key spheres
+          if (modelData.id === "writee") {
+            createKeySpheres();
+          }
+
+          // For tabuladora, rotate so it faces the camera and disable fixed-view/annotations
+          if (modelData.id === "tabuladora") {
+            try {
+              // apply a Y rotation so the front points toward the camera
+              model.rotation.set(0, -Math.PI / 2, 0);
+            } catch (e) {}
+            if (cameraControl) cameraControl.style.display = "none";
+            if (cameraModeIndicator) cameraModeIndicator.style.display = "none";
+            if (annotationPanel) annotationPanel.style.display = "none";
+          } else {
+            if (cameraControl) cameraControl.style.display = "";
+            if (cameraModeIndicator) cameraModeIndicator.style.display = "";
+            if (annotationPanel) annotationPanel.style.display = "";
+          }
+
           adjustCamera();
           loadingIndicator.style.display = "none";
         },
@@ -553,7 +604,29 @@
           "",
           (gltf) => {
             model = gltf.scene;
+
+            // position correction
+            try {
+              const bbox = new THREE.Box3().setFromObject(model);
+              const minY = bbox.min.y || 0;
+              if (minY !== 0) model.position.y -= minY;
+            } catch (e) {}
+
             scene.add(model);
+
+            // Remove key spheres for uploaded models by default
+            if (keySphereGroup && keySphereGroup.parent) {
+              try {
+                scene.remove(keySphereGroup);
+              } catch (e) {}
+              keySpheres = [];
+            }
+
+            // uploaded models: hide fixed view/annotation UI
+            if (cameraControl) cameraControl.style.display = "none";
+            if (cameraModeIndicator) cameraModeIndicator.style.display = "none";
+            if (annotationPanel) annotationPanel.style.display = "none";
+
             adjustCamera();
             loadingIndicator.style.display = "none";
           },
@@ -589,6 +662,12 @@
   }
   function toggleCameraView() {
     if (!model) return;
+    // disable fixed view toggle for tabuladora model
+    if (
+      modelList[currentModelIndex] &&
+      modelList[currentModelIndex].id === "tabuladora"
+    )
+      return;
     isCameraFixed = !isCameraFixed;
     if (isCameraFixed) {
       const bbox = new THREE.Box3().setFromObject(model);
