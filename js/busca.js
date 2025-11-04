@@ -241,7 +241,7 @@
       excerpt: "Página de pioneiros e biografias.",
       tags: "pioneiros,biografias",
       date: "-",
-      url: "../pags/pioneiros/pioneiros.html",
+      url: "../pags/pioneiros.html",
     },
     {
       id: "s-quiz",

@@ -44,7 +44,7 @@
         "Electromechanical components that enabled signal control and were precursors to logic circuits.",
       tags: "henry,relay,electromechanical",
       date: "1835",
-      url: "../pags/artigos/artigos-pt/artigo3-en.html",
+      url: "../pags/artigos/artigos eng/artigo3-en.html",
     },
     {
       id: "a5",
@@ -53,7 +53,7 @@
         "Concept of a general-purpose computer: arithmetic unit, memory, control, and use of cards for instructions.",
       tags: "babbage,analytical,computer",
       date: "1837",
-      url: "../pags/artigos/artigos-pt/artigo4-en.html",
+      url: "../pags/artigos/artigos eng/artigo4-en.html",
     },
     {
       id: "a6",
@@ -62,7 +62,7 @@
         "A note about the Analytical Engine containing an algorithm to calculate Bernoulli numbers. Recognized as the first programmer.",
       tags: "ada,lovelace,algorithm",
       date: "1842",
-      url: "../pags/artigos/artigos-pt/artigo5-en.html",
+      url: "../pags/artigos/artigos eng/artigo5-en.html",
     },
     {
       id: "a7",
@@ -71,7 +71,7 @@
         "Formalization of logic by George Boole, enabling logical operations in digital circuits.",
       tags: "boole,logic,algebra",
       date: "1854",
-      url: "../pags/artigos/artigos-pt/artigo8-en.html",
+      url: "../pags/artigos/artigos eng/artigo8-en.html",
     },
     {
       id: "a8",
@@ -89,7 +89,7 @@
         "Proposed machines to represent and compare ideas mechanically — influential concepts, though rarely built.",
       tags: "smee,relational,machine",
       date: "1851",
-      url: "../pags/artigos/artigos-pt/artigo6-en.html",
+      url: "../pags/artigos/artigos eng/artigo6-en.html",
     },
     {
       id: "a10",
@@ -98,7 +98,7 @@
         "A forerunner of the modern telephone, designed to transmit voice through electrical signals.",
       tags: "meucci,teletrophone,communication",
       date: "1856",
-      url: "../pags/artigos/artigos-pt/artigo7-en.html",
+      url: "../pags/artigos/artigos eng/artigo7-en.html",
     },
     {
       id: "a11",
@@ -107,7 +107,7 @@
         "A mechanical calculator designed to perform simple calculations efficiently.",
       tags: "winter,calculator,mechanical",
       date: "1859",
-      url: "../pags/artigos/artigos-pt/artigo9-en.html",
+      url: "../pags/artigos/artigos eng/artigo9-en.html",
     },
     {
       id: "a12",
@@ -116,7 +116,7 @@
         "A mechanical device that revolutionized writing, enabling faster document production.",
       tags: "typewriter,machine,documents",
       date: "1867",
-      url: "../pags/artigos/artigos-pt/artigo10-en.html",
+      url: "../pags/artigos/artigos eng/artigo10-en.html",
     },
     {
       id: "a13",
@@ -125,7 +125,7 @@
         "A machine designed to solve logical problems using mathematical principles.",
       tags: "jevons,logic,piano",
       date: "1869",
-      url: "../pags/artigos/artigos-pt/artigo11-en.html",
+      url: "../pags/artigos/artigos eng/artigo11-en.html",
     },
     {
       id: "a14",
@@ -134,7 +134,7 @@
         "A mechanical device designed to perform multiplications directly and efficiently.",
       tags: "barbour,multiplication,mechanical",
       date: "1872",
-      url: "../pags/artigos/artigos-pt/artigo12-en.html",
+      url: "../pags/artigos/artigos eng/artigo12-en.html",
     },
     {
       id: "a15",
@@ -143,7 +143,7 @@
         "Groundbreaking work that laid the foundations for modern logic and computing.",
       tags: "frege,logic,computation",
       date: "1879",
-      url: "../pags/artigos/artigos-pt/artigo13-en.html",
+      url: "../pags/artigos/artigos eng/artigo13-en.html",
     },
     {
       id: "a16",
@@ -152,7 +152,7 @@
         "Fundamental logical concepts developed by Peirce that influenced symbolic logic.",
       tags: "peirce,logic,symbolic",
       date: "1880",
-      url: "../pags/artigos/artigos-pt/artigo14-en.html",
+      url: "../pags/artigos/artigos eng/artigo14-en.html",
     },
     {
       id: "a17",
@@ -161,7 +161,7 @@
         "A mechanical calculator developed in Brazil, notable for its local innovation.",
       tags: "coutinho,calculator,brazilian",
       date: "1884",
-      url: "../pags/artigos/artigos-pt/artigo15-en.html",
+      url: "../pags/artigos/artigos eng/artigo15-en.html",
     },
     {
       id: "p1",
@@ -241,7 +241,7 @@
       excerpt: "Biographies of pioneers in computing.",
       tags: "pioneers,biographies",
       date: "-",
-      url: "../pags/pioneiros/pioneiros-en.html",
+      url: "../pags/pioneiros-en.html",
     },
     {
       id: "s-quiz",
